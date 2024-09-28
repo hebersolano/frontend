@@ -1,16 +1,16 @@
 import { cn } from "@/lib/utils";
 import { buttonVariants } from "../ui/button";
-import { Icons } from "../icons";
 import Link from "next/link";
 import { Heart, ShoppingCart, User } from "lucide-react";
 import { DesktopNav } from "./desktop-nav";
+import { MobileNav } from "./mobile-nav";
 
 function SiteHeader() {
   return (
     <header className="sticky top-0 z-50 w-full border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container mx-auto flex h-16 max-w-screen-xl items-center">
+      <div className="container mx-auto flex h-16 max-w-screen-xl items-center px-4">
         <DesktopNav />
-        {/* <MobileNav /> */}
+        <MobileNav />
         <div className="flex flex-1 items-center justify-between space-x-2 md:justify-end">
           <div className="w-full flex-1 md:w-auto md:flex-none">
             {/* <CommandMenu /> */}
@@ -19,7 +19,6 @@ function SiteHeader() {
           <nav className="flex items-center">
             <Link
               href="/cart"
-              target="_blank"
               // rel="noreferrer"
             >
               <div
@@ -36,7 +35,6 @@ function SiteHeader() {
             </Link>
             <Link
               href="likes"
-              target="_blank"
               // rel="noreferrer"
             >
               <div
@@ -53,7 +51,6 @@ function SiteHeader() {
             </Link>
             <Link
               href="likes"
-              target="_blank"
               // rel="noreferrer"
             >
               <div

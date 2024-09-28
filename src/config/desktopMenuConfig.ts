@@ -34,3 +34,94 @@ export const shopMenuItems: {
     description: "Lo mejor en equipo para preparar cafe",
   },
 ];
+
+import { Icons } from "@/components/icons";
+
+export interface NavItem {
+  title: string;
+  href?: string;
+  disabled?: boolean;
+  external?: boolean;
+  icon?: keyof typeof Icons;
+  label?: string;
+  items?: NavItem[];
+}
+
+export interface NavItemWithChildren extends NavItem {
+  items: NavItemWithChildren[];
+}
+
+export interface NavsConfig {
+  mainNav: NavItem[];
+}
+
+export const navConfig: NavsConfig = {
+  mainNav: [
+    {
+      title: "Inicio",
+      href: "/",
+    },
+    {
+      title: "Tienda",
+      href: "/shop",
+      items: [
+        {
+          title: "Introduction",
+          href: "/docs",
+          items: [],
+        },
+        {
+          title: "Installation",
+          href: "/docs/installation",
+          items: [],
+        },
+        {
+          title: "components.json",
+          href: "/docs/components-json",
+          items: [],
+        },
+        {
+          title: "Theming",
+          href: "/docs/theming",
+          items: [],
+        },
+        {
+          title: "Dark mode",
+          href: "/docs/dark-mode",
+          items: [],
+        },
+        {
+          title: "CLI",
+          href: "/docs/cli",
+          label: "Updated",
+          items: [],
+        },
+        {
+          title: "Typography",
+          href: "/docs/components/typography",
+          items: [],
+        },
+      ],
+    },
+    {
+      title: "Blocks",
+      href: "/blocks",
+    },
+    {
+      title: "Charts",
+      href: "/charts",
+    },
+    {
+      title: "Themes",
+      href: "/themes",
+    },
+    {
+      title: "Examples",
+      href: "/examples",
+    },
+    {
+      title: "Colors",
+      href: "/colors",
+    },
+  ],
+};

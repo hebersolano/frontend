@@ -44,7 +44,7 @@ export function DesktopNav() {
           <NavigationMenuItem>
             <NavigationMenuTrigger>Tienda</NavigationMenuTrigger>
             <NavigationMenuContent>
-              <ul className="grid gap-3 p-6 md:w-[450px] lg:w-[750px] lg:grid-cols-[0.85fr_1fr_1fr]">
+              <ul className="grid gap-0 p-6 md:w-[450px] lg:w-[750px] lg:grid-cols-[0.85fr_1fr_1fr] lg:gap-3">
                 <li className="row-span-3">
                   <NavigationMenuLink asChild>
                     <a
