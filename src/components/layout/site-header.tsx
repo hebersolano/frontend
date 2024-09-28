@@ -1,14 +1,15 @@
 import { cn } from "@/lib/utils";
 import { buttonVariants } from "../ui/button";
-import { MainNav } from "./main-nav";
 import { Icons } from "../icons";
 import Link from "next/link";
+import { Heart, ShoppingCart, User } from "lucide-react";
+import { DesktopNav } from "./desktop-nav";
 
 function SiteHeader() {
   return (
     <header className="sticky top-0 z-50 w-full border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container mx-auto flex h-14 max-w-screen-xl items-center">
-        <MainNav />
+      <div className="container mx-auto flex h-16 max-w-screen-xl items-center">
+        <DesktopNav />
         {/* <MobileNav /> */}
         <div className="flex flex-1 items-center justify-between space-x-2 md:justify-end">
           <div className="w-full flex-1 md:w-auto md:flex-none">
@@ -17,8 +18,7 @@ function SiteHeader() {
           </div>
           <nav className="flex items-center">
             <Link
-              // href={siteConfig.links.github}
-              href="#"
+              href="/cart"
               target="_blank"
               // rel="noreferrer"
             >
@@ -30,13 +30,12 @@ function SiteHeader() {
                   "h-8 w-8 px-0",
                 )}
               >
-                <Icons.instagram className="h-4 w-4" />X
-                <span className="sr-only">GitHub</span>
+                <ShoppingCart className="h-4 w-4" />
+                <span className="sr-only">Shopping Cart</span>
               </div>
             </Link>
             <Link
-              // href={siteConfig.links.twitter}
-              href="#"
+              href="likes"
               target="_blank"
               // rel="noreferrer"
             >
@@ -48,8 +47,25 @@ function SiteHeader() {
                   "h-8 w-8 px-0",
                 )}
               >
-                <Icons.google className="h-3 w-3 fill-current" />X
-                <span className="sr-only">Google</span>
+                <Heart className="h-4 w-4" />
+                <span className="sr-only">Liked Products</span>
+              </div>
+            </Link>
+            <Link
+              href="likes"
+              target="_blank"
+              // rel="noreferrer"
+            >
+              <div
+                className={cn(
+                  buttonVariants({
+                    variant: "ghost",
+                  }),
+                  "h-8 w-8 px-0",
+                )}
+              >
+                <User className="h-4 w-4" />
+                <span className="sr-only">Liked Products</span>
               </div>
             </Link>
             {/* <ModeToggle /> */}

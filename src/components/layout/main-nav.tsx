@@ -17,31 +17,21 @@ export function MainNav() {
           Torrecaf<span className="text-red-600">he</span>
         </span>
       </Link>
-      <nav className="flex items-center gap-4 text-sm lg:gap-6">
+      <nav className="flex items-center gap-4 lg:gap-6">
         <Link
           href="/"
           className={cn(
-            "transition-colors hover:text-foreground/80",
+            "transition-colors hover:text-primary",
             pathname === "/" ? "text-foreground" : "text-foreground/60",
           )}
         >
           Inicio
         </Link>
-        <Link
-          href="/tienda"
-          className={cn(
-            "transition-colors hover:text-foreground/80",
-            pathname?.startsWith("/tienda")
-              ? "text-foreground"
-              : "text-foreground/60",
-          )}
-        >
-          Tienda
-        </Link>
+        <NavigationMenuDemo />
         <Link
           href="/sobre-nosotros"
           className={cn(
-            "transition-colors hover:text-foreground/80",
+            "transition-colors hover:text-primary",
             pathname?.startsWith("/sobre-nosotros")
               ? "text-foreground"
               : "text-foreground/60",
@@ -52,7 +42,7 @@ export function MainNav() {
         <Link
           href="/contacto"
           className={cn(
-            "transition-colors hover:text-foreground/80",
+            "transition-colors hover:text-primary",
             pathname?.startsWith("/contacto")
               ? "text-foreground"
               : "text-foreground/60",
@@ -63,7 +53,7 @@ export function MainNav() {
         <Link
           href="/cuenta"
           className={cn(
-            "transition-colors hover:text-foreground/80",
+            "transition-colors hover:text-primary",
             pathname?.startsWith("/cuenta")
               ? "text-foreground"
               : "text-foreground/60",
