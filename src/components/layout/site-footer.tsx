@@ -1,6 +1,7 @@
 import { Facebook, Instagram, Youtube } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { Icons } from "../icons";
 
 function SiteFooter() {
   return (
@@ -9,20 +10,24 @@ function SiteFooter() {
         {/* top */}
         <div className="flex flex-col justify-between md:flex-row">
           {/* left */}
-          <div className="flex w-full flex-col gap-8 md:w-1/2 lg:w-1/4">
-            <Link href="/">
-              <div className="text-2xl tracking-wide">ANA&apos;s</div>
-            </Link>
-            <p>3252 Widing Way, Central Plaza, Willowbrook, CA 90210, US</p>
-            <Link href="/" className="font-semibold hover:text-primary">
-              hello@lama.dev
-            </Link>
-            <Link href="/" className="font-semibold hover:text-primary">
-              +1 234 567 890
-            </Link>
-            <div className="flex gap-6">
+          <div className="flex flex-col gap-8 md:w-1/2 lg:w-1/4">
+            <div className="flex w-36 flex-col items-center gap-4">
+              <Icons.iconLogo className="h-14 w-14" />
+              <Icons.upperLogo className="h-4" />
+            </div>
+
+            <p>
+              Somos una empresa familiar dedicada al tostado artesanal de café y
+              a la exportación de microlotes de café verde de altura.
+            </p>
+            <div className="flex gap-4">
               <Link href="" className="hover:text-primary">
-                <Facebook width={16} height={16} />
+                <Facebook
+                  width={16}
+                  height={16}
+                  fill="currentColor"
+                  stroke="none"
+                />
               </Link>
               <Link href="" className="hover:text-primary">
                 <Instagram width={16} height={16} />
@@ -32,51 +37,33 @@ function SiteFooter() {
               </Link>
             </div>
           </div>
+
           {/* center */}
           <div className="hidden w-1/2 justify-evenly lg:flex">
             <div className="flex flex-col gap-6">
-              <h1 className="text-lg font-medium">COMPANY</h1>
-              <div className="flex flex-col gap-6">
-                <Link href="" className="hover:text-primary">
-                  About Us
+              <h1 className="text-lg font-medium">Contacto</h1>
+              <div className="flex flex-col gap-4">
+                <Link href="tel:+50433713912" className="hover:text-primary">
+                  HN: +504 3371 3912
                 </Link>
-                <Link href="" className="hover:text-primary">
-                  Careers
+                <Link href="tel:+17372917017" className="hover:text-primary">
+                  USA: +1 737 343 5512
                 </Link>
-                <Link href="" className="hover:text-primary">
-                  Affiliates
+                <Link
+                  href="mailto:bherreracafesanluis@yahoo.com"
+                  className="hover:text-primary"
+                >
+                  bherreracafesanluis@yahoo.com
                 </Link>
-                <Link href="" className="hover:text-primary">
-                  Blog
-                </Link>
-                <Link href="" className="hover:text-primary">
-                  Contact Us
-                </Link>
-              </div>
-            </div>
-            <div className="flex flex-col gap-6">
-              <h1 className="text-lg font-medium">COMPANY</h1>
-              <div className="flex flex-col gap-6">
-                <Link href="" className="hover:text-primary">
-                  About Us
-                </Link>
-                <Link href="" className="hover:text-primary">
-                  Careers
-                </Link>
-                <Link href="" className="hover:text-primary">
-                  Affiliates
-                </Link>
-                <Link href="" className="hover:text-primary">
-                  Blog
-                </Link>
-                <Link href="" className="hover:text-primary">
-                  Contact Us
+                <Link href="/">
+                  8600 Nw South River Drive #227,
+                  <br /> Medley, FL 33166
                 </Link>
               </div>
             </div>
             <div className="flex flex-col gap-6">
               <h1 className="text-lg font-medium">COMPANY</h1>
-              <div className="flex flex-col gap-6">
+              <div className="flex flex-col gap-4">
                 <Link href="" className="hover:text-primary">
                   About Us
                 </Link>
