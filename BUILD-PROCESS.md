@@ -33,8 +33,10 @@ NextJs project base on the [Build a Complete E-Commerce Shop with Next.js 14, Ta
 - Database: postgresql
 - Storage: uploadthing.com
 
-## Things to check
+## Tasks
 
--
+- [x] Finish mobile nav menu
+- [ ] Finish footer
+- [ ] Check color palette
 
 ## New features to implement

@@ -1,5 +1,3 @@
-import { link } from "fs";
-
 export const siteConfig = {
   name: "Torrecafhe",
   url: "https://localhost:3000",

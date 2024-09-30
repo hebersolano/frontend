@@ -1,4 +1,3 @@
-import { Facebook, Instagram, Youtube } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { Icons } from "../icons";
@@ -9,9 +8,9 @@ function SiteFooter() {
     <footer className="bg-secondary">
       <div className="mx-auto max-w-screen-xl px-4 pt-16 text-sm">
         {/* top */}
-        <div className="flex flex-col justify-between gap-6 pb-6 sm:flex-row md:gap-12">
+        <div className="grid grid-cols-1 gap-12 pb-6 sm:grid-cols-2 lg:grid-cols-4">
           {/* section 1 */}
-          <div className="space-y-6 sm:w-1/2 md:w-1/2 lg:w-1/4">
+          <div className="space-y-6">
             <div className="mt-2 flex w-36 flex-col items-center gap-4">
               <Icons.iconLogo className="h-12 w-12" />
               <Icons.upperLogo className="h-4" />
@@ -27,25 +26,20 @@ function SiteFooter() {
                 className="hover:text-primary"
                 target="_blank"
               >
-                <Facebook
-                  width={18}
-                  height={18}
-                  fill="currentColor"
-                  stroke="none"
-                />
+                <Icons.facebook className="h-5 w-5" />
               </Link>
               <Link
                 href={siteConfig.links.instagram}
                 className="hover:text-primary"
                 target="_blank"
               >
-                <Instagram width={18} height={18} />
+                <Icons.instagram className="h-5 w-5" />
               </Link>
             </div>
           </div>
 
           {/* section 2 */}
-          <div className="space-y-6 sm:w-1/2 md:w-1/3 lg:w-1/4">
+          <div className="space-y-6">
             <h1 className="text-lg font-medium">Contacto</h1>
             <div className="flex flex-col gap-4">
               <Link
@@ -78,7 +72,7 @@ function SiteFooter() {
           </div>
 
           {/* section 3 */}
-          <div className="sm:hidden md:block md:w-1/3 lg:w-1/4">
+          <div className="">
             <h1 className="text-lg font-medium">Horario</h1>
 
             <div className="mt-6 space-y-4">
@@ -89,32 +83,39 @@ function SiteFooter() {
               <div className="">
                 <span className="font-medium">Secure Payments</span>
                 <div className="mt-2 flex gap-3">
-                  <Image src="/paypal.png" alt="" width={40} height={20} />
-                  <Image src="/mastercard.png" alt="" width={40} height={20} />
-                  <Image src="/visa.png" alt="" width={40} height={20} />
+                  <Image
+                    src="/icons/paypal.png"
+                    alt=""
+                    width={40}
+                    height={20}
+                  />
+                  <Image
+                    src="/icons/mastercard.png"
+                    alt=""
+                    width={40}
+                    height={20}
+                  />
+                  <Image src="/icons/visa.png" alt="" width={40} height={20} />
                 </div>
               </div>
             </div>
           </div>
 
           {/* section 4 */}
-          <div className="hidden space-y-6 lg:block lg:w-1/4">
+          <div className="space-y-6 lg:block">
             <h1 className="text-lg font-medium">Links</h1>
             <div className="flex flex-col gap-4">
-              <Link href="" className="hover:text-primary">
-                About Us
+              <Link href="/about-us" className="hover:text-primary">
+                Sobre nosotros
               </Link>
-              <Link href="" className="hover:text-primary">
-                Careers
+              <Link href="/people" className="hover:text-primary">
+                Colaboradores
               </Link>
-              <Link href="" className="hover:text-primary">
-                Affiliates
+              <Link href="/blog" className="hover:text-primary">
+                Noticias
               </Link>
-              <Link href="" className="hover:text-primary">
-                Blog
-              </Link>
-              <Link href="" className="hover:text-primary">
-                Contact Us
+              <Link href="/shop" className="hover:text-primary">
+                Ofertas
               </Link>
             </div>
           </div>

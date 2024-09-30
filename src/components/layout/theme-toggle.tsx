@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { useTheme } from "next-themes";
-import { MoonIcon, SunIcon } from "lucide-react";
+import { LoaderCircle, MoonIcon, SunIcon } from "lucide-react";
 import { buttonVariants } from "../ui/button";
 import { cn } from "@/lib/utils";
 
@@ -24,7 +24,7 @@ const ThemeToggle = () => {
           "h-8 w-8 px-0",
         )}
       >
-        <SunIcon className="h-4 w-4" />
+        <LoaderCircle className="h-4 w-4 animate-spin" />
       </button>
     );
   }

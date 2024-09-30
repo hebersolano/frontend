@@ -66,62 +66,39 @@ export const navConfig: NavsConfig = {
       href: "/shop",
       items: [
         {
-          title: "Introduction",
-          href: "/docs",
-          items: [],
+          title: "Café tostado molido",
+          href: "/shop",
         },
         {
-          title: "Installation",
-          href: "/docs/installation",
-          items: [],
+          title: "Café en grano",
+          href: "/shop",
         },
         {
-          title: "components.json",
-          href: "/docs/components-json",
-          items: [],
+          title: "Café verde",
+          href: "/shop",
         },
         {
-          title: "Theming",
+          title: "Lotes de café",
           href: "/docs/theming",
-          items: [],
         },
         {
-          title: "Dark mode",
+          title: "Equipo y accesorios",
           href: "/docs/dark-mode",
-          items: [],
         },
         {
-          title: "CLI",
+          title: "Ofertas",
           href: "/docs/cli",
           label: "Updated",
-          items: [],
-        },
-        {
-          title: "Typography",
-          href: "/docs/components/typography",
-          items: [],
         },
       ],
     },
     {
-      title: "Blocks",
-      href: "/blocks",
+      title: "Sobre nosotros",
+      href: "/about-us",
     },
     {
-      title: "Charts",
-      href: "/charts",
-    },
-    {
-      title: "Themes",
-      href: "/themes",
-    },
-    {
-      title: "Examples",
-      href: "/examples",
-    },
-    {
-      title: "Colors",
-      href: "/colors",
+      title: "Contacto",
+      href: "/contact",
     },
   ],
 };

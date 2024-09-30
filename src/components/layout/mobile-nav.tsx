@@ -10,6 +10,7 @@ import { Icons } from "@/components/icons";
 import { Button } from "../ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "../ui/sheet";
 import { navConfig } from "@/config/desktopMenuConfig";
+import { ScrollArea } from "../ui/scroll-area";
 
 export function MobileNav() {
   const [open, setOpen] = React.useState(false);
@@ -62,7 +63,7 @@ export function MobileNav() {
           <Icons.iconLogo className="mr-2 h-6" />
           <Icons.upperLogo className="h-4" />
         </MobileLink>
-        <div className="my-4 h-[calc(100vh-8rem)] pb-10 pl-6">
+        <ScrollArea className="my-4 h-[calc(100vh-8rem)] pl-6">
           <div className="flex flex-col space-y-3">
             {navConfig.mainNav.map((item) => {
               if (!item.items?.length) {
@@ -115,7 +116,7 @@ export function MobileNav() {
               );
             })}
           </div>
-        </div>
+        </ScrollArea>
       </SheetContent>
     </Sheet>
   );

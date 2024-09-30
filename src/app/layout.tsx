@@ -48,17 +48,17 @@ export const metadata: Metadata = {
       },
     ],
   },
-  twitter: {
-    card: "summary_large_image",
-    title: siteConfig.name,
-    description: siteConfig.description,
-    images: [siteConfig.ogImage],
-    creator: "@shadcn",
-  },
+  // twitter: {
+  //   card: "summary_large_image",
+  //   title: siteConfig.name,
+  //   description: siteConfig.description,
+  //   images: [siteConfig.ogImage],
+  //   creator: "@shadcn",
+  // },
   icons: {
     icon: "/favicon.ico",
-    shortcut: "/favicon-16x16.png",
-    apple: "/apple-touch-icon.png",
+    // shortcut: "/favicon-16x16.png",
+    // apple: "/apple-touch-icon.png",
   },
 };
 
@@ -69,7 +69,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} bg-background antialiased`}>
+      <body
+        className={`${geistSans.variable} bg-background text-foreground antialiased`}
+      >
         <div className="relative flex min-h-screen flex-col">
           <SiteHeader />
           <main className="flex-1">{children}</main>
