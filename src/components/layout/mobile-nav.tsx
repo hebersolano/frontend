@@ -10,7 +10,6 @@ import { Icons } from "@/components/icons";
 import { Button } from "../ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "../ui/sheet";
 import { navConfig } from "@/config/desktopMenuConfig";
-import { siteConfig } from "@/config/siteConfig";
 
 export function MobileNav() {
   const [open, setOpen] = React.useState(false);

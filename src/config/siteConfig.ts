@@ -1,3 +1,5 @@
+import { link } from "fs";
+
 export const siteConfig = {
   name: "Torrecafhe",
   url: "https://localhost:3000",
@@ -6,8 +8,18 @@ export const siteConfig = {
   links: {
     facebook: "https://www.facebook.com/cafesanluishn",
     instagram: "https://www.instagram.com/cafesanluishn/",
-    maps: "https://g.page/cafesanluis?share",
+    googleMap: "https://g.page/cafesanluis?share",
   },
+  phones: {
+    HN: { label: "+504 3371 3912", link: "tel:+50433713912" },
+    USA: { label: "+1 737 343 5512", link: "tel:+17372917017" },
+  },
+  mails: [
+    {
+      label: "bherreracafesanluis@yahoo.com",
+      link: "mailto:bherreracafesanluis@yahoo.com",
+    },
+  ],
 };
 
 export type SiteConfig = typeof siteConfig;

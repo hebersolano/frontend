@@ -4,6 +4,8 @@ import Link from "next/link";
 import { Heart, ShoppingCart, User } from "lucide-react";
 import { DesktopNav } from "./desktop-nav";
 import { MobileNav } from "./mobile-nav";
+import { ThemeProvider } from "next-themes";
+import ThemeToggle from "./theme-toggle";
 
 function SiteHeader() {
   return (
@@ -65,7 +67,9 @@ function SiteHeader() {
                 <span className="sr-only">Liked Products</span>
               </div>
             </Link>
-            {/* <ModeToggle /> */}
+            <ThemeProvider attribute="class" enableSystem={false}>
+              <ThemeToggle />
+            </ThemeProvider>
           </nav>
         </div>
       </div>
