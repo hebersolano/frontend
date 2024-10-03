@@ -1,7 +1,11 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   output: "export",
-  images: { unoptimized: true },
+  images: {
+    // loader: "custom",
+    // loaderFile: "./src/lib/image-loader.ts",
+    unoptimized: true,
+  },
 };
 
 export default nextConfig;
