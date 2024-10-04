@@ -12,7 +12,7 @@ export interface Product {
   updatedAt: string;
   publishedAt: string;
   locale: string | undefined;
-  tostado: string;
+  roast: string;
   images: Image[];
 }
 

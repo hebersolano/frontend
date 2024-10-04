@@ -1,6 +1,6 @@
 "use client";
 
-import { getProductCategories } from "@/lib/data-access/products";
+import { getProductCategories } from "@/lib/data-access/product-categories";
 import { Category } from "@/types/Product";
 import Image from "next/image";
 import Link from "next/link";
@@ -13,7 +13,6 @@ function ChooseCategory() {
     isLoading,
   } = useSWR("product-categories", getProductCategories);
 
-  console.log("choose ", categories);
   return (
     <div className="mx-auto max-w-screen-xl px-4">
       <h3>Elige tu categoria favorita</h3>
