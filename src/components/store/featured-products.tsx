@@ -1,25 +1,23 @@
 "use client";
 
 import { getFeaturedProducts } from "@/lib/data-access/products";
-import { notFound } from "next/navigation";
-import useSWR from "swr";
-import { Carousel, CarouselContent, CarouselItem } from "../ui/carousel";
 import type { Product } from "@/types/Product";
-import { Card, CardContent } from "../ui/card";
-import Image from "next/image";
-import SkeletonSchema from "../skeleton-schema";
-import { Skeleton } from "../ui/skeleton";
 import { Expand, ShoppingCart } from "lucide-react";
-import IconButton from "../icon-button";
+import Image from "next/image";
+import useSWR from "swr";
+import { IconButton, IconLink } from "../icon-button";
+import { Card, CardContent } from "../ui/card";
+import { Carousel, CarouselContent, CarouselItem } from "../ui/carousel";
+import { Skeleton } from "../ui/skeleton";
 
 function FeaturedProducts() {
   const {
     data: products,
-    error,
+    // error,
     isLoading,
   } = useSWR("featured-products", getFeaturedProducts);
 
-  console.log(products);
+  // console.log(products);
   return (
     <section className="mx-auto max-w-screen-xl px-4">
       <h3 className="px-6 text-2xl"> Productos Destacados</h3>
@@ -40,6 +38,8 @@ function FeaturedProducts() {
             </CarouselItem>
           ))}
         </CarouselContent>
+        {/* <CarouselPrevious />
+        <CarouselNext /> */}
       </Carousel>
     </section>
   );
@@ -61,15 +61,26 @@ function ProductItem({ product }: { product: Product }) {
         />
         <div className="duration-20 absolute bottom-6 w-full px-6 transition">
           <div className="flex justify-center gap-x-6">
-            <IconButton href={"/product/" + product.slug}>
+            <IconLink href={"/product/" + product.slug}>
               <Expand />
-            </IconButton>
-            <IconButton href={"/product/" + product.slug}>
+            </IconLink>
+            <IconButton onClink={() => console.log("adding to cart")}>
               <ShoppingCart />
             </IconButton>
           </div>
         </div>
       </CardContent>
+      <div className="px-8">
+        <h3>{product.productName}</h3>
+        <div className="flex justify-between gap-3">
+          <p className="w-fit rounded-full bg-foreground px-2 py-1 text-sm text-background">
+            {product.tostado}
+          </p>
+          <p className="w-fit rounded-full bg-foreground px-2 py-1 text-sm text-background">
+            {product.origin}
+          </p>
+        </div>
+      </div>
     </Card>
   );
 }

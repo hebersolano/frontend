@@ -16,6 +16,19 @@ export interface Product {
   images: Image[];
 }
 
+export interface Category {
+  id: number;
+  documentId: string;
+  name: string;
+  slug: string;
+  description: string;
+  createdAt: string;
+  updatedAt: string;
+  publishedAt: string;
+  locale: string | undefined;
+  image: Image;
+}
+
 interface Image {
   id: number;
   documentId: string;
