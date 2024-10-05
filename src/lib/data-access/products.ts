@@ -1,6 +1,28 @@
-import { Enum } from "@/types/content-type";
+import type { Enum } from "@/types/content-type";
 import { api } from "../axios";
 import { Product } from "@/types/Product";
+
+export async function getProductBySlug(slug: string): Promise<Product> {
+  const res = await api.get("/products", {
+    params: {
+      "filters[slug][$eq]": slug,
+      "populate[images]": "*",
+      // "populate[category][fields]": "slug",
+    },
+  });
+
+  return res.data?.data?.[0];
+}
+
+export async function getProductsSlug() {
+  const res = await api.get("/products", {
+    params: {
+      fields: "slug",
+    },
+  });
+
+  return res.data.data;
+}
 
 export async function getFeaturedProducts() {
   const res = await api.get("/products", {

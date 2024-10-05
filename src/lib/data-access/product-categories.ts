@@ -11,12 +11,14 @@ export async function getProductCategories() {
   return res.data.data;
 }
 
-export async function getProductCategoryBySlug(slug: string) {
+export async function getProductCategoryBySlug(
+  slug: string,
+): Promise<Category> {
   const res = await api.get("/categories", {
     params: { "filters[slug][$eq]": slug },
   });
 
-  return res.data.data?.[0] as Category;
+  return res.data.data?.[0];
 }
 
 export async function getProductCategoriesSlug() {

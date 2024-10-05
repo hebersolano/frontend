@@ -31,7 +31,7 @@ function ProductItem({ product }: { product: Product }) {
         <h3>{product.productName}</h3>
         <div className="flex justify-between gap-3">
           <p className="w-fit rounded-full bg-foreground px-2 py-1 text-sm text-background">
-            {product.tostado}
+            {product.roast}
           </p>
           <p className="w-fit rounded-full bg-foreground px-2 py-1 text-sm text-background">
             {product.origin}

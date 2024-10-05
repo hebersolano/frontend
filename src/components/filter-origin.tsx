@@ -1,7 +1,6 @@
 import { Enum } from "@/types/content-type";
 import { RadioGroup, RadioGroupItem } from "./ui/radio-group";
 import { Label } from "./ui/label";
-import { ChangeEventHandler, FormEventHandler } from "react";
 
 function Filter({
   name,

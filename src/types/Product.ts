@@ -29,7 +29,7 @@ export interface Category {
   image: Image;
 }
 
-interface Image {
+ export interface Image {
   id: number;
   documentId: string;
   name: string;
