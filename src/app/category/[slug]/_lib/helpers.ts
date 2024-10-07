@@ -1,6 +1,6 @@
 import { getProductCategoriesSlug } from "@/lib/data-access/product-categories";
 import { ReqSlug } from "@/types/content-type";
-import { Product } from "@/types/Product";
+import { Product } from "@/types/product";
 
 export async function generateStaticParams() {
   const cats = await getProductCategoriesSlug();

@@ -1,12 +1,15 @@
 "use client";
 import { Button } from "@/components/ui/button";
+import useCartStore from "@/hooks/use-cart-store";
+import type { Product } from "@/types/product";
 import { Heart } from "lucide-react";
 
-function ProductButtons() {
+function ProductButtons({ product }: { product: Product }) {
+  const { addItem } = useCartStore();
   return (
     <>
-      <Button className="w-full" onClick={() => console.log("comprar btn")}>
-        Comprar
+      <Button className="w-full" onClick={() => addItem(product)}>
+        Add to cart
       </Button>
       <Heart
         onClick={() => console.log("add to love")}

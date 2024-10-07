@@ -1,4 +1,4 @@
-import { Category } from "@/types/Product";
+import { Category } from "@/types/product";
 import { api } from "../axios";
 
 export async function getProductCategories() {

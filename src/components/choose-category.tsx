@@ -1,7 +1,7 @@
 "use client";
 
 import { getProductCategories } from "@/lib/data-access/product-categories";
-import { Category } from "@/types/Product";
+import { Category } from "@/types/product";
 import Image from "next/image";
 import Link from "next/link";
 import useSWR from "swr";

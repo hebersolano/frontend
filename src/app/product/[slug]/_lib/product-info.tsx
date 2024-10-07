@@ -1,9 +1,7 @@
-import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { formatPrice } from "@/lib/utils";
-import { Product } from "@/types/Product";
-import { Heart } from "lucide-react";
 import ProductButtons from "./ProductButtons";
+import type { Product } from "@/types/product";
 
 function ProductInfo({ product }: { product: Product }) {
   return (
@@ -24,7 +22,7 @@ function ProductInfo({ product }: { product: Product }) {
       <Separator className="my-4" />
       <p className="my-4 text-2xl">{formatPrice(product.price)}</p>
       <div className="flex items-center gap-5">
-        <ProductButtons />
+        <ProductButtons product={product}/>
       </div>
     </div>
   );

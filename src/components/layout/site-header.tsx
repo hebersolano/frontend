@@ -1,11 +1,12 @@
 import { cn } from "@/lib/utils";
 import { buttonVariants } from "../ui/button";
 import Link from "next/link";
-import { Heart, ShoppingCart, User } from "lucide-react";
+import { Heart, User } from "lucide-react";
 import { DesktopNav } from "./desktop-nav";
 import { MobileNav } from "./mobile-nav";
 import { ThemeProvider } from "next-themes";
 import ThemeToggle from "./theme-toggle";
+import ShoppingCartButton from "./shopping-cart-button";
 
 function SiteHeader() {
   return (
@@ -19,22 +20,7 @@ function SiteHeader() {
             Search
           </div>
           <nav className="flex items-center">
-            <Link
-              href="/cart"
-              // rel="noreferrer"
-            >
-              <div
-                className={cn(
-                  buttonVariants({
-                    variant: "ghost",
-                  }),
-                  "h-8 w-8 px-0",
-                )}
-              >
-                <ShoppingCart className="h-4 w-4" />
-                <span className="sr-only">Shopping Cart</span>
-              </div>
-            </Link>
+            <ShoppingCartButton />
             <Link
               href="likes"
               // rel="noreferrer"

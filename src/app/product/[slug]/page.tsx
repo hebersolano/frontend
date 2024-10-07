@@ -8,7 +8,6 @@ export { generateStaticParams } from "./_lib/helpers";
 async function ProductPage({ params }: { params: Record<string, string> }) {
   const { slug } = params;
   const product = await getProductBySlug(slug);
-  console.log("product", product);
 
   return (
     <div className="mx-auto max-w-screen-xl">

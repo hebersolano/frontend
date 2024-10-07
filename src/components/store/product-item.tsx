@@ -2,10 +2,13 @@ import Image from "next/image";
 import { Card, CardContent } from "../ui/card";
 import { IconButton, IconLink } from "../icon-button";
 import { Expand, ShoppingCart } from "lucide-react";
-import { Product } from "@/types/Product";
+import { Product } from "@/types/product";
+import useCartStore from "@/hooks/use-cart-store";
 
 function ProductItem({ product }: { product: Product }) {
+  const { addItem } = useCartStore();
   const image = product.images?.[0];
+
   return (
     <Card className="border py-4">
       <CardContent className="relative flex items-center justify-center px-6 py-2">
@@ -21,7 +24,7 @@ function ProductItem({ product }: { product: Product }) {
             <IconLink href={"/product/" + product.slug}>
               <Expand />
             </IconLink>
-            <IconButton onClink={() => console.log("adding to cart")}>
+            <IconButton onClink={() => addItem(product)}>
               <ShoppingCart />
             </IconButton>
           </div>

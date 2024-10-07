@@ -3,7 +3,7 @@ import {
   CarouselContent,
   CarouselItem,
 } from "@/components/ui/carousel";
-import type { Image as ImageT } from "@/types/Product";
+import type { Image as ImageT } from "@/types/product";
 import Image from "next/image";
 
 function CarouselProduct({ images }: { images: ImageT[] }) {

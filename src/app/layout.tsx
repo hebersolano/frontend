@@ -4,6 +4,7 @@ import "./globals.css";
 import SiteHeader from "@/components/layout/site-header";
 import SiteFooter from "@/components/layout/site-footer";
 import { siteConfig } from "@/config/siteConfig";
+import { Toaster } from "@/components/ui/toaster";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -77,6 +78,7 @@ export default function RootLayout({
           <main className="flex-1">{children}</main>
         </div>
         <SiteFooter />
+        <Toaster />
       </body>
     </html>
   );
