@@ -7,6 +7,7 @@ import { MobileNav } from "./mobile-nav";
 import { ThemeProvider } from "next-themes";
 import ThemeToggle from "./theme-toggle";
 import ShoppingCartButton from "./shopping-cart-button";
+import HeartButton from "./heart-button";
 
 function SiteHeader() {
   return (
@@ -21,26 +22,8 @@ function SiteHeader() {
           </div>
           <nav className="flex items-center">
             <ShoppingCartButton />
-            <Link
-              href="likes"
-              // rel="noreferrer"
-            >
-              <div
-                className={cn(
-                  buttonVariants({
-                    variant: "ghost",
-                  }),
-                  "h-8 w-8 px-0",
-                )}
-              >
-                <Heart className="h-4 w-4" />
-                <span className="sr-only">Liked Products</span>
-              </div>
-            </Link>
-            <Link
-              href="likes"
-              // rel="noreferrer"
-            >
+            <HeartButton />
+            <Link href="/user">
               <div
                 className={cn(
                   buttonVariants({

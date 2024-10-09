@@ -4,10 +4,38 @@ import { Separator } from "@/components/ui/separator";
 import useCartStore from "@/hooks/use-cart-store";
 import { formatPrice } from "@/lib/utils";
 import CartItem from "./_lib/cart-item";
+import { loadStripe } from "@stripe/stripe-js";
+import { api } from "@/lib/axios";
 
 function CartPage() {
   const { items, cartLength } = useCartStore();
   const totalPrice = items.reduce((prev, curr) => prev + curr.price, 0);
+  const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLIC!);
+
+  async function buyStripe() {
+    try {
+      const stripe = await stripePromise;
+      const res = await api.post(
+        "/orders",
+        {
+          products: items.map((item) => ({
+            id: item.id,
+            documentId: item.documentId,
+          })),
+        },
+        {
+          headers: {
+            Authorization: "bearer" + process.env.NEXT_PUBLIC_STRIPE_PUBLIC!,
+          },
+        },
+      );
+      await stripe?.redirectToCheckout({
+        sessionId: res.data.stripeSession.id,
+      });
+    } catch (e) {
+      console.error("buyStripe", e);
+    }
+  }
 
   return (
     <div className="mx-auto max-w-screen-xl px-4">
@@ -31,10 +59,7 @@ function CartPage() {
               <p>{formatPrice(totalPrice)}</p>
             </div>
             <div className="my-4 flex justify-between gap-5">
-              <Button
-                className="w-full"
-                onClick={() => console.log("comprar btn")}
-              >
+              <Button className="w-full" onClick={buyStripe}>
                 Comprar
               </Button>
             </div>
