@@ -5,7 +5,7 @@ import { siteConfig } from "@/config/siteConfig";
 
 function SiteFooter() {
   return (
-    <footer className="bg-secondary">
+    <footer className="bg-muted">
       <div className="mx-auto max-w-screen-xl px-4 pt-16 text-sm">
         {/* top */}
         <div className="grid grid-cols-1 gap-12 pb-6 sm:grid-cols-2 lg:grid-cols-4">

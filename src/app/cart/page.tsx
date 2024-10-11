@@ -21,6 +21,7 @@ function CartPage() {
           products: items.map((item) => ({
             id: item.id,
             documentId: item.documentId,
+            productName: item.productName,
           })),
         },
         {
@@ -29,6 +30,8 @@ function CartPage() {
           },
         },
       );
+
+      console.log("res stripe", res);
       await stripe?.redirectToCheckout({
         sessionId: res.data.stripeSession.id,
       });

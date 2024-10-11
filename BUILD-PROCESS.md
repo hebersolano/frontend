@@ -36,7 +36,9 @@ NextJs project base on the [Build a Complete E-Commerce Shop with Next.js 14, Ta
 ## Tasks
 
 - [x] Finish mobile nav menu
-- [ ] Finish footer
-- [ ] Check color palette
+- [x] Finish footer
+- [ ] Fix menu
+- [ ] Design system
+  - [ ] Choose color palette
 
 ## New features to implement

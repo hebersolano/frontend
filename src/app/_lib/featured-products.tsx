@@ -2,9 +2,13 @@
 
 import { getFeaturedProducts } from "@/lib/data-access/products";
 import useSWR from "swr";
-import { Carousel, CarouselContent, CarouselItem } from "../ui/carousel";
-import ProductItem from "./product-item";
-import SkProductItem from "./sk-product-item";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+} from "../../components/ui/carousel";
+import ProductItem from "../../components/store/product-item";
+import SkProductItem from "../../components/store/sk-product-item";
 
 function FeaturedProducts() {
   const {
