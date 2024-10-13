@@ -1,7 +1,7 @@
 import { cn } from "@/lib/utils";
 import { buttonVariants } from "../ui/button";
 import Link from "next/link";
-import { Heart, User } from "lucide-react";
+import { User } from "lucide-react";
 import { DesktopNav } from "./desktop-nav";
 import { MobileNav } from "./mobile-nav";
 import { ThemeProvider } from "next-themes";
