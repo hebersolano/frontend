@@ -1,25 +1,32 @@
+/* eslint-disable @next/next/no-img-element */
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 
 function CallToAction() {
   return (
     <section className="mx-auto max-w-screen-xl px-4">
-      <div className="my-24 flex flex-col gap-8 md:flex-row">
-        <div className="flex items-center justify-center">
-          <div className="space-y-4 text-center md:w-1/2">
+      <div className="flex flex-col gap-8 md:flex-row-reverse">
+        <div className="flex items-center justify-center md:w-1/2 md:justify-start">
+          <div className="space-y-6 text-center md:text-left">
             <img src="logo-leaf-new.webp" className="mb-4 inline" alt="" />
-            <p className="font-semibold">Un compromiso con la calidad</p>
-            <h2 className="text-3xl">¡Disfruta de muestra variedad en café!</h2>
-            <p>
+            <p className="font-semibold md:text-xl">
+              Un compromiso con la calidad
+            </p>
+            <h2 className="font-serif text-3xl font-semibold md:text-5xl">
+              ¡Disfruta de muestra variedad en café!
+            </h2>
+            <p className="text-balance">
               Café San Luis es una línea de cafés proveniente de la hermosa
               región de San Luis, Comayagua, Honduras y que busca satisfacer los
               gustos mas variados y exiges. Explora toda la variedad que tenemos
               para ti.
             </p>
-            <Button>Tienda</Button>
+            <Button size="lg" className="md:text-lg">
+              Tienda
+            </Button>
           </div>
         </div>
-        <div className="text-center md:w-1/2">
+        <div className="flex flex-col items-center justify-center md:w-1/2 md:px-16">
           <Image
             src="logo-csl.webp"
             alt="logo csl"

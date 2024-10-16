@@ -24,7 +24,7 @@ export async function getProductsSlug() {
   return res.data.data;
 }
 
-export async function getFeaturedProducts() {
+export async function getFeaturedProducts(): Promise<Product[] | undefined[]> {
   const res = await api.get("/products", {
     params: {
       "filters[isFeatured][$eq]": "true",

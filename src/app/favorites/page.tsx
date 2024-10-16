@@ -1,6 +1,5 @@
 "use client";
 import useFavoriteStore from "@/hooks/use-favorite-products-store";
-import CartItem from "../cart/_lib/cart-item";
 import FavoriteItem from "./_lib/favorite-item";
 
 function FavoritesPage() {

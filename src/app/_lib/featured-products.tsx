@@ -12,28 +12,34 @@ import SkProductItem from "../../components/store/sk-product-item";
 
 function FeaturedProducts() {
   const {
-    data: products,
+    data: products = Array.from({ length: 3 }),
     // error,
     isLoading,
   } = useSWR("featured-products", getFeaturedProducts);
-
+  console.count("feature product render");
   return (
     <section className="mx-auto max-w-screen-xl px-4">
-      <h3 className="px-6 text-2xl"> Productos Destacados</h3>
-      <Carousel>
-        <CarouselContent className="-ml-2 md:-ml-4">
-          {Array.from({ length: 3 }).map((_, index) => (
-            <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
-              <div className="p-1">
-                {isLoading && <SkProductItem />}
-                {!isLoading && <ProductItem product={products[index]} />}
-              </div>
-            </CarouselItem>
-          ))}
-        </CarouselContent>
-        {/* <CarouselPrevious />
-        <CarouselNext /> */}
-      </Carousel>
+      <div className="mt-24">
+        <h3 className="text-center font-serif text-3xl font-semibold">
+          Productos Destacados
+        </h3>
+        <Carousel className="mt-8">
+          <CarouselContent className="">
+            {products.map((product, index) => (
+              <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
+                <div className="p-1">
+                  {isLoading && <SkProductItem />}
+                  {!isLoading && product !== undefined && (
+                    <ProductItem product={product} />
+                  )}
+                </div>
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+          {/* <CarouselPrevious />
+          <CarouselNext /> */}
+        </Carousel>
+      </div>
     </section>
   );
 }
