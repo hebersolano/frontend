@@ -7,8 +7,8 @@ import {
   CarouselContent,
   CarouselItem,
 } from "../../components/ui/carousel";
-import ProductItem from "../../components/store/product-item";
 import SkProductItem from "../../components/store/sk-product-item";
+import ProductItem2 from "@/components/store/product-item-02";
 
 function FeaturedProducts() {
   const {
@@ -16,7 +16,7 @@ function FeaturedProducts() {
     // error,
     isLoading,
   } = useSWR("featured-products", getFeaturedProducts);
-  console.count("feature product render");
+
   return (
     <section className="mx-auto max-w-screen-xl px-4">
       <div className="mt-24">
@@ -30,7 +30,7 @@ function FeaturedProducts() {
                 <div className="p-1">
                   {isLoading && <SkProductItem />}
                   {!isLoading && product !== undefined && (
-                    <ProductItem product={product} />
+                    <ProductItem2 product={product} />
                   )}
                 </div>
               </CarouselItem>

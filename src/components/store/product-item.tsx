@@ -10,7 +10,7 @@ function ProductItem({ product }: { product: Product }) {
   const image = product.images?.[0];
 
   return (
-    <Card className="border py-4">
+    <Card className="py-4 shadow-none">
       <CardContent className="relative flex items-center justify-center px-6 py-2">
         <Image
           className="border"
