@@ -4,6 +4,7 @@ import ChooseCategory from "@/components/choose-category";
 import FeaturedProducts from "@/app/_lib/featured-products";
 import Hero from "./_lib/hero";
 import CallToAction from "./_lib/call-to-action";
+import ServicesAndProducts from "./_lib/services-and-products";
 
 export default function Home() {
   return (
@@ -11,6 +12,7 @@ export default function Home() {
       <Hero />
       <CallToAction />
       <FeaturedProducts />
+      <ServicesAndProducts />
       <BannerDiscount />
       <ChooseCategory />
       <BannerProduct />

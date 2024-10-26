@@ -9,6 +9,7 @@ import {
 } from "../../components/ui/carousel";
 import SkProductItem from "../../components/store/sk-product-item";
 import ProductItem2 from "@/components/store/product-item-02";
+import SectionHeader from "@/components/section-header";
 
 function FeaturedProducts() {
   const {
@@ -19,10 +20,12 @@ function FeaturedProducts() {
 
   return (
     <section className="mx-auto max-w-screen-xl px-4">
-      <div className="mt-24">
-        <h3 className="text-center font-serif text-3xl font-semibold">
-          Productos Destacados
-        </h3>
+      <div className="my-16">
+        <SectionHeader
+          title="Productos Destacados"
+          description="Lo que la gente más compra"
+        />
+
         <Carousel className="mt-8">
           <CarouselContent className="">
             {products.map((product, index) => (

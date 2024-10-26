@@ -16,7 +16,7 @@ function ProductItem2({ product }: { product: Product }) {
       <CardContent className="w-full">
         <Link href={"/product/" + product.slug} className="cursor-pointer">
           <Image
-            className=""
+            className="object-cover transition duration-500 hover:scale-105"
             src={process.env.NEXT_PUBLIC_API_URL + image.url}
             alt={image.alternativeText || "product image image"}
             height={image.height}
