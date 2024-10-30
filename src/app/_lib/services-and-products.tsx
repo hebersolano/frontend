@@ -1,5 +1,5 @@
 import SectionHeader from "@/components/section-header";
-import { Button, buttonVariants } from "@/components/ui/button";
+import { buttonVariants } from "@/components/ui/button";
 import { CircleDollarSign, Leaf, Recycle } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -57,7 +57,7 @@ const sectionData: TsectionData = [
   },
 ];
 
-function ServicesAndProducts() {
+export default function ServicesAndProducts() {
   return (
     <section className="bg-muted px-4">
       <div className="mx-auto max-w-screen-xl py-16">
@@ -95,8 +95,6 @@ function ServicesAndProducts() {
     </section>
   );
 }
-
-export default ServicesAndProducts;
 
 function ItemCard({ itemData }: { itemData: Article }) {
   const { title, description, img, btn } = itemData;

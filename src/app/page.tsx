@@ -5,6 +5,7 @@ import FeaturedProducts from "@/app/_lib/featured-products";
 import Hero from "./_lib/hero";
 import CallToAction from "./_lib/call-to-action";
 import ServicesAndProducts from "./_lib/services-and-products";
+import InHonduras from "./_lib/honduras-call-to-action";
 
 export default function Home() {
   return (
@@ -16,6 +17,7 @@ export default function Home() {
       <BannerDiscount />
       <ChooseCategory />
       <BannerProduct />
+      <InHonduras />
     </>
   );
 }
