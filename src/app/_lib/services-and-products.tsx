@@ -25,7 +25,7 @@ const sectionData: TsectionData = [
       "El método de tostado es tan importante como el café mismo, un tostado artesanal expone las características del café de una manera única e inigualable.",
     btn: "#",
     img: {
-      url: "/service-01.webp",
+      url: "/service-01.png",
       altText: "servicio de café tostado",
       width: 498,
       height: 650,
@@ -37,7 +37,7 @@ const sectionData: TsectionData = [
       "Junto a nuestra red de productores a lo largo de Honduras te brindamos una amplia variedad café con las mejores características de la región.",
     btn: "#",
     img: {
-      url: "/service-02.webp",
+      url: "/service-02.png",
       altText: "microlotes de café",
       width: 498,
       height: 650,
@@ -49,7 +49,7 @@ const sectionData: TsectionData = [
       "Te brindamos una amplia variedad de empaques para tus productos. Mantén tus productos lo más frescos posible y destaca entre la competencia.",
     btn: null,
     img: {
-      url: "/service-03.webp",
+      url: "/service-03.png",
       altText: "empaques image",
       width: 498,
       height: 650,
