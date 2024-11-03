@@ -12,11 +12,11 @@ function ControlledModal({
   return (
     <>
       {display && (
-        <div
-          onClick={onClose}
-          className="fixed inset-x-0 inset-y-0 z-50 flex items-center justify-center bg-black/30"
-        >
-          <div onClick={(e) => e.stopPropagation()} className="">
+        <div className="fixed inset-x-0 inset-y-0 z-50 bg-black/50">
+          <div
+            onClick={onClose}
+            className="flex h-full items-center justify-center"
+          >
             <button onClick={onClose} className="absolute right-2 top-2">
               <X />
             </button>

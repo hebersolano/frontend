@@ -8,9 +8,9 @@ function KnowAboutUs() {
     <div className="bg-secondary/80">
       <div className="mx-auto max-w-screen-xl px-4 py-16">
         <SectionHeader title="Conócenos" />
-        <div className="flex gap-8">
-          <div className="space-y-6">
-            <div className="relative w-fit">
+        <div className="flex flex-col items-center justify-center gap-16 md:flex-row">
+          <div className="basis-2/5 space-y-4 text-center">
+            <div className="relative mx-auto w-fit">
               <Image
                 src="herrera.webp"
                 alt="herrera profile photo"
@@ -20,7 +20,7 @@ function KnowAboutUs() {
               />
               <MessageSquareQuote className="absolute -bottom-3 left-1/2 -translate-x-1/2 text-white" />
             </div>
-            <p className="">
+            <p className="text-balance">
               Te doy la bienvenida a esta comunidad de productores y en nombre
               de todos te agradezco que consideres este proyecto o alguno de
               nuestros productos y servicios.
@@ -28,7 +28,7 @@ function KnowAboutUs() {
             <p className="font-serif text-lg font-bold">Brayan Herrera</p>
           </div>
           {/* video */}
-          <div>
+          <div className="basis-3/5">
             <YoutubeVideo />
           </div>
         </div>

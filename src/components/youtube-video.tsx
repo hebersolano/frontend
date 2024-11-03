@@ -12,20 +12,19 @@ function YoutubeVideo() {
     <>
       <ControlledModal display={show} onClose={onClose}>
         <iframe
-          width="732"
-          height="412"
+          className="aspect-video max-w-[1280px] grow"
           src="https://www.youtube.com/embed/o6ztBsSAXSU"
           title="Torrefactora de Café Herrera | Café San Luis"
-          frameborder="0"
+          frameBorder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          referrerpolicy="strict-origin-when-cross-origin"
-          allowfullscreen
+          referrerPolicy="strict-origin-when-cross-origin"
+          allowFullScreen
         ></iframe>
       </ControlledModal>
       <div
         onClick={() => setShow(true)}
-        className="flex items-center justify-center overflow-hidden rounded-xl bg-slate-300 bg-[url(/cover-torrecafhe.webp)] bg-cover bg-no-repeat brightness-90"
-        style={{ width: 732, height: 412 }}
+        className="flex w-full items-center justify-center overflow-hidden rounded-xl bg-slate-300 bg-[url(/cover-torrecafhe.webp)] bg-cover bg-center bg-no-repeat brightness-90"
+        style={{ aspectRatio: "16/9" }}
       >
         <CirclePlay className="play text-white" width={120} height={120} />
       </div>
