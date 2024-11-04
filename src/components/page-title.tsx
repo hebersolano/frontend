@@ -2,9 +2,9 @@ import Image from "next/image";
 
 function PageTitle({ title }: { title: string }) {
   return (
-    <div className="mt-16 bg-gradient-to-t from-background from-0% to-accent to-20%">
+    <div className="bg-gradient-to-t from-background from-0% to-accent to-20%">
       <div className="mx-auto max-w-screen-xl px-4 lg:px-0">
-        <h1 className="py-16 text-center font-serif text-3xl font-bold md:text-5xl">
+        <h1 className="pb-16 pt-24 text-center font-serif text-3xl font-bold md:text-5xl lg:pt-28">
           {title}
         </h1>
         <div className="relative h-12 rounded-t-xl bg-background md:h-24">

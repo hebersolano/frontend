@@ -1,15 +1,14 @@
 import SectionHeader from "@/components/section-header";
-import { buttonVariants } from "@/components/ui/button";
 import { Facebook, Linkedin, Phone } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
 function Staff() {
   return (
-    <section className="mx-auto max-w-screen-xl px-4 py-16">
+    <section className="mx-auto max-w-screen-xl px-4 py-24">
       <SectionHeader title="Conoce a nuestro equipo" />
 
-      <div className="flex flex-row justify-evenly">
+      <div className="flex flex-col items-center justify-evenly gap-10 lg:flex-row">
         {/* Brayan Herrera */}
         <div className="w-fit text-center">
           <div className="mb-3">
@@ -29,6 +28,7 @@ function Staff() {
             <li className="mx-auto">
               <Link
                 href="https://www.facebook.com/profile.php?id=100008243311623"
+                target="_black"
                 className=""
               >
                 <Facebook className="w-4 fill-foreground stroke-none hover:fill-primary" />
@@ -37,6 +37,7 @@ function Staff() {
             <li className="mx-auto">
               <Link
                 href="https://www.linkedin.com/in/brayan-herrera-flores-0544751a4"
+                target="_black"
                 className=""
               >
                 <Linkedin className="w-4 fill-foreground stroke-none hover:fill-primary" />
@@ -45,6 +46,7 @@ function Staff() {
             <li className="mx-auto">
               <Link
                 href="https://www.linkedin.com/in/brayan-herrera-flores-0544751a4"
+                target="_black"
                 className=""
               >
                 <Phone className="w-4 fill-foreground stroke-none hover:fill-primary" />
@@ -71,7 +73,8 @@ function Staff() {
           <ul className="my-2 flex basis-0">
             <li className="mx-auto">
               <Link
-                href="https://www.facebook.com/profile.php?id=100008243311623"
+                href="https://www.facebook.com/heber.solano01/"
+                target="_black"
                 className=""
               >
                 <Facebook className="w-4 fill-foreground stroke-none hover:fill-primary" />
@@ -97,12 +100,12 @@ function Staff() {
           <div className="inline-block h-px w-2/3 bg-foreground" />
           <ul className="my-2 flex basis-0">
             <li className="mx-auto">
-              <Link
+              {/* <Link
                 href="https://www.facebook.com/profile.php?id=100008243311623"
                 className=""
               >
                 <Facebook className="w-4 fill-foreground stroke-none hover:fill-primary" />
-              </Link>
+              </Link> */}
             </li>
           </ul>
         </div>

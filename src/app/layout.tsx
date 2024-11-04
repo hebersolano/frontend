@@ -72,7 +72,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${geistSans.variable} text-foreground antialiased`}>
         <SiteHeader />
-        <div className="relative flex min-h-screen -translate-y-16 flex-col">
+        <div className="relative flex min-h-screen flex-col">
           <main className="flex-1">{children}</main>
         </div>
         <SiteFooter />

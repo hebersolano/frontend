@@ -17,6 +17,10 @@ export const siteConfig = {
       label: "bherreracafesanluis@yahoo.com",
       link: "mailto:bherreracafesanluis@yahoo.com",
     },
+    {
+      label: "herrerabrayanflores@gmail.com",
+      link: "mailto:herrerabrayanflores@gmail.com",
+    },
   ],
 };
 
