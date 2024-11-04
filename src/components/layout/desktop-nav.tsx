@@ -83,7 +83,7 @@ export function DesktopNav() {
           </NavigationMenuItem>
           <li>
             <Link
-              href="/sobre-nosotros"
+              href="/about-us"
               className={cn(
                 "transition-colors hover:text-primary",
                 pathname?.startsWith("/sobre-nosotros")
@@ -96,7 +96,7 @@ export function DesktopNav() {
           </li>
           <li>
             <Link
-              href="/contacto"
+              href="/contact"
               className={cn(
                 "transition-colors hover:text-primary",
                 pathname?.startsWith("/contacto")
