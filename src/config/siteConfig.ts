@@ -8,6 +8,7 @@ export const siteConfig = {
     instagram: "https://www.instagram.com/cafesanluishn/",
     googleMap: "https://g.page/cafesanluis?share",
     linkedIN: "https://www.linkedin.com/company/torrecafhe/",
+    whapsapp: "https://api.whatsapp.com/send?phone=50433713912",
   },
   phones: {
     HN: { label: "+504 3371 3912", link: "tel:+50433713912" },

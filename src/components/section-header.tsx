@@ -10,7 +10,11 @@ function SectionHeader({
       <h2 className="font-serif text-2xl font-bold md:text-3xl xl:text-4xl">
         {title}
       </h2>
-      {description && <p className="max-w-xl text-balance">{description}</p>}
+      {description && (
+        <p className="max-w-xl text-balance text-muted-foreground">
+          {description}
+        </p>
+      )}
     </div>
   );
 }

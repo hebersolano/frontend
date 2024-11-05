@@ -113,6 +113,13 @@ function ContactInfo() {
           >
             <Icons.linkedIn className="h-8 w-8" />
           </Link>
+          <Link
+            href={siteConfig.links.whapsapp}
+            className="hover:text-secondary"
+            target="_blank"
+          >
+            <Icons.whatsapp className="h-8 w-8" />
+          </Link>
         </div>
       </div>
     </div>

@@ -7,7 +7,7 @@ type FormRowProps = {
   labelStyle?: string;
   error: FieldError | undefined;
   rowStyle?: string;
-  required: boolean;
+  required?: boolean;
   children: ReactElement<HTMLInputElement>;
 };
 
@@ -21,7 +21,7 @@ function FormRow({
 }: FormRowProps) {
   const className = twMerge(
     children.props.className || "",
-    "rounded-md px-4 py-2 ring-2 ring-border",
+    "rounded-md px-3 py-2 ring-2 ring-border",
     error && "ring-primary  focus:ring-primary focus:outline-none ",
   );
 
@@ -37,7 +37,9 @@ function FormRow({
           {required && <span className="text-primary">*</span>}
         </label>
       )}
+
       {cloneElement(children, { className, placeholder })}
+
       {error && (
         <span className="absolute -bottom-6 ml-1 text-sm text-primary">
           {error?.message}
