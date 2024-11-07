@@ -14,7 +14,9 @@ async function CategoriesPage({ params }: { params: Record<string, string> }) {
 
   return (
     <div className="mx-auto max-w-screen-xl px-4">
-      <h1 className="text-3xl font-medium">{category.name}</h1>
+      <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl">
+        {category.name}
+      </h1>
       <Separator />
       <div className="flex">
         <Suspense>

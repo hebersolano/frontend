@@ -23,7 +23,9 @@ function CartItem({ product }: { product: Product }) {
       </Link>
       <div className="flex flex-1 justify-between px-6">
         <div>
-          <h2 className="text-lg font-bold">{product.productName}</h2>
+          <h2 className="scroll-m-20 font-serif text-3xl font-semibold tracking-tight lg:text-4xl">
+            {product.productName}
+          </h2>
           <p className="font-bold">{formatPrice(product.price)}</p>
           <div className="flex items-center justify-between gap-3 text-sm">
             <p className="rounded-full bg-foreground px-2 py-1 text-background">

@@ -7,7 +7,7 @@ function ContactPage() {
     <>
       <PageTitle title="Contáctanos" />
       <div className="mx-auto max-w-screen-xl px-4">
-        <div className="mb-24 grid grid-cols-2 gap-6">
+        <div className="mb-24 grid grid-cols-1 gap-12 lg:grid-cols-2">
           <ContactInfo />
           <ContactForm />
         </div>

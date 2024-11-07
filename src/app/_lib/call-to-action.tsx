@@ -20,10 +20,10 @@ function CallToAction() {
               <p className="font-semibold md:text-xl">
                 Un compromiso con la calidad
               </p>
-              <h2 className="font-serif text-3xl font-semibold md:text-5xl">
+              <h2 className="scroll-m-20 font-serif text-3xl font-semibold tracking-tight lg:text-4xl">
                 ¡Disfruta de muestra variedad en café!
               </h2>
-              <p className="text-balance">
+              <p className="leading-7">
                 Café San Luis es una línea de cafés proveniente de la hermosa
                 región de San Luis, Comayagua, Honduras y que busca satisfacer
                 los gustos mas variados y exiges. Explora toda la variedad que

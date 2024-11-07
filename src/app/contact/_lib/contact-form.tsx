@@ -32,15 +32,15 @@ function ContactForm() {
   };
 
   return (
-    <div className="mx-16">
-      <div className="rounded-xl border-2 p-12">
+    <div className="md:mx-16">
+      <div className="mx-auto max-w-[500px] rounded-xl border-2 px-6 py-12">
         <SectionHeader
           title="Envianos un mensaje"
           description="Comparte tus dudas y preguntas con nosotros"
         />
         <form
           onSubmit={handleSubmit(onSubmit, (e) => console.log(e))}
-          className="space-y-4"
+          className="space-y-6"
         >
           <FormRow label="Nombre" error={errors["name"]} required>
             <input

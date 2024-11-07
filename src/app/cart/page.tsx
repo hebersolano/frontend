@@ -42,7 +42,9 @@ function CartPage() {
 
   return (
     <div className="mx-auto max-w-screen-xl px-4">
-      <h1 className="mb-5 text-3xl font-bold">Shopping Cart</h1>
+      <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl">
+        Shopping Cart
+      </h1>
       <div className="sm: grid gap-5 sm:grid-cols-2">
         <div>
           {cartLength <= 0

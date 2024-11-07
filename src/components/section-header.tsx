@@ -7,7 +7,7 @@ function SectionHeader({
 }) {
   return (
     <div className="mb-16 flex flex-col items-center gap-2 text-center">
-      <h2 className="font-serif text-2xl font-bold md:text-3xl xl:text-4xl">
+      <h2 className="scroll-m-20 font-serif text-3xl font-semibold tracking-tight lg:text-4xl">
         {title}
       </h2>
       {description && (

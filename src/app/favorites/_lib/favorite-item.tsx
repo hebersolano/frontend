@@ -24,7 +24,9 @@ function FavoriteItem({ product }: { product: Product }) {
       <div className="flex flex-1 justify-between px-6">
         <div className="flex flex-col justify-between">
           <div>
-            <h2 className="text-lg font-bold">{product.productName}</h2>
+            <h2 className="scroll-m-20 font-serif text-3xl font-semibold tracking-tight lg:text-4xl">
+              {product.productName}
+            </h2>
             <p className="font-bold">{formatPrice(product.price)}</p>
           </div>
           <div className="space-x-2 text-sm">

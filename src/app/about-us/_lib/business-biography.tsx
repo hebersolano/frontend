@@ -14,7 +14,7 @@ function BusinessBiography() {
           />
         </div>
         <div className="basis-1/2 text-pretty leading-relaxed">
-          <p className="my-6">
+          <p className="my-6 leading-7">
             Somos una empresa familiar que inicia sus operaciones un verano de
             2015 en la remota zona del pueblo de San Luis, Comayagua, Honduras.
             Café San Luis es un sueño realizado con ardua labor y que representa
@@ -25,7 +25,7 @@ function BusinessBiography() {
             los gustos y exigencias, para las personas que distinguen y aprecian
             el buen café. Si eres de esas personas, Café San Luis es para ti.{" "}
           </p>
-          <p>
+          <p className="leading-7">
             En el 2010, damos comienzo al proyecto como productores de café en
             la zona de San Luis del departamento de Comayagua, Honduras;
             cultivando café convencional de altura a 1,425 msnm; manejando las

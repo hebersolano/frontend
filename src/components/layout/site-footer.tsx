@@ -16,7 +16,7 @@ function SiteFooter() {
               <Icons.upperLogo className="h-4" />
             </div>
 
-            <p className="text-balance">
+            <p className="text-balance leading-7">
               Somos una empresa familiar dedicada al tostado artesanal de café y
               a la exportación de microlotes de café verde de altura.
             </p>

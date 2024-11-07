@@ -6,7 +6,9 @@ function FavoritesPage() {
   const { favoriteItems, favoriteLength } = useFavoriteStore();
   return (
     <div className="mx-auto max-w-4xl py-4 sm:px-24 sm:py-32">
-      <h1 className="sm:text-2xl">Products que te gustan</h1>
+      <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl">
+        Products que te gustan
+      </h1>
       <div>
         <div>
           {favoriteLength <= 0

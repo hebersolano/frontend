@@ -20,7 +20,7 @@ function KnowAboutUs() {
               />
               <MessageSquareQuote className="absolute -bottom-3 left-1/2 -translate-x-1/2 text-white" />
             </div>
-            <p className="text-balance">
+            <p className="text-balance leading-7">
               Te doy la bienvenida a esta comunidad de productores y en nombre
               de todos te agradezco que consideres este proyecto o alguno de
               nuestros productos y servicios.

@@ -21,10 +21,10 @@ function InHonduras() {
 
           <div className="mb-16 mt-36 flex flex-col items-center justify-center gap-8 text-center lg:my-0 lg:flex-row lg:text-start">
             <div className="space-y-3">
-              <h3 className="font-serif text-3xl font-bold">
+              <h2 className="font-serif text-3xl font-semibold tracking-tight lg:text-4xl">
                 Está en Honduras
-              </h3>
-              <p className="text-balance lg:text-base">
+              </h2>
+              <p className="leading-7">
                 ¿Está buscando un café de un perfil específico? Nosotros lo
                 encontramos y te lo enviamos a cualquier parte del mundo.
               </p>

@@ -72,21 +72,27 @@ export default function ServicesAndProducts() {
           <div className="flex gap-4 rounded-xl bg-zinc-600 p-6 text-background">
             <Leaf className="h-8 w-8 text-secondary" />
             <div className="">
-              <p className="font-serif text-xl font-bold">Orgánicos</p>
+              <h4 className="font-serif text-xl font-semibold tracking-tight">
+                Orgánicos
+              </h4>
               <p>Sin aditivos preservantes</p>
             </div>
           </div>
           <div className="flex gap-4 rounded-xl bg-zinc-600 p-6 text-background">
             <CircleDollarSign className="h-8 w-8 text-secondary" />
             <div className="">
-              <p className="font-serif text-xl font-bold">Precios especiales</p>
+              <h4 className="font-serif text-xl font-semibold tracking-tight">
+                Precios especiales
+              </h4>
               <p>Para mayoristas</p>
             </div>
           </div>
           <div className="flex gap-4 rounded-xl bg-zinc-600 p-6 text-background">
             <Recycle className="h-8 w-8 text-secondary" />
             <div className="">
-              <p className="font-serif text-xl font-bold">Ecológico</p>
+              <h4 className="font-serif text-xl font-semibold tracking-tight">
+                Ecológico
+              </h4>
               <p>Con responsabilidad</p>
             </div>
           </div>
@@ -101,8 +107,10 @@ function ItemCard({ itemData }: { itemData: Article }) {
 
   return (
     <div className="relative z-10 overflow-hidden rounded-xl border bg-background px-8 pb-32 pt-12 md:pb-44">
-      <h3 className="pb-6 font-serif text-xl font-bold">{title}</h3>
-      <p>{description}</p>
+      <h3 className="scroll-m-20 pb-6 font-serif text-2xl font-semibold tracking-tight">
+        {title}
+      </h3>
+      <p className="leading-7">{description}</p>
       <div className="py-6">
         {btn && (
           <Link href={btn} className={buttonVariants()}>

@@ -13,8 +13,10 @@ function BusinessValues() {
             <div className="mb-6 w-fit rounded-full bg-secondary p-2">
               <BookHeart className="text-white" />
             </div>
-            <h3 className="font-serif text-xl font-bold">Integridad</h3>
-            <p>
+            <h3 className="scroll-m-20 font-serif text-2xl font-semibold tracking-tight">
+              Integridad
+            </h3>
+            <p className="leading-7">
               Siempre hacemos lo correcto. Somos justos con nuestros clientes y
               genuinos en todos nuestros tratos comerciales.
             </p>
@@ -25,8 +27,10 @@ function BusinessValues() {
             <div className="mb-6 w-fit rounded-full bg-secondary p-2">
               <Handshake className="text-white" />
             </div>
-            <h3 className="font-serif text-xl font-bold">Compromiso</h3>
-            <p>
+            <h3 className="scroll-m-20 font-serif text-2xl font-semibold tracking-tight">
+              Compromiso
+            </h3>
+            <p className="leading-7">
               Escuchamos a nuestros clientes y estamos constantemente
               aprendiendo y mejorando continuamente.
             </p>
@@ -37,8 +41,10 @@ function BusinessValues() {
             <div className="mb-6 w-fit rounded-full bg-secondary p-2">
               <Star className="text-white" />
             </div>
-            <h3 className="font-serif text-xl font-bold">Excelencia</h3>
-            <p>
+            <h3 className="scroll-m-20 font-serif text-2xl font-semibold tracking-tight">
+              Excelencia
+            </h3>
+            <p className="leading-7">
               Escuchamos a nuestros clientes y estamos constantemente
               aprendiendo y mejorando continuamente.
             </p>
@@ -48,10 +54,10 @@ function BusinessValues() {
         {/* mission */}
         <div className="mt-24 space-y-12">
           <div className="flex flex-col gap-12 md:flex-row">
-            <h3 className="basis-1/3 text-center font-serif text-2xl font-bold">
+            <h3 className="basis-1/3 scroll-m-20 text-center font-serif text-2xl font-bold tracking-tight">
               Misión
             </h3>
-            <p className="basis-2/3 text-balance leading-relaxed">
+            <p className="basis-2/3 text-balance leading-7">
               Brindamos un producto bajo estándares de calidad y un servicio
               personalizado; eficiente y eficaz. Siendo nuestro principal
               objetivo la satisfacción de nuestros clientes, de modo que estos
@@ -61,10 +67,10 @@ function BusinessValues() {
           </div>
           <Separator />
           <div className="flex flex-col gap-12 md:flex-row">
-            <h3 className="basis-1/3 text-center font-serif text-2xl font-bold">
+            <h3 className="basis-1/3 scroll-m-20 text-center font-serif text-2xl font-bold tracking-tight">
               Visión
             </h3>
-            <p className="basis-2/3 text-balance leading-relaxed">
+            <p className="basis-2/3 text-balance leading-7">
               Alcanzar gran éxito en toda la gama empresarial; industria y
               comercio. Ganando reconocimiento a nivel nacional e internacional,
               convirtiéndonos en un referente de calidad y prestigio. Buscando
