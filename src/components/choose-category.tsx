@@ -15,7 +15,7 @@ function ChooseCategory() {
   } = useSWR("product-categories", getProductCategories);
 
   return (
-    <div className="mx-auto max-w-screen-xl px-4 py-16">
+    <div className="mx-auto max-w-screen-xl px-4 py-32">
       <SectionHeader title="Elige tu categoria favorita" />
 
       <div className="grid sm:grid-cols-3">

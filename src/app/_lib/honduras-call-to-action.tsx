@@ -6,7 +6,7 @@ function InHonduras() {
   return (
     <div className="bg-muted pt-44 lg:pb-16">
       <div className="mx-auto max-w-screen-xl">
-        <div className="relative flex justify-center rounded-lg bg-background lg:flex-row lg:justify-start lg:gap-16 lg:p-12">
+        <div className="relative flex justify-center rounded-lg border bg-background lg:flex-row lg:justify-start lg:gap-16 lg:p-12">
           <div className="absolute top-0 w-full -translate-y-1/2 lg:w-64">
             <Image
               src="/logo-csl-circle.webp"

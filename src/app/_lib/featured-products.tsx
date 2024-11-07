@@ -20,7 +20,7 @@ function FeaturedProducts() {
 
   return (
     <section className="mx-auto max-w-screen-xl px-4">
-      <div className="my-16">
+      <div className="my-32">
         <SectionHeader
           title="Productos Destacados"
           description="Lo que la gente más compra"
@@ -39,8 +39,6 @@ function FeaturedProducts() {
               </CarouselItem>
             ))}
           </CarouselContent>
-          {/* <CarouselPrevious />
-          <CarouselNext /> */}
         </Carousel>
       </div>
     </section>

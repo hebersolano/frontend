@@ -59,15 +59,18 @@ const sectionData: TsectionData = [
 
 export default function ServicesAndProducts() {
   return (
-    <section className="bg-muted px-4">
-      <div className="mx-auto max-w-screen-xl py-16">
+    <section className="bg-accent">
+      <div className="mx-auto max-w-screen-xl px-4 py-32">
         <SectionHeader title="Más productos y servicios" />
+
         <div className="grid grid-cols-1 gap-2 sm:grid-cols-2 md:gap-x-16 md:gap-y-8 lg:grid-cols-3">
           {/* item 01 */}
           {sectionData.map((item, i) => (
             <ItemCard key={i} itemData={item} />
           ))}
         </div>
+
+        {/* characteristics */}
         <div className="mx-12 grid grid-cols-1 gap-2 py-12 sm:grid-cols-2 md:gap-12 lg:grid-cols-3">
           <div className="flex gap-4 rounded-xl bg-zinc-600 p-6 text-background">
             <Leaf className="h-8 w-8 text-secondary" />

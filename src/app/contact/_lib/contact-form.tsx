@@ -1,94 +1,117 @@
 "use client";
 
-import FormRow from "@/components/form/FormRow";
-import SectionHeader from "@/components/section-header";
-import { SubmitHandler, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { ContactFormSchema } from "@/lib/schemas";
+import { type SubmitHandler, useForm } from "react-hook-form";
 import { Button } from "@/components/ui/button";
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
 
-// import { zodResolver } from "@hookform/resolvers/zod";
-
-export type FormInputs = {
-  name: string;
-  email: string;
-  phone: string;
-  subject: string;
-  message: string;
-};
+import { ContactFormSchema, type ContactFormTypes } from "@/lib/schemas";
+import SectionHeader from "@/components/section-header";
 
 function ContactForm() {
-  const {
-    register,
-    handleSubmit,
-    // setError,
-    // reset,
-    formState: { errors, isSubmitting },
-  } = useForm<FormInputs>({ resolver: zodResolver(ContactFormSchema) });
+  const form = useForm<ContactFormTypes>({
+    resolver: zodResolver(ContactFormSchema),
+    defaultValues: {
+      name: "",
+      email: "",
+      phone: "",
+      subject: "",
+      message: "",
+    },
+  });
 
-  const onSubmit: SubmitHandler<FormInputs> = (formData) => {
+  const onSubmit: SubmitHandler<ContactFormTypes> = (formData) => {
     console.log(formData);
-    console.log("kjj");
   };
 
   return (
     <div className="md:mx-16">
-      <div className="mx-auto max-w-[500px] rounded-xl border-2 px-6 py-12">
+      <div className="mx-auto max-w-[500px] rounded-xl border px-6 py-12 shadow-sm">
         <SectionHeader
           title="Envianos un mensaje"
           description="Comparte tus dudas y preguntas con nosotros"
         />
-        <form
-          onSubmit={handleSubmit(onSubmit, (e) => console.log(e))}
-          className="space-y-6"
-        >
-          <FormRow label="Nombre" error={errors["name"]} required>
-            <input
-              type="text"
-              id="name"
-              {...register("name")}
-              disabled={isSubmitting}
+        <Form {...form}>
+          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-5">
+            <FormField
+              control={form.control}
+              name="name"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Name</FormLabel>
+                  <FormControl>
+                    <Input placeholder="John" {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
             />
-          </FormRow>
-          <FormRow label="Correo" error={errors["email"]} required>
-            <input
-              type="email"
-              id="email"
-              {...register("email")}
-              disabled={isSubmitting}
+            <FormField
+              control={form.control}
+              name="email"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Correo</FormLabel>
+                  <FormControl>
+                    <Input {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
             />
-          </FormRow>
-          <FormRow label="Teléfono" error={errors["phone"]}>
-            <input
-              type="text"
-              id="phone"
-              {...register("phone")}
-              disabled={isSubmitting}
+            <FormField
+              control={form.control}
+              name="phone"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Teléfono</FormLabel>
+                  <FormControl>
+                    <Input {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
             />
-          </FormRow>
-          <FormRow label="Asunto" error={errors["subject"]} required>
-            <input
-              type="text"
-              id="subject"
-              {...register("subject")}
-              disabled={isSubmitting}
+            <FormField
+              control={form.control}
+              name="subject"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Asunto</FormLabel>
+                  <FormControl>
+                    <Input {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
             />
-          </FormRow>
-          <FormRow label="Mensaje" error={errors["message"]} required>
-            <textarea
-              id="message"
-              {...register("message")}
-              disabled={isSubmitting}
-              className="h-24"
-            ></textarea>
-          </FormRow>
-          <p className="text-right text-sm">
-            <span className="text-base text-primary">*</span> required field
-          </p>
-          <Button type="submit" size="lg">
-            Enviar
-          </Button>
-        </form>
+            <FormField
+              control={form.control}
+              name="message"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Asunto</FormLabel>
+                  <FormControl>
+                    <Textarea {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <Button type="submit" size="lg">
+              Submit
+            </Button>
+          </form>
+        </Form>
       </div>
     </div>
   );

@@ -12,8 +12,8 @@ function CallToAction() {
         height={182}
         className="absolute bottom-0 right-0 -z-10 opacity-20"
       />
-      <div className="mx-auto max-w-screen-xl px-4">
-        <div className="my-12 flex flex-col gap-8 md:flex-row-reverse">
+      <div className="mx-auto my-16 max-w-screen-xl px-4">
+        <div className="flex flex-col gap-8 md:flex-row-reverse">
           <div className="flex items-center justify-center md:w-1/2 md:justify-start">
             <div className="space-y-6 text-center md:text-left">
               <img src="logo-leaf-new.webp" className="mb-4 inline" alt="" />
@@ -34,6 +34,8 @@ function CallToAction() {
               </Button>
             </div>
           </div>
+
+          {/* images */}
           <div className="flex flex-col items-center justify-center md:w-1/2 md:px-16">
             <Image
               src="logo-csl.webp"

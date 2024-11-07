@@ -1,4 +1,5 @@
 import { Icons } from "@/components/icons";
+import { Separator } from "@/components/ui/separator";
 import { siteConfig } from "@/config/siteConfig";
 import { LucidePhone, MailIcon, MapPin } from "lucide-react";
 import Link from "next/link";
@@ -12,11 +13,14 @@ function ContactInfo() {
           <p className="text-nowrap font-serif text-xl font-bold">
             Información de Contácto
           </p>
-          <div className="h-px w-full bg-muted-foreground" />
+          <Separator className="w-full shrink" />
         </div>
         <div className="group flex gap-6">
           <LucidePhone className="fill-foreground stroke-none group-hover:fill-secondary" />
-          <Link href={phones.USA.link} className="group-hover:text-secondary">
+          <Link
+            href={phones.USA.link}
+            className="text-muted-foreground group-hover:text-secondary"
+          >
             {phones.USA.label}
           </Link>
         </div>
@@ -24,7 +28,7 @@ function ContactInfo() {
           <LucidePhone className="fill-foreground stroke-none group-hover:fill-secondary" />
           <Link
             href={phones.HN.link}
-            className="group-hover:text-secondary"
+            className="text-muted-foreground group-hover:text-secondary"
             target="_blank"
           >
             {phones.HN.label}
@@ -36,7 +40,7 @@ function ContactInfo() {
             <Link
               href={mail.link}
               target="_blank"
-              className="group-hover:text-secondary"
+              className="text-muted-foreground group-hover:text-secondary"
             >
               {mail.label}
             </Link>
@@ -47,7 +51,7 @@ function ContactInfo() {
       <div>
         <div className="mb-6 flex flex-1 flex-row items-center gap-4">
           <p className="text-nowrap font-serif text-xl font-bold">Ubicación</p>
-          <div className="h-px w-full bg-muted-foreground" />
+          <Separator className="w-full shrink" />
         </div>
         <div className="space-y-4">
           <iframe
@@ -64,7 +68,7 @@ function ContactInfo() {
             <MapPin className="fill-foreground stroke-background group-hover:fill-secondary" />
             <Link
               href={address.HN.link}
-              className="group-hover:text-secondary"
+              className="text-muted-foreground group-hover:text-secondary"
               target="_blank"
             >
               {address.HN.label}
@@ -74,7 +78,7 @@ function ContactInfo() {
             <MapPin className="fill-foreground stroke-background group-hover:fill-secondary" />
             <Link
               href={address.USA.link}
-              className="group-hover:text-secondary"
+              className="text-muted-foreground group-hover:text-secondary"
               target="_blank"
             >
               {address.USA.label}
@@ -89,7 +93,7 @@ function ContactInfo() {
           <p className="text-nowrap font-serif text-xl font-bold">
             Redes Sociales
           </p>
-          <div className="h-px w-full bg-muted-foreground" />
+          <Separator className="w-full shrink" />
         </div>
         <div className="flex gap-4">
           <Link

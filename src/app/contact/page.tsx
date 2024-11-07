@@ -1,6 +1,6 @@
 import PageTitle from "@/components/page-title";
-import ContactForm from "./_lib/contact-form";
 import ContactInfo from "./_lib/contact-info";
+import ContactForm from "./_lib/contact-form";
 
 function ContactPage() {
   return (

@@ -4,3 +4,6 @@
 <h3 className="scroll-m-20 text-2xl font-semibold tracking-tight font-serif "></h3>
 <h4 className="scroll-m-20 text-xl font-semibold tracking-tight font-serif"></h4>
 ```
+
+standardization
+normalization

@@ -19,12 +19,6 @@ function FormRow({
   required = false,
   children,
 }: FormRowProps) {
-  const className = twMerge(
-    children.props.className || "",
-    "rounded-md px-3 py-2 ring-2 ring-border",
-    error && "ring-primary  focus:ring-primary focus:outline-none ",
-  );
-
   const placeholder = children.props.placeholder
     ? `${children.props.placeholder}${required && !label ? "*" : ""}`
     : "";
@@ -38,13 +32,14 @@ function FormRow({
         </label>
       )}
 
-      {cloneElement(children, { className, placeholder })}
-
-      {error && (
-        <span className="absolute -bottom-6 ml-1 text-sm text-primary">
-          {error?.message}
-        </span>
-      )}
+      <div>
+        {cloneElement(children, { placeholder })}
+        {error && (
+          <span className="absolute -bottom-4 ml-1 text-xs text-primary">
+            {error?.message}
+          </span>
+        )}
+      </div>
     </div>
   );
 }

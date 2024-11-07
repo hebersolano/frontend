@@ -5,11 +5,11 @@ import Image from "next/image";
 
 function KnowAboutUs() {
   return (
-    <div className="bg-secondary/80">
-      <div className="mx-auto max-w-screen-xl px-4 py-16">
-        <SectionHeader title="Conócenos" />
-        <div className="flex flex-col items-center justify-center gap-16 md:flex-row">
-          <div className="basis-2/5 space-y-4 text-center">
+    <div className="">
+      <div className="mx-auto max-w-screen-xl px-4 py-32">
+        {/* <SectionHeader title="Conócenos" /> */}
+        <div className="flex flex-1 flex-col items-center justify-center gap-16 lg:flex-row">
+          <div className="space-y-4 text-center">
             <div className="relative mx-auto w-fit">
               <Image
                 src="herrera.webp"
@@ -28,7 +28,7 @@ function KnowAboutUs() {
             <p className="font-serif text-lg font-bold">Brayan Herrera</p>
           </div>
           {/* video */}
-          <div className="basis-3/5">
+          <div className="w-full grow">
             <YoutubeVideo />
           </div>
         </div>

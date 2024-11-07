@@ -29,15 +29,17 @@ function ProductItem2({ product }: { product: Product }) {
           <h3 className="font-medium">{product.productName}</h3>
           <p className="font-semibold">{formatPrice(product.price)}</p>
         </div>
-        <p className="text-sm">{truncateString(product.description)}</p>
+        <p className="text-sm text-muted-foreground">
+          {truncateString(product.description)}
+        </p>
         <div className="flex justify-between pt-2">
           <Link
             href={"/product/" + product.slug}
-            className={buttonVariants({ size: "sm" })}
+            className={buttonVariants({ size: "sm", variant: "outline" })}
           >
             Details
           </Link>
-          <Button size="sm" variant="outline" onClick={() => addItem(product)}>
+          <Button size="sm" onClick={() => addItem(product)}>
             Add to cart
           </Button>
         </div>
