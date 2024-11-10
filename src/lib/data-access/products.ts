@@ -36,13 +36,17 @@ export async function getFeaturedProducts(): Promise<Product[] | undefined[]> {
   return res.data.data;
 }
 
-export async function getProductByCategory(slug: string): Promise<Product[]> {
+export async function getProductByCategory(
+  slug: string = "all",
+): Promise<Product[]> {
+  const params = {
+    "populate[images]": "*",
+  };
+  if (slug !== "all")
+    Object.assign(params, { "filters[category][slug][$eq]": slug });
+
   const res = await api.get("/products", {
-    params: {
-      "filters[category][slug][$eq]": slug,
-      "populate[images]": "*",
-      // "populate[category][fields]": "slug",
-    },
+    params,
   });
 
   return res.data.data;

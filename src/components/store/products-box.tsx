@@ -6,13 +6,16 @@ import { getProductByCategory } from "@/lib/data-access/products";
 import { useSearchParams } from "next/navigation";
 import { filterProducts } from "@/app/category/[slug]/_lib/helpers";
 
-function ProductsBox({ slug }: { slug: string }) {
+function ProductsBox({ slug = "cafe-molido" }: { slug?: string }) {
   const params = Object.fromEntries(useSearchParams());
   const {
     data: products,
     // error,
     isLoading,
-  } = useSWR("products-" + slug, getProductByCategory.bind(null, slug));
+  } = useSWR(
+    "products-" + params.cat,
+    getProductByCategory.bind(null, params.cat || slug),
+  );
 
   if (isLoading) return <p>Is loading...</p>;
 
