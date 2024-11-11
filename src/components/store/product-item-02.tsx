@@ -1,35 +1,35 @@
 import Image from "next/image";
-import { Card, CardContent, CardFooter } from "../ui/card";
 
-import { Product } from "@/types/product";
 import useCartStore from "@/hooks/use-cart-store";
 import { formatPrice, truncateString } from "@/lib/utils";
-import { Button, buttonVariants } from "../ui/button";
+import { Product } from "@/types/product";
 import Link from "next/link";
+import { AspectRatio } from "../ui/aspect-ratio";
+import { Button, buttonVariants } from "../ui/button";
 
 function ProductItem2({ product }: { product: Product }) {
   const { addItem } = useCartStore();
   const image = product.images?.[0];
 
   return (
-    <Card className="border">
-      <CardContent className="w-full">
-        <Link href={"/product/" + product.slug} className="cursor-pointer">
+    <div className="overflow-hidden rounded-xl border">
+      <Link href={"/product/" + product.slug} className="cursor-pointer">
+        <AspectRatio ratio={1 / 1} className="overflow-hidden">
           <Image
-            className="object-cover transition duration-500 hover:scale-105"
+            className="h-full object-cover transition duration-500 hover:scale-110"
             src={process.env.NEXT_PUBLIC_API_URL + image.url}
             alt={image.alternativeText || "product image image"}
             height={image.height}
             width={image.width}
           />
-        </Link>
-      </CardContent>
-      <CardFooter className="space-y-2">
+        </AspectRatio>
+      </Link>
+      <div className="space-y-2 p-6">
         <div className="flex justify-between">
           <h3 className="font-medium">{product.productName}</h3>
           <p className="font-semibold">{formatPrice(product.price)}</p>
         </div>
-        <p className="text-sm text-muted-foreground">
+        <p className="h-8 text-sm text-muted-foreground">
           {truncateString(product.description)}
         </p>
         <div className="flex justify-between pt-2">
@@ -43,8 +43,8 @@ function ProductItem2({ product }: { product: Product }) {
             Add to cart
           </Button>
         </div>
-      </CardFooter>
-    </Card>
+      </div>
+    </div>
   );
 }
 

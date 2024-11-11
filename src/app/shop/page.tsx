@@ -1,12 +1,15 @@
 import ProductsBox from "@/components/store/products-box";
 import CategoryTabMenu from "./_lib/category-tabmenu";
 import { Suspense } from "react";
+import { Separator } from "@/components/ui/separator";
+import { ProductFilter } from "./_lib/product-filter";
 
 function ShopPage() {
   return (
     <div>
-      <div className="mx-auto max-w-screen-xl px-4">
-        <div className="mb-6 mt-12">
+      <div className="mx-auto mb-24 max-w-screen-xl px-4 pt-16">
+        {/* header */}
+        <div className="mb-6">
           <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl">
             Tienda
           </h1>
@@ -16,10 +19,13 @@ function ShopPage() {
         </div>
         {/* filter menu */}
         <div className="flex w-full justify-between">
-          <CategoryTabMenu />
-          <div>other menu</div>
+          <Suspense>
+            <CategoryTabMenu />
+            <ProductFilter />
+          </Suspense>
         </div>
-        <div className="mt-8 grid gap-5 md:grid-cols-3 md:gap-10">
+        <Separator className="my-6" />
+        <div className="grid gap-5 md:grid-cols-3 md:gap-8">
           <Suspense>
             <ProductsBox />
           </Suspense>

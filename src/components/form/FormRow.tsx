@@ -1,6 +1,6 @@
 import { cloneElement, type ReactElement } from "react";
 import type { FieldError } from "react-hook-form";
-import { twJoin, twMerge } from "tailwind-merge";
+import { twJoin } from "tailwind-merge";
 
 type FormRowProps = {
   label?: string;

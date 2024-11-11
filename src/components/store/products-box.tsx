@@ -1,15 +1,16 @@
 "use client";
 
-import useSWR from "swr";
-import ProductItem from "./product-item";
+import { filterProducts } from "@/app/category/[slug]/_lib/helpers";
 import { getProductByCategory } from "@/lib/data-access/products";
 import { useSearchParams } from "next/navigation";
-import { filterProducts } from "@/app/category/[slug]/_lib/helpers";
+import useSWR from "swr";
+import ProductItem2 from "./product-item-02";
+import SkProductItem from "./sk-product-item";
 
 function ProductsBox({ slug = "cafe-molido" }: { slug?: string }) {
   const params = Object.fromEntries(useSearchParams());
   const {
-    data: products,
+    data: products = Array.from({ length: 6 }),
     // error,
     isLoading,
   } = useSWR(
@@ -17,15 +18,22 @@ function ProductsBox({ slug = "cafe-molido" }: { slug?: string }) {
     getProductByCategory.bind(null, params.cat || slug),
   );
 
-  if (isLoading) return <p>Is loading...</p>;
+  // if (isLoading) return <p>Is loading...</p>;
 
   const filteredProducts = filterProducts(params, products!);
 
   return (
     <>
-      {filteredProducts?.map((product) => (
-        <ProductItem key={product.id} product={product} />
-      ))}
+      {filteredProducts?.map((product) => {
+        return (
+          <>
+            {isLoading && <SkProductItem />}
+            {!isLoading && product !== undefined && (
+              <ProductItem2 key={product.id} product={product} />
+            )}
+          </>
+        );
+      })}
     </>
   );
 }

@@ -17,6 +17,7 @@ function CategoryTabMenu() {
     if (!searchParams.has("cat") || !searchParams.get("cat")) {
       addSearchParam("cat", "all");
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const handleClick: MouseEventHandler<HTMLDivElement | HTMLButtonElement> = (
