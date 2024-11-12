@@ -113,7 +113,7 @@ function ItemCard({ itemData }: { itemData: Article }) {
       <h3 className="scroll-m-20 pb-6 font-serif text-2xl font-semibold tracking-tight">
         {title}
       </h3>
-      <p className="leading-7">{description}</p>
+      <p className="leading-7 text-muted-foreground">{description}</p>
       <div className="py-6">
         {btn && (
           <Link href={btn} className={buttonVariants()}>

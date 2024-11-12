@@ -27,9 +27,10 @@ export interface Category {
   publishedAt: string;
   locale: string | undefined;
   image: Image;
+  shortDescription: string;
 }
 
- export interface Image {
+export interface Image {
   id: number;
   documentId: string;
   name: string;

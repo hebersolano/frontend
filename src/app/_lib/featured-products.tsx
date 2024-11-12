@@ -10,6 +10,7 @@ import {
 import SkProductItem from "../../components/store/sk-product-item";
 import ProductItem2 from "@/components/store/product-item-02";
 import SectionHeader from "@/components/section-header";
+import ProductCategories from "@/components/product-categories";
 
 function FeaturedProducts() {
   const {
@@ -28,8 +29,8 @@ function FeaturedProducts() {
 
         <Carousel className="mt-8">
           <CarouselContent className="">
-            {products.map((product, index) => (
-              <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
+            {products.map((product, idx) => (
+              <CarouselItem key={idx} className="md:basis-1/2 lg:basis-1/3">
                 <div className="p-1">
                   {isLoading && <SkProductItem />}
                   {!isLoading && product !== undefined && (
@@ -40,6 +41,9 @@ function FeaturedProducts() {
             ))}
           </CarouselContent>
         </Carousel>
+
+        {/* categories */}
+        <ProductCategories />
       </div>
     </section>
   );
