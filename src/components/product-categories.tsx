@@ -11,7 +11,7 @@ import { Separator } from "./ui/separator";
 function ProductCategories() {
   const {
     data: categories = Array.from({ length: 3 }),
-    // error,
+    error,
     isLoading,
   } = useSWR("product-categories", getProductCategories);
 
@@ -23,10 +23,10 @@ function ProductCategories() {
       <Separator />
       <div className="flex flex-wrap gap-3 md:gap-6">
         {categories.map((cat: Category, i: number) =>
-          !isLoading ? (
-            <ProductCategoryItem key={cat.id} cat={cat} />
-          ) : (
+          isLoading || error ? (
             <SkProductCategoryItem key={i} />
+          ) : (
+            <ProductCategoryItem key={cat.id} cat={cat} />
           ),
         )}
       </div>

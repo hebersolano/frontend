@@ -18,24 +18,16 @@ function ProductsBox({ slug = "cafe-molido" }: { slug?: string }) {
     getProductByCategory.bind(null, params.cat || slug),
   );
 
-  // if (isLoading) return <p>Is loading...</p>;
+  if (isLoading)
+    return Array.from({ length: 3 }).map((_, idx) => (
+      <SkProductItem key={idx} />
+    ));
 
-  const filteredProducts = filterProducts(params, products!);
+  const filteredProducts = filterProducts(params, products);
 
-  return (
-    <>
-      {filteredProducts?.map((product) => {
-        return (
-          <>
-            {isLoading && <SkProductItem />}
-            {!isLoading && product !== undefined && (
-              <ProductItem2 key={product.id} product={product} />
-            )}
-          </>
-        );
-      })}
-    </>
-  );
+  return filteredProducts.map((product) => (
+    <ProductItem2 key={product.id} product={product} />
+  ));
 }
 
 export default ProductsBox;

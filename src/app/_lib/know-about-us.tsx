@@ -16,7 +16,7 @@ function KnowAboutUs() {
                 height={150}
                 className="rounded-[50px]"
               />
-              <MessageSquareQuote className="absolute -bottom-3 left-1/2 -translate-x-1/2 text-white" />
+              <MessageSquareQuote className="absolute -bottom-3 left-1/2 -translate-x-1/2 text-primary" />
             </div>
             <p className="text-balance leading-7">
               Te doy la bienvenida a esta comunidad de productores y en nombre
