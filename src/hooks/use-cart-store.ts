@@ -3,10 +3,12 @@ import { create } from "zustand";
 import { persist, createJSONStorage } from "zustand/middleware";
 import { toast } from "./use-toast";
 
+type ProductCartItem = { quantity: number } & Product;
+
 interface CartState {
-  items: Product[];
+  items: ProductCartItem[];
   cartLength: number;
-  addItem: (data: Product) => void;
+  addItem: (data: ProductCartItem) => void;
   removeItem: (id: number) => void;
   removeAll: () => void;
 }

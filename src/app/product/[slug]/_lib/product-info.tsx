@@ -5,27 +5,28 @@ import type { Product } from "@/types/product";
 
 function ProductInfo({ product }: { product: Product }) {
   return (
-    <div className="px-4">
-      <div className="mb-3 justify-between sm:flex">
-        <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl">
+    <div className="my-8 space-y-6 px-4">
+      <div className="">
+        <h1 className="scroll-m-20 font-serif text-4xl font-extrabold tracking-tight lg:text-5xl">
           {product.productName}
         </h1>
-        <div className="flex items-center justify-between gap-3">
+        {/* <div className="flex items-center justify-between gap-3">
           <p className="w-fit rounded-full bg-foreground px-2 py-1 text-xs text-background">
             {product.roast}
           </p>
           <p className="rounded-full bg-primary px-2 py-1 text-xs">
             {product.origin}
           </p>
-        </div>
+        </div> */}
       </div>
-      <Separator className="my-4" />
-      <p className="text-balance leading-7">{product.description}</p>
+      <p className="text-pretty leading-7 text-muted-foreground">
+        {product.description}
+      </p>
       <Separator className="my-4" />
       <p className="my-4 text-2xl">{formatPrice(product.price)}</p>
-      <div className="flex items-center gap-5">
+      <Separator className="my-4" />
+      
         <ProductButtons product={product} />
-      </div>
     </div>
   );
 }

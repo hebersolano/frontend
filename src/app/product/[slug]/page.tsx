@@ -1,6 +1,7 @@
 import { getProductBySlug } from "@/lib/data-access/products";
 import CarouselProduct from "./_lib/carousel-product";
 import ProductInfo from "./_lib/product-info";
+import { TooltipProvider } from "@/components/ui/tooltip";
 
 // static params for Static Side Generation
 export { generateStaticParams } from "./_lib/helpers";
@@ -10,13 +11,15 @@ async function ProductPage({ params }: { params: Record<string, string> }) {
   const product = await getProductBySlug(slug);
 
   return (
-    <div className="mx-auto max-w-screen-xl">
+    <div className="mx-auto flex min-h-screen max-w-screen-xl items-center">
       <div className="grid sm:grid-cols-2">
         <div>
           <CarouselProduct images={product.images} />
         </div>
         <div className="sm:px-12">
-          <ProductInfo product={product} />
+          <TooltipProvider>
+            <ProductInfo product={product} />
+          </TooltipProvider>
         </div>
       </div>
     </div>

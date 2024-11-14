@@ -6,8 +6,9 @@ import { toast } from "./use-toast";
 interface FavoriteProductsState {
   favoriteItems: Product[];
   favoriteLength: number;
+  isFavoriteItem(productId: string): boolean;
   addFavoriteItem: (data: Product) => void;
-  removeFavoriteItem: (id: number) => void;
+  removeFavoriteItem: (productId: string) => void;
   removeAllFavorites: () => void;
 }
 
@@ -17,9 +18,19 @@ const useFavoriteStore = create<FavoriteProductsState>()(
       favoriteItems: [],
       favoriteLength: 0,
 
+      isFavoriteItem(productId: string) {
+        const { favoriteItems: currentItems } = get();
+        const isFavorite = currentItems.some(
+          (item) => item.documentId === productId,
+        );
+        return isFavorite;
+      },
+
       addFavoriteItem(data) {
         const { favoriteItems: currentItems } = get();
-        const existingItem = currentItems.some((item) => item.id === data.id);
+        const existingItem = currentItems.some(
+          (item) => item.documentId === data.documentId,
+        );
 
         if (existingItem) {
           toast({
@@ -35,17 +46,19 @@ const useFavoriteStore = create<FavoriteProductsState>()(
         toast({ title: "Producto añadido a favoritos" });
       },
 
-      removeFavoriteItem(id) {
+      removeFavoriteItem(productId) {
         const { favoriteItems: currentItems } = get();
         set({
-          favoriteItems: [...currentItems.filter((item) => item.id !== id)],
+          favoriteItems: [
+            ...currentItems.filter((item) => item.documentId !== productId),
+          ],
           favoriteLength: currentItems.length - 1,
         });
         toast({ title: "Producto eliminado de favoritos" });
       },
 
       removeAllFavorites() {
-        set({ favoriteItems: [] });
+        set({ favoriteItems: [], favoriteLength: 0 });
       },
     }),
     {

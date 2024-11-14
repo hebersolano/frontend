@@ -42,7 +42,7 @@ function FavoriteItem({ product }: { product: Product }) {
       <div className="flex flex-col justify-between">
         <div className="ml-auto">
           <Button
-            onClick={removeFavoriteItem.bind(null, product.id)}
+            onClick={removeFavoriteItem.bind(null, product.documentId)}
             variant="outline"
             className="w-fit rounded-full p-2"
           >

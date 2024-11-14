@@ -1,26 +1,28 @@
 "use client";
 import { Button } from "@/components/ui/button";
 import useCartStore from "@/hooks/use-cart-store";
-import useFavoriteStore from "@/hooks/use-favorite-products-store";
 import type { Product } from "@/types/product";
-import { Heart } from "lucide-react";
+import { useState } from "react";
+import QuantitySelector from "./Add";
+import BookmarkProduct from "./bookmark-product";
 
 function ProductButtons({ product }: { product: Product }) {
+  const [quantity, setQuantity] = useState(1);
+
   const { addItem } = useCartStore();
-  const { addFavoriteItem } = useFavoriteStore();
+
+  function handleAddToCart() {
+    addItem({ ...product, quantity });
+  }
 
   return (
-    <>
-      <Button className="w-full" onClick={() => addItem(product)}>
+    <div className="flex items-center gap-4">
+      <QuantitySelector quantity={quantity} setQuantity={setQuantity} />
+      <Button className="w-full md:w-fit" onClick={handleAddToCart}>
         Add to cart
       </Button>
-      <Heart
-        onClick={addFavoriteItem.bind(null, product)}
-        width={30}
-        strokeWidth={1}
-        className="cursor-pointer transition duration-300 hover:fill-primary"
-      />
-    </>
+      <BookmarkProduct product={product} />
+    </div>
   );
 }
 

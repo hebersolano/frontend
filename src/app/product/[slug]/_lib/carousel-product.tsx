@@ -12,9 +12,9 @@ function CarouselProduct({ images }: { images: ImageT[] }) {
       <Carousel>
         <CarouselContent>
           {images.map((image) => (
-            <CarouselItem key={image.id}>
+            <CarouselItem key={image.id} className="">
               <Image
-                className="border"
+                className="overflow-hidden rounded-lg border"
                 src={process.env.NEXT_PUBLIC_API_URL + image.url}
                 alt={image.alternativeText || "product image image"}
                 height={image.height}

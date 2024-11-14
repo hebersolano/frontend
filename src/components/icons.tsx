@@ -210,6 +210,40 @@ export const Icons = {
       />
     </svg>
   ),
+
+  bookmark: (props: IconProps) => (
+    <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            {...props}
+          >
+            <path d="m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z"></path>
+          </svg>
+  ),
+
+  bookmarkChecked: (props: IconProps) => (
+    <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    strokeWidth="1"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    className=" h-9 w-10 shrink-0 cursor-pointer fill-primary stroke-primary drop-shadow-sm transition duration-300"
+    {...props}
+  >
+    <path d="m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z"></path>
+    <path className="stroke-white" d="m9 10 2 2 4-4"></path>
+  </svg>
+  ),
+
   spinner: (props: IconProps) => (
     <svg
       xmlns="http://www.w3.org/2000/svg"
