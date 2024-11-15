@@ -11,7 +11,7 @@ async function ProductPage({ params }: { params: Record<string, string> }) {
   const product = await getProductBySlug(slug);
 
   return (
-    <div className="mx-auto flex min-h-screen max-w-screen-xl items-center">
+    <div className="mx-auto max-w-screen-xl">
       <div className="grid sm:grid-cols-2">
         <div>
           <CarouselProduct images={product.images} />

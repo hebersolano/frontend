@@ -20,7 +20,7 @@ function CallToAction() {
               <p className="font-semibold md:text-xl">
                 Un compromiso con la calidad
               </p>
-              <h2 className="scroll-m-20 font-serif text-3xl font-semibold tracking-tight lg:text-4xl">
+              <h2 className="scroll-m-20 font-serif text-4xl font-semibold leading-loose tracking-tight lg:text-5xl">
                 ¡Disfruta de muestra variedad en café!
               </h2>
               <p className="leading-7">

@@ -1,10 +1,19 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
+import { Playfair_Display } from "next/font/google";
+
 import "./globals.css";
 import SiteHeader from "@/components/layout/site-header";
 import SiteFooter from "@/components/layout/site-footer";
 import { siteConfig } from "@/config/siteConfig";
 import { Toaster } from "@/components/ui/toaster";
+
+const playfairDisplay = Playfair_Display({
+  subsets: ["latin"],
+  display: "swap",
+  weight: "700",
+  variable: "--font-playfair",
+});
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -70,11 +79,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} text-foreground antialiased`}>
+      <body
+        className={`${geistSans.variable} ${playfairDisplay.variable} text-foreground antialiased`}
+      >
         <SiteHeader />
-        <div className="relative flex min-h-screen flex-col">
-          <main className="flex-1">{children}</main>
-        </div>
+        <main className="relative flex min-h-[100vh] flex-col justify-center">
+          {children}
+        </main>
         <SiteFooter />
         <Toaster />
       </body>

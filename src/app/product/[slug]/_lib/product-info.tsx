@@ -25,8 +25,8 @@ function ProductInfo({ product }: { product: Product }) {
       <Separator className="my-4" />
       <p className="my-4 text-2xl">{formatPrice(product.price)}</p>
       <Separator className="my-4" />
-      
-        <ProductButtons product={product} />
+
+      <ProductButtons product={product} />
     </div>
   );
 }

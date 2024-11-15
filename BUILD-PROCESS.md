@@ -1,12 +1,14 @@
-# Property Pulse
-
-NextJs project base on the [Build a Complete E-Commerce Shop with Next.js 14, Tailwind, React | Full Course 2024](https://youtu.be/SG82Aqcaaa0?si=k6pEPV9ZSFVsRsIR) by [Joscha Neske](https://github.com/joschan21/).
+# Torrecafhe
 
 ## Knowledge applied:
 
 - ## :
 
 ## Planning:
+
+## Tasks
+
+- [] Change serif font
 
 ### Pages
 
@@ -32,13 +34,5 @@ NextJs project base on the [Build a Complete E-Commerce Shop with Next.js 14, Ta
 - Form management: react hook form
 - Database: postgresql
 - Storage: uploadthing.com
-
-## Tasks
-
-- [x] Finish mobile nav menu
-- [x] Finish footer
-- [ ] Fix menu
-- [ ] Design system
-  - [ ] Choose color palette
 
 ## New features to implement
