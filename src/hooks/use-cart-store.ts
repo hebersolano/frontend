@@ -1,14 +1,13 @@
-import { Product } from "@/types/product";
+import type { ProductCartItem } from "@/types/product";
 import { create } from "zustand";
 import { persist, createJSONStorage } from "zustand/middleware";
 import { toast } from "./use-toast";
-
-type ProductCartItem = { quantity: number } & Product;
 
 interface CartState {
   items: ProductCartItem[];
   cartLength: number;
   addItem: (data: ProductCartItem) => void;
+  updateQuantity: (id: string, quantity: number) => void;
   removeItem: (id: number) => void;
   removeAll: () => void;
 }
@@ -35,6 +34,18 @@ const useCartStore = create<CartState>()(
           cartLength: currentItems.length + 1,
         });
         toast({ title: "Producto añadido al carrito" });
+      },
+
+      updateQuantity(id: string, quantity: number) {
+        console.log(id, quantity);
+        const { items: currentItems } = get();
+        const items = currentItems.map((item) =>
+          item.documentId === id ? { ...item, quantity } : item,
+        );
+
+        set({
+          items,
+        });
       },
 
       removeItem(id) {

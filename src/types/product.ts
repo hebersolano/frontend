@@ -16,6 +16,8 @@ export interface Product {
   images: Image[];
 }
 
+export type ProductCartItem = { quantity: number } & Product;
+
 export interface Category {
   id: number;
   documentId: string;

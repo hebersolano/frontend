@@ -6,6 +6,7 @@ import { formatPrice } from "@/lib/utils";
 import CartItem from "./_lib/cart-item";
 import { loadStripe } from "@stripe/stripe-js";
 import { api } from "@/lib/axios";
+import { HeadingH1 } from "@/components/ui/typography";
 
 function CartPage() {
   const { items, cartLength } = useCartStore();
@@ -41,11 +42,12 @@ function CartPage() {
   }
 
   return (
-    <div className="mx-auto max-w-screen-xl px-4">
-      <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl">
-        Shopping Cart
-      </h1>
-      <div className="sm: grid gap-5 sm:grid-cols-2">
+    <div className="mx-auto w-full max-w-screen-xl px-4">
+      <div className="mt-10">
+        <HeadingH1>Carrito de compras</HeadingH1>
+      </div>
+      <Separator className="my-6 h-px" />
+      <div className="gap-32 sm:grid sm:grid-cols-2">
         <div>
           {cartLength <= 0
             ? "No productos en el carrito"

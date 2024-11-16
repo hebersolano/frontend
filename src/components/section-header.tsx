@@ -1,3 +1,5 @@
+import { HeadingH2 } from "./ui/typography";
+
 function SectionHeader({
   title,
   description,
@@ -7,9 +9,7 @@ function SectionHeader({
 }) {
   return (
     <div className="mb-12 flex flex-col items-center gap-2 text-center">
-      <h2 className="scroll-m-20 font-serif text-3xl font-semibold tracking-tight lg:text-4xl">
-        {title}
-      </h2>
+      <HeadingH2>{title}</HeadingH2>
       {description ? (
         <p className="max-w-xl text-balance text-muted-foreground">
           {description}

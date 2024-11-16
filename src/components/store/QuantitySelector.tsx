@@ -7,9 +7,10 @@ import type { Dispatch, SetStateAction } from "react";
 type Props = {
   quantity: number;
   setQuantity: Dispatch<SetStateAction<number>>;
+  size: "small" | "normal";
 };
 
-function QuantitySelector({ quantity, setQuantity }: Props) {
+function QuantitySelector({ size = "normal", quantity, setQuantity }: Props) {
   function updateQuantityHandler(operator: "+" | "-") {
     setQuantity((qty) => {
       if (operator === "+") return qty + 1;
@@ -18,13 +19,25 @@ function QuantitySelector({ quantity, setQuantity }: Props) {
     });
   }
 
+  const Style = {
+    normal: {
+      btn: "w-12",
+      iconsDimension: 16,
+    },
+    small: {
+      btn: "w-8 h-8",
+      iconsDimension: 12,
+    },
+  };
+
   return (
     <div className="flex items-center justify-center">
       <Button
         onClick={() => updateQuantityHandler("-")}
         disabled={false}
         className={
-          "w-12 rounded-l-full bg-muted text-foreground hover:text-primary-foreground"
+          "rounded-l-full bg-muted text-foreground hover:text-primary-foreground" +
+          Style[size].btn
         }
       >
         <Minus height={16} width={14} className="inline" />
@@ -34,7 +47,8 @@ function QuantitySelector({ quantity, setQuantity }: Props) {
         onClick={() => updateQuantityHandler("+")}
         disabled={false}
         className={
-          "w-12 rounded-r-full bg-muted text-foreground hover:text-primary-foreground"
+          "rounded-r-full bg-muted text-foreground hover:text-primary-foreground" +
+          Style[size].btn
         }
       >
         <Plus height={16} width={16} className="inline" />

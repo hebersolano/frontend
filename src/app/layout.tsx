@@ -83,9 +83,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${playfairDisplay.variable} text-foreground antialiased`}
       >
         <SiteHeader />
-        <main className="relative flex min-h-[100vh] flex-col justify-center">
-          {children}
-        </main>
+        <main className="relative flex min-h-[100vh] flex-col">{children}</main>
         <SiteFooter />
         <Toaster />
       </body>
