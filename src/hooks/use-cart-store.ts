@@ -29,6 +29,8 @@ const useCartStore = create<CartState>()(
           return;
         }
 
+        if (!data.quantity) data.quantity = 1;
+
         set({
           items: [...currentItems, data],
           cartLength: currentItems.length + 1,

@@ -1,16 +1,23 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 import { Minus, Plus } from "lucide-react";
 import type { Dispatch, SetStateAction } from "react";
 
 type Props = {
   quantity: number;
   setQuantity: Dispatch<SetStateAction<number>>;
-  size: "small" | "normal";
+  size: "sm" | "default";
+  className?: string;
 };
 
-function QuantitySelector({ size = "normal", quantity, setQuantity }: Props) {
+function QuantitySelector({
+  size = "default",
+  quantity,
+  setQuantity,
+  className,
+}: Props) {
   function updateQuantityHandler(operator: "+" | "-") {
     setQuantity((qty) => {
       if (operator === "+") return qty + 1;
@@ -19,37 +26,26 @@ function QuantitySelector({ size = "normal", quantity, setQuantity }: Props) {
     });
   }
 
-  const Style = {
-    normal: {
-      btn: "w-12",
-      iconsDimension: 16,
-    },
-    small: {
-      btn: "w-8 h-8",
-      iconsDimension: 12,
-    },
-  };
-
   return (
-    <div className="flex items-center justify-center">
+    <div className={cn("flex w-fit items-center justify-center", className)}>
       <Button
         onClick={() => updateQuantityHandler("-")}
         disabled={false}
-        className={
-          "rounded-l-full bg-muted text-foreground hover:text-primary-foreground" +
-          Style[size].btn
-        }
+        size={size}
+        variant="outline"
+        className={"rounded-l-full"}
       >
         <Minus height={16} width={14} className="inline" />
       </Button>
-      <span className="px-4 py-1.5 text-xl">{quantity}</span>
+      <span className={`px-4 py-1.5 ${size === "sm" ? "text-lg" : "text-xl"} `}>
+        {quantity}
+      </span>
       <Button
         onClick={() => updateQuantityHandler("+")}
         disabled={false}
-        className={
-          "rounded-r-full bg-muted text-foreground hover:text-primary-foreground" +
-          Style[size].btn
-        }
+        size={size}
+        variant="outline"
+        className={"rounded-r-full"}
       >
         <Plus height={16} width={16} className="inline" />
       </Button>

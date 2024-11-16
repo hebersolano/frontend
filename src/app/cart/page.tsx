@@ -1,74 +1,79 @@
 "use client";
+
 import { Button } from "@/components/ui/button";
-import { Separator } from "@/components/ui/separator";
+import {
+  Table,
+  TableBody,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table";
+import { HeadingH1, HeadingH3 } from "@/components/ui/typography";
 import useCartStore from "@/hooks/use-cart-store";
 import { formatPrice } from "@/lib/utils";
-import CartItem from "./_lib/cart-item";
-import { loadStripe } from "@stripe/stripe-js";
-import { api } from "@/lib/axios";
-import { HeadingH1 } from "@/components/ui/typography";
+import ProductTableRow from "./_lib/ProductTableRow";
 
 function CartPage() {
+  console.count("cart page");
+
   const { items, cartLength } = useCartStore();
-  const totalPrice = items.reduce((prev, curr) => prev + curr.price, 0);
-  const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLIC!);
-
-  async function buyStripe() {
-    try {
-      const stripe = await stripePromise;
-      const res = await api.post(
-        "/orders",
-        {
-          products: items.map((item) => ({
-            id: item.id,
-            documentId: item.documentId,
-            productName: item.productName,
-          })),
-        },
-        {
-          headers: {
-            Authorization: "bearer" + process.env.NEXT_PUBLIC_STRIPE_PUBLIC!,
-          },
-        },
-      );
-
-      console.log("res stripe", res);
-      await stripe?.redirectToCheckout({
-        sessionId: res.data.stripeSession.id,
-      });
-    } catch (e) {
-      console.error("buyStripe", e);
-    }
-  }
+  const totalPrice = items.reduce(
+    (prev, curr) => prev + curr.price * curr.quantity,
+    0,
+  );
+  // const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLIC!)
 
   return (
-    <div className="mx-auto w-full max-w-screen-xl px-4">
-      <div className="mt-10">
-        <HeadingH1>Carrito de compras</HeadingH1>
-      </div>
-      <Separator className="my-6 h-px" />
-      <div className="gap-32 sm:grid sm:grid-cols-2">
-        <div>
-          {cartLength <= 0
-            ? "No productos en el carrito"
-            : items.map((item) => (
-                <ul key={item.id}>
-                  <CartItem product={item} />
-                </ul>
-              ))}
+    <div className="grow bg-accent">
+      <div className="mx-auto w-full max-w-screen-xl bg-background px-4 py-16 sm:my-16 sm:p-24">
+        <div className="mb-8">
+          <HeadingH1>Carrito</HeadingH1>
         </div>
-        <div className="max-w-xl">
-          <div className="rounded-lg bg-muted p-6">
-            <p className="mb-3 text-lg font-semibold">Order Summary</p>
-            <Separator />
-            <div className="my-4 flex justify-between gap-5">
-              <p>Order total</p>
-              <p>{formatPrice(totalPrice)}</p>
+        <div className="my-12 sm:overflow-hidden sm:rounded-md sm:border-x sm:border-t">
+          <Table className="">
+            {/* <TableCaption>A list of your chosen products.</TableCaption> */}
+            <TableHeader className="hidden bg-muted/50 py-4 sm:table-header-group">
+              <TableRow className="sm:text-lg">
+                <TableHead className="px-0"></TableHead>
+                <TableHead></TableHead>
+                <TableHead>Producto</TableHead>
+                <TableHead className="">Precio</TableHead>
+                <TableHead className="">Cantidad</TableHead>
+                <TableHead className="">Subtotal</TableHead>
+              </TableRow>
+            </TableHeader>
+            <TableBody className="flex flex-col gap-8 border-0 text-base sm:table-row-group">
+              {items.map((product) => (
+                <ProductTableRow key={product.id} product={product} />
+              ))}
+            </TableBody>
+            {/* <TableFooter>
+              <TableRow>
+                <TableCell colSpan={3}>Total</TableCell>
+                <TableCell className="text-right">$2,500.00</TableCell>
+              </TableRow>
+            </TableFooter> */}
+          </Table>
+        </div>
+        <div className="flex justify-end">
+          {/* cart totals */}
+          <div className="w-full min-w-fit rounded-md border sm:w-[40%]">
+            <div className="border-b bg-muted/50 p-4">
+              <HeadingH3>Totales</HeadingH3>
             </div>
-            <div className="my-4 flex justify-between gap-5">
-              <Button className="w-full" onClick={buyStripe}>
-                Comprar
-              </Button>
+            <div className="divide-y px-4">
+              <div className="flex justify-between p-4 text-lg font-medium">
+                <p>Subtotal:</p>
+                <p>{formatPrice(totalPrice)}</p>
+              </div>
+              <div className="p-4">
+                <Button
+                  size="lg"
+                  className="w-full bg-secondary text-xl hover:bg-secondary/90"
+                >
+                  Finalizar Compra
+                </Button>
+              </div>
             </div>
           </div>
         </div>

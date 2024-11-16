@@ -39,7 +39,10 @@ function ProductItem2({ product }: { product: Product }) {
           >
             Details
           </Link>
-          <Button size="sm" onClick={() => addItem(product)}>
+          <Button
+            size="sm"
+            onClick={() => addItem({ ...product, quantity: 1 })}
+          >
             Add to cart
           </Button>
         </div>

@@ -2,14 +2,14 @@ import QuantitySelector from "@/components/store/QuantitySelector";
 import { Button } from "@/components/ui/button";
 import useCartStore from "@/hooks/use-cart-store";
 import { formatPrice } from "@/lib/utils";
-import { Product, ProductCartItem } from "@/types/product";
+import type { ProductCartItem } from "@/types/product";
 import { X } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
 function CartItem({ product }: { product: ProductCartItem }) {
-  const [quantity, setQuantity] = useState(product.quantity);
+  const [quantity, setQuantity] = useState(() => product.quantity);
   const { removeItem, updateQuantity } = useCartStore();
   const image = product.images[0];
 
