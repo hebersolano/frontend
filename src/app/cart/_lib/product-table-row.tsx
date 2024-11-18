@@ -1,5 +1,4 @@
 import QuantitySelector from "@/components/store/QuantitySelector";
-import { Button } from "@/components/ui/button";
 import { TableCell, TableRow } from "@/components/ui/table";
 import useCartStore from "@/hooks/use-cart-store";
 import { formatPrice } from "@/lib/utils";

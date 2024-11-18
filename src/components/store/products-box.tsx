@@ -7,7 +7,7 @@ import useSWR from "swr";
 import ProductItem2 from "./product-item-02";
 import SkProductItem from "./sk-product-item";
 
-function ProductsBox({ slug = "cafe-molido" }: { slug?: string }) {
+function ProductsBox({ slug }: { slug?: string }) {
   const params = Object.fromEntries(useSearchParams());
   const {
     data: products = Array.from({ length: 6 }),
@@ -22,6 +22,8 @@ function ProductsBox({ slug = "cafe-molido" }: { slug?: string }) {
     return Array.from({ length: 3 }).map((_, idx) => (
       <SkProductItem key={idx} />
     ));
+
+  console.log(products);
 
   const filteredProducts = filterProducts(params, products);
 

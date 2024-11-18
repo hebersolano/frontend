@@ -1,14 +1,12 @@
 # Torrecafhe
 
-## Knowledge applied:
-
-- ## :
-
 ## Planning:
 
 ## Tasks
 
-- [] Change serif font
+- [x] Change serif font
+- [] Stripe custom payment flow [link](https://docs.stripe.com/payments/quickstart?client=react)
+  - [] Server: Create a [Payment intent](https://docs.stripe.com/api/payment_intents) endpoint
 
 ### Pages
 

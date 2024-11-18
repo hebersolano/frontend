@@ -40,7 +40,7 @@ export async function getProductByCategory(
   slug: string = "all",
 ): Promise<Product[]> {
   const params = {
-    "populate[images]": "*",
+    populate: "images",
   };
   if (slug !== "all")
     Object.assign(params, { "filters[category][slug][$eq]": slug });

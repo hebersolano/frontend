@@ -11,17 +11,16 @@ import {
 import { HeadingH1, HeadingH3 } from "@/components/ui/typography";
 import useCartStore from "@/hooks/use-cart-store";
 import { formatPrice } from "@/lib/utils";
-import ProductTableRow from "./_lib/ProductTableRow";
+import { useRouter } from "next/navigation";
+import ProductTableRow from "./_lib/product-table-row";
 
 function CartPage() {
-  console.count("cart page");
-
-  const { items, cartLength } = useCartStore();
+  const router = useRouter();
+  const { items } = useCartStore();
   const totalPrice = items.reduce(
     (prev, curr) => prev + curr.price * curr.quantity,
     0,
   );
-  // const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLIC!)
 
   return (
     <div className="grow bg-accent">
@@ -47,12 +46,6 @@ function CartPage() {
                 <ProductTableRow key={product.id} product={product} />
               ))}
             </TableBody>
-            {/* <TableFooter>
-              <TableRow>
-                <TableCell colSpan={3}>Total</TableCell>
-                <TableCell className="text-right">$2,500.00</TableCell>
-              </TableRow>
-            </TableFooter> */}
           </Table>
         </div>
         <div className="flex justify-end">
@@ -68,6 +61,7 @@ function CartPage() {
               </div>
               <div className="p-4">
                 <Button
+                  onClick={() => router.push("/cart/checkout")}
                   size="lg"
                   className="w-full bg-secondary text-xl hover:bg-secondary/90"
                 >
