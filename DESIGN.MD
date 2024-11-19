@@ -7,3 +7,6 @@
 
 standardization
 normalization
+
+cors
+https://stackoverflow.com/questions/45975135/access-control-origin-header-error-using-axios

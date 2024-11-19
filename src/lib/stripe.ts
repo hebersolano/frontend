@@ -1,11 +1,24 @@
-import { loadStripe } from "@stripe/stripe-js";
+import { loadStripe, PaymentIntent } from "@stripe/stripe-js";
 import { api } from "./axios";
 import { ProductCartItem } from "@/types/product";
 
-export async function checkoutStripe(items: ProductCartItem[]) {
-  const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLIC!);
+export function getPaymentIntent(totalPrice: number) {
+  return api
+    .post<PaymentIntent>(
+      "/payment",
+      { amount: totalPrice },
+      {
+        withCredentials: true,
+      },
+    )
+    .then((res) => {
+      return res.data.client_secret;
+    });
+}
 
+export async function checkoutStripe(items: ProductCartItem[]) {
   try {
+    const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLIC!);
     const stripe = await stripePromise;
     const res = await api.post(
       "/orders",

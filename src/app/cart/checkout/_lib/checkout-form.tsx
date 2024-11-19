@@ -1,11 +1,15 @@
 "use client";
+
 import {
   PaymentElement,
   useStripe,
   useElements,
   AddressElement,
 } from "@stripe/react-stripe-js";
-import { StripePaymentElementOptions } from "@stripe/stripe-js";
+import {
+  StripePaymentElementOptions,
+  StripeAddressElementOptions,
+} from "@stripe/stripe-js";
 import { FormEventHandler, useState } from "react";
 import "./checkout.css";
 
@@ -30,16 +34,10 @@ function CheckoutForm() {
     const { error } = await stripe.confirmPayment({
       elements,
       confirmParams: {
-        // Make sure to change this to your payment completion page
         return_url: "http://localhost:3000/complete",
       },
     });
 
-    // This point will only be reached if there is an immediate error when
-    // confirming the payment. Otherwise, your customer will be redirected to
-    // your `return_url`. For some payment methods like iDEAL, your customer will
-    // be redirected to an intermediate site first to authorize the payment, then
-    // redirected to the `return_url`.
     if (error.type === "card_error" || error.type === "validation_error") {
       setMessage(error.message);
     } else {
@@ -53,10 +51,18 @@ function CheckoutForm() {
     layout: "tabs",
   };
 
+  const addressElementOptions: StripeAddressElementOptions = {
+    mode: "shipping",
+    fields: {
+      phone: "always",
+    },
+    display: { name: "split" },
+  };
+
   return (
     <div id="checkout-page">
       <form id="payment-form" onSubmit={handleSubmit}>
-        <AddressElement options={{ mode: "shipping" }} />
+        <AddressElement options={addressElementOptions} />
         <PaymentElement id="payment-element" options={paymentElementOptions} />
         <button disabled={isLoading || !stripe || !elements} id="submit">
           <span id="button-text">

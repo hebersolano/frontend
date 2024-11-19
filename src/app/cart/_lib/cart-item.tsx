@@ -16,9 +16,8 @@ function CartItem({ product }: { product: ProductCartItem }) {
   useEffect(() => {
     if (product.quantity === quantity) return;
     updateQuantity(product.documentId, quantity);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [quantity]);
-
-  console.count("render");
 
   return (
     <li className="flex gap-6 border-b py-4">
@@ -51,7 +50,7 @@ function CartItem({ product }: { product: ProductCartItem }) {
             </Button>
           </div>
           <QuantitySelector
-            size="small"
+            size="sm"
             quantity={quantity}
             setQuantity={setQuantity}
           />

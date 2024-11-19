@@ -29,8 +29,6 @@ function ProductTableRow({ product }: { product: ProductCartItem }) {
       <TableCell className="">
         <button
           onClick={removeItem.bind(null, product.id)}
-          // size="sm"
-          // variant="outline"
           className="aspect-square rounded-full border p-1 sm:p-2"
         >
           <X className="h-4 w-4" />

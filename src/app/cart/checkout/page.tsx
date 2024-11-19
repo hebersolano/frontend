@@ -1,8 +1,8 @@
 "use client";
 import { HeadingH2 } from "@/components/ui/typography";
-import CheckoutForm from "./checkout-form";
-import ElementsProvider from "./elements-provider";
-import OrderContent from "./order-content";
+import CheckoutForm from "./_lib/checkout-form";
+import ElementsProvider from "./_lib/elements-provider";
+import OrderContent from "./_lib/order-content";
 
 function CheckoutPage() {
   return (

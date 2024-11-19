@@ -6,7 +6,10 @@
 
 - [x] Change serif font
 - [] Stripe custom payment flow [link](https://docs.stripe.com/payments/quickstart?client=react)
-  - [] Server: Create a [Payment intent](https://docs.stripe.com/api/payment_intents) endpoint
+  - [x] Server: Create a [Payment intent](https://docs.stripe.com/api/payment_intents) endpoint
+  - [x] Client: Configure stripe elements provider, and Address and Payment element
+  - [ ] Handle success and error payment
+  - [ ] Style form to meet theme
 
 ### Pages
 
