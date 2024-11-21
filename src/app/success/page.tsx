@@ -1,37 +1,60 @@
-import { buttonVariants } from "@/components/ui/button";
-import Image from "next/image";
-import Link from "next/link";
+"use client";
+
+import { notFound, useSearchParams } from "next/navigation";
+import { useEffect, useRef } from "react";
+
+import useCartStore from "@/hooks/use-cart-store";
+import { getCookie, setCookie } from "@/lib/cookie";
+import LoadingPage from "../loading";
+import SuccessMessage from "./_lib/success-message";
+
+// http://localhost:3000/success?payment_intent=pi_3QNL5QJ5QluLMJOg0LfUKYut&payment_intent_client_secret=pi_3QNJOlJ5QluLMJOg0LR8humA_secret_SRgDBeiuG2WKaq6hzxzCLk51V&redirect_status=succeeded
 
 function SuccessPage() {
-  return (
-    <div className="mx-auto max-w-screen-xl px-4">
-      <div className="mt-36 flex flex-col-reverse gap-16 sm:flex-row">
-        <div className="flex w-1/2 justify-center sm:min-w-[400px]">
-          <Image
-            src="/doodles/DrawKit-onlineshopping-Illustration-09.svg"
-            alt="success"
-            width={500}
-            height={500}
-            className=""
-          />
-        </div>
-        <div className="w-1/2">
-          <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl">
-            Gracias por tu compra
-          </h1>
-          <p className="my-3">
-            En breve, nuestro equipo se pondrá en contácto con tigo para
-            informarte de los detalles del envio.
-          </p>
-          <p className="my-3">Gracias por confiar en nuestros productos</p>
-          <p className="my-3">¡Disfruta del café!</p>
-          <Link href="/" className={buttonVariants()}>
-            Volver a la tienda
-          </Link>
-        </div>
+  const isSucceeded = useRef(false);
+  const searchParams = useSearchParams();
+  const { removeAll } = useCartStore();
+
+  const redirectStatus = searchParams.get("redirect_status");
+  const paymentIntent = searchParams.get("payment_intent");
+
+  useEffect(() => {
+    if (
+      !redirectStatus ||
+      redirectStatus !== "succeeded" ||
+      isSucceeded.current
+    )
+      return;
+
+    const payIntCk = JSON.parse(getCookie("stripe_cs") || "{}");
+
+    console.log(redirectStatus, "status");
+    //TODO: handle redirect status error
+
+    if (payIntCk.id !== paymentIntent) {
+      setCookie("stripe_cs", "", 0);
+      notFound();
+    }
+
+    isSucceeded.current = true;
+    console.log("succeed authentication");
+    setCookie("stripe_cs", "", 0);
+    removeAll();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  if (!redirectStatus || !paymentIntent) notFound();
+
+  if (redirectStatus !== "succeeded") return <p>There was an error</p>;
+
+  if (isSucceeded.current)
+    return (
+      <div className="mx-auto max-w-screen-xl px-4">
+        {isSucceeded.current && <SuccessMessage />}
       </div>
-    </div>
-  );
+    );
+
+  return <LoadingPage text="Procesando" />;
 }
 
 export default SuccessPage;

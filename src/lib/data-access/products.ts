@@ -6,7 +6,7 @@ export async function getProductBySlug(slug: string): Promise<Product> {
   const res = await api.get("/products", {
     params: {
       "filters[slug][$eq]": slug,
-      "populate[images]": "*",
+      populate: "images",
       // "populate[category][fields]": "slug",
     },
   });

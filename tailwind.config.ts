@@ -1,5 +1,6 @@
 import type { Config } from "tailwindcss";
 import * as defaultTheme from "tailwindcss/defaultTheme";
+import * as tw_animate from "tailwindcss-animate";
 
 const config: Config = {
   darkMode: ["class"],
@@ -10,6 +11,12 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      height: {
+        screen: "calc(100vh - 4rem)",
+      },
+      minHeight: {
+        screen: "calc(100vh - 4rem)",
+      },
       fontFamily: {
         serif: ["var(--font-playfair)", ...defaultTheme.fontFamily.serif],
       },
@@ -62,7 +69,7 @@ const config: Config = {
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [tw_animate],
 };
 
 export default config;

@@ -12,7 +12,7 @@ export function HeadingH1({ children }: typography) {
 
 export function HeadingH2({ children }: typography) {
   return (
-    <h2 className="scroll-m-20 border-b pb-2 font-serif text-3xl font-semibold tracking-tight first:mt-0">
+    <h2 className="scroll-m-20 pb-2 font-serif text-3xl font-semibold tracking-tight first:mt-0">
       {children}
     </h2>
   );

@@ -60,7 +60,7 @@ const useCartStore = create<CartState>()(
       },
 
       removeAll() {
-        set({ items: [] });
+        set({ items: [], cartLength: 0 });
       },
     }),
     { name: "cart-storage", storage: createJSONStorage(() => localStorage) },

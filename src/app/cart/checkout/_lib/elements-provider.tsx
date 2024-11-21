@@ -1,5 +1,6 @@
 "use client";
 
+import { useTotalPrice } from "@/hooks/little-hooks";
 import useCartStore from "@/hooks/use-cart-store";
 import { getCookie } from "@/lib/cookie";
 import { getPaymentIntent } from "@/lib/stripe";
@@ -15,8 +16,7 @@ function ElementsProvider({
   children: JSX.Element | JSX.Element[];
 }) {
   const { items } = useCartStore();
-  const totalPrice =
-    items.reduce((prev, curr) => prev + curr.price * curr.quantity, 0) * 100;
+  const totalPrice = useTotalPrice(items);
 
   const [clientSecret, setClientSecret] = useState<string | null>();
 
@@ -24,7 +24,7 @@ function ElementsProvider({
     const cs = getCookie("stripe_cs");
     if (cs) {
       const payIntCk = JSON.parse(cs);
-      if (payIntCk.amount !== totalPrice) {
+      if (payIntCk.amount && payIntCk.amount !== totalPrice) {
         // update payment intent if total price change
         getPaymentIntent(totalPrice).then((data) => setClientSecret(data));
         return;

@@ -9,16 +9,14 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
+import { useTotalPrice } from "@/hooks/little-hooks";
 import useCartStore from "@/hooks/use-cart-store";
 import { formatPrice } from "@/lib/utils";
 import { X } from "lucide-react";
 
 function OrderContent() {
   const { items } = useCartStore();
-  const totalPrice = items.reduce(
-    (prev, curr) => prev + curr.price * curr.quantity,
-    0,
-  );
+  const totalPrice = useTotalPrice(items);
 
   return (
     <Table className="text-base">

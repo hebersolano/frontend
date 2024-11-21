@@ -1,14 +1,14 @@
 "use client";
 
 import {
-  PaymentElement,
-  useStripe,
-  useElements,
   AddressElement,
+  PaymentElement,
+  useElements,
+  useStripe,
 } from "@stripe/react-stripe-js";
 import {
-  StripePaymentElementOptions,
   StripeAddressElementOptions,
+  StripePaymentElementOptions,
 } from "@stripe/stripe-js";
 import { FormEventHandler, useState } from "react";
 import "./checkout.css";
@@ -19,6 +19,7 @@ function CheckoutForm() {
 
   const [message, setMessage] = useState<string | undefined>(undefined);
   const [isLoading, setIsLoading] = useState(false);
+
 
   const handleSubmit: FormEventHandler<HTMLFormElement> = async (e) => {
     e.preventDefault();
@@ -34,7 +35,7 @@ function CheckoutForm() {
     const { error } = await stripe.confirmPayment({
       elements,
       confirmParams: {
-        return_url: "http://localhost:3000/complete",
+        return_url: "http://localhost:3000/success",
       },
     });
 
