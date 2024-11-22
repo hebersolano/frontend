@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import useCartStore from "@/hooks/use-cart-store";
 import type { Product } from "@/types/product";
 import { useState } from "react";
-import QuantitySelector from "../../../../components/store/QuantitySelector";
+import QuantitySelector from "../../../../../components/store/QuantitySelector";
 import BookmarkProduct from "./bookmark-product";
 
 function ProductButtons({ product }: { product: Product }) {

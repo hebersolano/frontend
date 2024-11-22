@@ -1,6 +1,6 @@
 "use client";
 
-import { filterProducts } from "@/app/category/[slug]/_lib/helpers";
+import { filterProducts } from "@/app/(normal)/category/[slug]/_lib/helpers";
 import { getProductByCategory } from "@/lib/data-access/products";
 import { useSearchParams } from "next/navigation";
 import useSWR from "swr";

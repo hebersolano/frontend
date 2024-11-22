@@ -1,4 +1,3 @@
-import { Button, buttonVariants } from "@/components/ui/button";
 import {
   Table,
   TableBody,
@@ -7,15 +6,13 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { HeadingH3 } from "@/components/ui/typography";
-import { formatPrice } from "@/lib/utils";
-import ProductTableRow from "./product-table-row";
-import { ProductCartItem } from "@/types/product";
 import { useTotalPrice } from "@/hooks/little-hooks";
-import { useRouter } from "next/navigation";
+import { formatPrice } from "@/lib/utils";
+import { ProductCartItem } from "@/types/product";
 import Link from "next/link";
+import ProductTableRow from "./product-table-row";
 
 function ProductTable({ items }: { items: ProductCartItem[] }) {
-  const router = useRouter();
   const totalPrice = useTotalPrice(items);
 
   return (

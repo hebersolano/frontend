@@ -1,12 +1,10 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
 import { Playfair_Display } from "next/font/google";
+import localFont from "next/font/local";
 
-import "./globals.css";
-import SiteHeader from "@/components/layout/site-header";
-import SiteFooter from "@/components/layout/site-footer";
-import { siteConfig } from "@/config/siteConfig";
 import { Toaster } from "@/components/ui/toaster";
+import { siteConfig } from "@/config/siteConfig";
+import "./globals.css";
 
 const playfairDisplay = Playfair_Display({
   subsets: ["latin"],
@@ -82,9 +80,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${playfairDisplay.variable} text-foreground antialiased`}
       >
-        <SiteHeader />
-        <main className="relative flex min-h-screen flex-col">{children}</main>
-        <SiteFooter />
+        {children}
         <Toaster />
       </body>
     </html>
