@@ -1,11 +1,12 @@
 "use client";
 
-import Link from "next/link";
-import { UserAuthForm } from "./user-auth-form";
 import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import Link from "next/link";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useEffect } from "react";
+import { UserRegistrationForm } from "./user-auth-form";
+import OathButton from "./oauth-auth-button";
 
 const content = {
   login: {
@@ -72,7 +73,9 @@ function AuthFormContainer() {
             </p>
           </div>
 
-          <UserAuthForm />
+          <UserRegistrationForm mode={mode} />
+
+          <OathButton isLoading={false} />
 
           {/* <p className="px-8 text-center text-sm text-muted-foreground">
             By clicking continue, you agree to our{" "}
