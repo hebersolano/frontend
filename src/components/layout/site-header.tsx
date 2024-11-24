@@ -23,7 +23,7 @@ function SiteHeader() {
           <nav className="flex items-center">
             <ShoppingCartButton />
             <HeartButton />
-            <Link href="/user">
+            <Link href="/auth">
               <div
                 className={cn(
                   buttonVariants({

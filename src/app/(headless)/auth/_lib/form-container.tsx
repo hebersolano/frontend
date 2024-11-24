@@ -8,6 +8,7 @@ import { useEffect } from "react";
 import { UserRegistrationForm } from "./user-auth-form";
 import OathButton from "./oauth-auth-button";
 import LoadingPage from "@/app/loading";
+import { ArrowLeft } from "lucide-react";
 
 const content = {
   login: {
@@ -63,6 +64,15 @@ function AuthFormContainer() {
         )}
       >
         {content[mode].link.label}
+      </Link>
+      <Link
+        href="/"
+        className={cn(
+          buttonVariants({ variant: "ghost" }),
+          "fixed left-4 top-4 lg:hidden",
+        )}
+      >
+        <ArrowLeft height={4} width={4} />
       </Link>
 
       {/* form container */}

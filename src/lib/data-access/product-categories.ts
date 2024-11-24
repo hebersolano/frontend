@@ -1,5 +1,5 @@
 import { Category } from "@/types/product";
-import { api } from "../axios";
+import { api, apiStatic } from "../axios";
 
 export async function getProductCategories() {
   const res = await api.get("/categories", {
@@ -22,7 +22,7 @@ export async function getProductCategoryBySlug(
 }
 
 export async function getProductCategoriesSlug() {
-  const res = await api.get("/categories", {
+  const res = await apiStatic.get("/categories", {
     params: {
       fields: "slug",
     },

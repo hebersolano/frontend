@@ -13,8 +13,10 @@
   - [ ] Style form to meet theme
   - [ ] Configure success page: verify client and payment, clear cookies and cart
 - [ ] Authentication and authorization
-  - [ ] Auth page
-  - [ ] Login and Sign up form
+  - [x] Auth page
+  - [x] Login and Sign up form
+  - [ ] Zustand [Auth Store](https://doichevkostia.dev/blog/authentication-store-with-zustand/)
+  - [ ] Refresh token [strapi](https://strapi.io/blog/how-to-create-a-refresh-token-feature-in-your-strapi-application)
 
 ### Pages
 

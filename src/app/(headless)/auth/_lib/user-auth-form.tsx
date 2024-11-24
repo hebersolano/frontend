@@ -11,10 +11,9 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import useUserStore from "@/hooks/use-user-store";
+import { useActions } from "@/hooks/auth-store";
 import { loginUser, registerUser } from "@/lib/data-access/auth-access";
 import { authFormSchemas, AuthFormType } from "@/lib/form-schemas";
-import { userDataSchema } from "@/lib/user-schemas";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useRouter } from "next/navigation";
 import {
@@ -28,8 +27,8 @@ type UserAuthFormProps = {
 };
 
 export function UserRegistrationForm({ mode }: UserAuthFormProps) {
-  const { setUser } = useUserStore();
   const { replace } = useRouter();
+  const { initAuthStore } = useActions();
 
   const form = useForm<AuthFormType>({
     resolver: zodResolver(authFormSchemas[mode]),
@@ -44,14 +43,17 @@ export function UserRegistrationForm({ mode }: UserAuthFormProps) {
   const { isSubmitting } = form.formState;
 
   const onSubmit: SubmitHandler<AuthFormType> = (formData) => {
-    console.log(mode);
     console.log(formData);
+
     if (mode === "signup")
       registerUser(formData)
-        .then((user) => {
-          if (!user) return;
-          setUser(userDataSchema.parse(user));
+        .then((data) => {
+          if (!data) return;
+          initAuthStore(data.user, data.jwt);
           replace("/");
+        })
+        .catch((e) => {
+          console.log("sign!!!!!", e);
         })
         .finally(() => {
           form.reset();
@@ -59,10 +61,13 @@ export function UserRegistrationForm({ mode }: UserAuthFormProps) {
 
     if (mode === "login")
       loginUser(formData)
-        .then((user) => {
-          if (!user) return;
-          setUser(userDataSchema.parse(user));
-          // replace("/");
+        .then((data) => {
+          if (!data) return;
+          initAuthStore(data.user, data.jwt);
+          replace("/");
+        })
+        .catch((e) => {
+          console.log("log!!!!!", e);
         })
         .finally(() => {
           form.reset();

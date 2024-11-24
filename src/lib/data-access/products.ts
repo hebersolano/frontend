@@ -1,5 +1,5 @@
 import type { Enum } from "@/types/content-type";
-import { api } from "../axios";
+import { api, apiStatic } from "../axios";
 import { Product } from "@/types/product";
 
 export async function getProductBySlug(slug: string): Promise<Product> {
@@ -15,7 +15,7 @@ export async function getProductBySlug(slug: string): Promise<Product> {
 }
 
 export async function getProductsSlug() {
-  const res = await api.get("/products", {
+  const res = await apiStatic.get("/products", {
     params: {
       fields: "slug",
     },
