@@ -36,28 +36,16 @@ export const SignupFormSchema = z
     message: "Password must match",
     path: ["validatePassword"],
   });
-// .refine(
-//   (data) => {
-//     return (data.password.match(/[A-Z]/g) || []).length >= 3;
-//   },
-//   {
-//     message: "Must contain at least three uppercase character",
-//     path: ["password"],
-//   },
-// );
+
+export type SignupFormTypes = z.infer<typeof SignupFormSchema>;
 
 export const LoginFormSchema = z.object({
-  username: z
-    .string()
-    .min(2)
-    .max(25)
-    .regex(/^[\w]$/, "No special characters allowed")
-    .toLowerCase(),
+  email: z.string().email(),
   password: z.string().min(8),
 });
 
-export type SignupFormTypes = z.infer<typeof SignupFormSchema>;
 export type LoginFormTypes = z.infer<typeof LoginFormSchema>;
+
 export type AuthFormType = SignupFormTypes | LoginFormTypes;
 
 export const authFormSchemas = {

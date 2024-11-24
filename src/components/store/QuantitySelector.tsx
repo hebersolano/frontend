@@ -8,7 +8,7 @@ import type { Dispatch, SetStateAction } from "react";
 type Props = {
   quantity: number;
   setQuantity: Dispatch<SetStateAction<number>>;
-  size: "sm" | "default";
+  size?: "sm" | "default";
   className?: string;
 };
 

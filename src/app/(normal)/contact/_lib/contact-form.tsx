@@ -14,7 +14,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 
-import { ContactFormSchema, type ContactFormTypes } from "@/lib/schemas";
+import { ContactFormSchema, type ContactFormTypes } from "@/lib/form-schemas";
 
 function ContactForm() {
   const form = useForm<ContactFormTypes>({

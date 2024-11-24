@@ -1,7 +1,8 @@
 import { Icons } from "@/components/icons";
 import { Button } from "@/components/ui/button";
 
-function OathButton({ isLoading }: { isLoading: boolean }) {
+function OathButton({ mode, isLoading }: { mode: string; isLoading: boolean }) {
+  console.log(mode);
   return (
     <>
       <div className="relative">
@@ -10,7 +11,7 @@ function OathButton({ isLoading }: { isLoading: boolean }) {
         </div>
         <div className="relative flex justify-center text-xs uppercase">
           <span className="bg-background px-2 text-muted-foreground">
-            Or continue with
+            O continua con
           </span>
         </div>
       </div>
@@ -18,9 +19,9 @@ function OathButton({ isLoading }: { isLoading: boolean }) {
         {isLoading ? (
           <Icons.spinner className="mr-2 h-4 w-4 animate-spin" />
         ) : (
-          <Icons.instagram className="mr-2 h-4 w-4" />
+          <Icons.google className="mr-1 h-4 w-4" />
         )}{" "}
-        GitHub
+        Google
       </Button>
     </>
   );

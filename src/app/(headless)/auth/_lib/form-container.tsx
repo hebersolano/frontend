@@ -7,6 +7,7 @@ import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useEffect } from "react";
 import { UserRegistrationForm } from "./user-auth-form";
 import OathButton from "./oauth-auth-button";
+import LoadingPage from "@/app/loading";
 
 const content = {
   login: {
@@ -16,6 +17,9 @@ const content = {
     },
     heading: "Bienvenido de nuevo",
     subheadig: "Ingresa tus datos para continuar",
+    Oauth: {
+      btnLabel: "Registrate",
+    },
   },
   signup: {
     link: {
@@ -27,12 +31,12 @@ const content = {
   },
 };
 
-type ModeT = "signup" | "login" | null;
+type AuthFormModeT = "signup" | "login" | null;
 
 function AuthFormContainer() {
   const pathname = usePathname();
   const searchParams = useSearchParams();
-  const mode = searchParams.get("m") as ModeT;
+  const mode = searchParams.get("m") as AuthFormModeT;
   const { replace } = useRouter();
 
   function addSearchParam(name: string, value: string) {
@@ -47,7 +51,7 @@ function AuthFormContainer() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  if (!mode) return null;
+  if (!mode || (mode !== "signup" && mode !== "login")) return <LoadingPage />;
 
   return (
     <>
@@ -75,7 +79,7 @@ function AuthFormContainer() {
 
           <UserRegistrationForm mode={mode} />
 
-          <OathButton isLoading={false} />
+          <OathButton mode={mode} isLoading={false} />
 
           {/* <p className="px-8 text-center text-sm text-muted-foreground">
             By clicking continue, you agree to our{" "}

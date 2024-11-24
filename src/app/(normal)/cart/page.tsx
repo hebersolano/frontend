@@ -1,15 +1,11 @@
 "use client";
 
 import { HeadingH1 } from "@/components/ui/typography";
-import { useTotalPrice } from "@/hooks/little-hooks";
 import useCartStore from "@/hooks/use-cart-store";
-import { useRouter } from "next/navigation";
 import ProductTable from "./_lib/product-table";
 
 function CartPage() {
-  const router = useRouter();
   const { items, cartLength } = useCartStore();
-  const totalPrice = useTotalPrice(items);
 
   if (cartLength <= 0) return <div>Empty cart</div>;
 

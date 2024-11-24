@@ -56,7 +56,6 @@ const useCartStore = create<CartState>()(
           items: [...currentItems.filter((item) => item.id !== id)],
           cartLength: currentItems.length - 1,
         });
-        toast({ title: "Producto eliminado del carrito" });
       },
 
       removeAll() {

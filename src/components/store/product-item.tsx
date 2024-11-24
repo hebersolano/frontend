@@ -24,7 +24,7 @@ function ProductItem({ product }: { product: Product }) {
             <IconLink href={"/product/" + product.slug}>
               <Expand />
             </IconLink>
-            <IconButton onClink={() => addItem(product)}>
+            <IconButton onClink={() => addItem({ ...product, quantity: 1 })}>
               <ShoppingCart />
             </IconButton>
           </div>
