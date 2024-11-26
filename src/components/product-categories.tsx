@@ -40,7 +40,7 @@ function ProductCategoryItem({ cat }: { cat: Category }) {
   return (
     <div key={cat.documentId} className="w-[180px] space-y-2">
       <Link
-        href={"/category/" + cat.slug}
+        href={"/shop?cat=" + cat.slug}
         className="block aspect-square h-[140px] w-[140px] cursor-pointer overflow-hidden rounded-md md:h-[180px] md:w-[180px]"
       >
         <Image

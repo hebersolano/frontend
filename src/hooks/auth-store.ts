@@ -1,8 +1,6 @@
 import { createStore } from "zustand/vanilla";
 import { createJSONStorage, persist } from "zustand/middleware";
 import { z } from "zod";
-// import { jwtDecode } from "jwt-decode";
-// import CookieService from "./cookie-service";
 
 import { useStore } from "zustand";
 
@@ -17,7 +15,7 @@ type UserData = z.infer<typeof UserDataSchema>;
 
 type AuthStore = {
   userData: UserData | undefined;
-
+  isAuthenticated: boolean;
   accessToken: string | undefined;
   accessTokenData: string | undefined;
 
@@ -30,13 +28,11 @@ type AuthStore = {
   };
 };
 
-// export const decodeAccessToken = (accessToken: string) =>
-//   TokenDataSchema.parse(jwtDecode<TokenData>(accessToken));
-
 export const authStore = createStore<AuthStore>()(
   persist(
     (set, get) => ({
       userData: undefined,
+      isAuthenticated: false,
       accessToken: undefined,
       accessTokenData: undefined,
 
@@ -44,6 +40,7 @@ export const authStore = createStore<AuthStore>()(
         setAccessToken: (accessToken: string | undefined) => {
           set({
             accessToken,
+            isAuthenticated: true,
           });
         },
         setUserData: (userData) => {
@@ -62,6 +59,7 @@ export const authStore = createStore<AuthStore>()(
         clearTokens: () =>
           set({
             userData: undefined,
+            isAuthenticated: false,
             accessToken: undefined,
             accessTokenData: undefined,
           }),
@@ -85,6 +83,8 @@ type Params<U> = Parameters<typeof useStore<typeof authStore, U>>;
 // Selectors
 const accessUserDataSelector = (state: ExtractState<typeof authStore>) =>
   state.userData;
+const accessIsAuthSelector = (state: ExtractState<typeof authStore>) =>
+  state.isAuthenticated;
 const accessTokenSelector = (state: ExtractState<typeof authStore>) =>
   state.accessToken;
 const accessTokenDataSelector = (state: ExtractState<typeof authStore>) =>
@@ -95,6 +95,8 @@ const actionsSelector = (state: ExtractState<typeof authStore>) =>
 
 // getters
 export const getUserData = () => accessUserDataSelector(authStore.getState());
+export const getIsAuthenticated = () =>
+  accessIsAuthSelector(authStore.getState());
 export const getAccessToken = () => accessTokenSelector(authStore.getState());
 export const getAccessTokenData = () =>
   accessTokenDataSelector(authStore.getState());
@@ -106,6 +108,7 @@ function useAuthStore<U>(selector: Params<U>[1]) {
 }
 
 export const useUserData = () => useAuthStore(accessTokenSelector);
+export const useIsAuthenticated = () => useAuthStore(accessIsAuthSelector);
 export const useAccessToken = () => useAuthStore(accessTokenSelector);
 export const useAccessTokenData = () => useAuthStore(accessTokenDataSelector);
 export const useActions = () => useAuthStore(actionsSelector);

@@ -43,35 +43,33 @@ export function UserRegistrationForm({ mode }: UserAuthFormProps) {
   const { isSubmitting } = form.formState;
 
   const onSubmit: SubmitHandler<AuthFormType> = (formData) => {
-    console.log(formData);
+    try {
+      console.log(formData);
 
-    if (mode === "signup")
-      registerUser(formData)
-        .then((data) => {
-          if (!data) return;
-          initAuthStore(data.user, data.jwt);
-          replace("/");
-        })
-        .catch((e) => {
-          console.log("sign!!!!!", e);
-        })
-        .finally(() => {
-          form.reset();
-        });
+      if (mode === "signup")
+        registerUser(formData)
+          .then((data) => {
+            if (!data) return;
+            initAuthStore(data.user, data.jwt);
+            replace("/");
+          })
+          .finally(() => {
+            form.reset();
+          });
 
-    if (mode === "login")
-      loginUser(formData)
-        .then((data) => {
-          if (!data) return;
-          initAuthStore(data.user, data.jwt);
-          replace("/");
-        })
-        .catch((e) => {
-          console.log("log!!!!!", e);
-        })
-        .finally(() => {
-          form.reset();
-        });
+      if (mode === "login")
+        loginUser(formData)
+          .then((data) => {
+            if (!data) return;
+            initAuthStore(data.user, data.jwt);
+            replace("/");
+          })
+          .finally(() => {
+            form.reset();
+          });
+    } catch (error) {
+      console.error("Error auth-form", error);
+    }
   };
 
   const onError: SubmitErrorHandler<AuthFormType> = (e) => {

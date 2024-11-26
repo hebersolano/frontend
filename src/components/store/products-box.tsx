@@ -1,11 +1,12 @@
 "use client";
 
-import { filterProducts } from "@/app/(normal)/category/[slug]/_lib/helpers";
 import { getProductByCategory } from "@/lib/data-access/products";
 import { useSearchParams } from "next/navigation";
 import useSWR from "swr";
 import ProductItem2 from "./product-item-02";
 import SkProductItem from "./sk-product-item";
+import { Product } from "@/types/product";
+import { filterProducts } from "@/app/(normal)/shop/_lib/helpers";
 
 function ProductsBox({ slug }: { slug?: string }) {
   const params = Object.fromEntries(useSearchParams());
@@ -23,11 +24,9 @@ function ProductsBox({ slug }: { slug?: string }) {
       <SkProductItem key={idx} />
     ));
 
-  console.log(products);
-
   const filteredProducts = filterProducts(params, products);
 
-  return filteredProducts.map((product) => (
+  return filteredProducts.map((product: Product) => (
     <ProductItem2 key={product.id} product={product} />
   ));
 }
