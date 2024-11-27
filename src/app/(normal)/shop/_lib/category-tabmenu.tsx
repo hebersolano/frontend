@@ -29,6 +29,7 @@ function CategoryTabMenu() {
         if (btn.value === category) btn.dataset.state = "active";
       }
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const handleClick: MouseEventHandler<HTMLDivElement | HTMLButtonElement> = (

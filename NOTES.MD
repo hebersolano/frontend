@@ -10,3 +10,8 @@ normalization
 
 cors
 https://stackoverflow.com/questions/45975135/access-control-origin-header-error-using-axios
+
+# Zustand
+
+1. [actions outside store](https://zustand.docs.pmnd.rs/guides/practice-with-no-store-actions)
+2. [state slices hooks](https://github.com/pmndrs/zustand/tree/2b29d736841dc7b3fd7dec8cbfea50fee7295974#selecting-multiple-state-slices)

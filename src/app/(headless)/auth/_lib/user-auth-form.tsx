@@ -11,7 +11,7 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { useActions } from "@/hooks/auth-store";
+import { getAuthActions } from "@/hooks/auth-store";
 import { loginUser, registerUser } from "@/lib/data-access/auth-access";
 import { authFormSchemas, AuthFormType } from "@/lib/form-schemas";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -26,9 +26,10 @@ type UserAuthFormProps = {
   mode: "login" | "signup";
 };
 
+const initAuthStore = getAuthActions("initAuthStore");
+
 export function UserRegistrationForm({ mode }: UserAuthFormProps) {
   const { replace } = useRouter();
-  const { initAuthStore } = useActions();
 
   const form = useForm<AuthFormType>({
     resolver: zodResolver(authFormSchemas[mode]),

@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios, { InternalAxiosRequestConfig } from "axios";
 import { getAccessToken } from "@/hooks/auth-store";
 
 // axios instance to fetch from client side
@@ -7,12 +7,7 @@ export const api = axios.create({
 });
 
 api.interceptors.request.use(function (config) {
-  // Do something before request is sent
-  if (config.headers.Authorization) return config;
-  const token = getAccessToken();
-  if (!token) return config;
-  api.defaults.headers.common["Authorization"] = "Bearer " + token;
-  config.headers.Authorization = "Bearer " + token;
+  console.log("axios auth:", config.headers.Authorization);
   return config;
 });
 
@@ -20,3 +15,25 @@ api.interceptors.request.use(function (config) {
 export const apiStatic = axios.create({
   baseURL: process.env.NEXT_PUBLIC_API_URL + "/api",
 });
+
+function authInterceptor(config: InternalAxiosRequestConfig) {
+  // Do something before request is sent
+  if (config.headers.Authorization) return config;
+  const token = getAccessToken();
+  if (!token) return config;
+  api.defaults.headers.common["Authorization"] = "Bearer " + token;
+  config.headers.Authorization = "Bearer " + token;
+  return config;
+}
+
+let interceptorId: number;
+
+export function addAuthInterceptor() {
+  interceptorId = api.interceptors.request.use(authInterceptor);
+}
+
+export function removeAuthInterceptor() {
+  console.log("interceptor id:", interceptorId);
+  api.defaults.headers.common["Authorization"] = undefined;
+  api.interceptors.request.eject(interceptorId);
+}

@@ -19,16 +19,14 @@ type AuthStore = {
   accessToken: string | undefined;
   accessTokenData: string | undefined;
 
-  actions: {
-    setAccessToken: (accessToken: string | undefined) => void;
-    setUserData: (userData: UserData | undefined) => void;
-    // set tokens on the app start
-    initAuthStore: (user?: UserData, accessToken?: string) => void;
-    clearTokens: () => void;
-  };
+  setAccessToken: (accessToken: string | undefined) => void;
+  setUserData: (userData: UserData | undefined) => void;
+  clearTokens: () => void;
+  // set tokens on the app start
+  initAuthStore: (user?: UserData, accessToken?: string) => void;
 };
 
-export const authStore = createStore<AuthStore>()(
+const authStore = createStore<AuthStore>()(
   persist(
     (set, get) => ({
       userData: undefined,
@@ -36,33 +34,32 @@ export const authStore = createStore<AuthStore>()(
       accessToken: undefined,
       accessTokenData: undefined,
 
-      actions: {
-        setAccessToken: (accessToken: string | undefined) => {
-          set({
-            accessToken,
-            isAuthenticated: true,
-          });
-        },
-        setUserData: (userData) => {
-          set({
-            userData: UserDataSchema.parse(userData),
-          });
-        },
+      setAccessToken(accessToken: string | undefined) {
+        set({
+          accessToken,
+          isAuthenticated: true,
+        });
+      },
 
-        initAuthStore: (userData, accessToken) => {
-          console.log("init auth action");
-          const { setAccessToken, setUserData } = get().actions;
-          setAccessToken(accessToken);
-          setUserData(userData);
-        },
+      setUserData(userData) {
+        set({
+          userData: UserDataSchema.parse(userData),
+        });
+      },
 
-        clearTokens: () =>
-          set({
-            userData: undefined,
-            isAuthenticated: false,
-            accessToken: undefined,
-            accessTokenData: undefined,
-          }),
+      initAuthStore(userData, accessToken) {
+        const { setAccessToken, setUserData } = get();
+        setAccessToken(accessToken);
+        setUserData(userData);
+      },
+
+      clearTokens() {
+        set({
+          userData: undefined,
+          isAuthenticated: false,
+          accessToken: undefined,
+          accessTokenData: undefined,
+        });
       },
     }),
     { name: "auth-storage", storage: createJSONStorage(() => localStorage) },
@@ -90,25 +87,29 @@ const accessTokenSelector = (state: ExtractState<typeof authStore>) =>
 const accessTokenDataSelector = (state: ExtractState<typeof authStore>) =>
   state.accessTokenData;
 
-const actionsSelector = (state: ExtractState<typeof authStore>) =>
-  state.actions;
-
 // getters
+// Getting non-reactive fresh state
 export const getUserData = () => accessUserDataSelector(authStore.getState());
 export const getIsAuthenticated = () =>
   accessIsAuthSelector(authStore.getState());
 export const getAccessToken = () => accessTokenSelector(authStore.getState());
 export const getAccessTokenData = () =>
   accessTokenDataSelector(authStore.getState());
-export const getActions = () => actionsSelector(authStore.getState());
+
+type AuthType = "clearTokens" | "initAuthStore";
+
+export const getAuthActions = (action: AuthType) => {
+  return authStore.getState()[action];
+};
 
 // Hooks
 function useAuthStore<U>(selector: Params<U>[1]) {
   return useStore(authStore, selector);
 }
 
-export const useUserData = () => useAuthStore(accessTokenSelector);
+export const useUserData = () => useAuthStore(accessUserDataSelector);
 export const useIsAuthenticated = () => useAuthStore(accessIsAuthSelector);
 export const useAccessToken = () => useAuthStore(accessTokenSelector);
 export const useAccessTokenData = () => useAuthStore(accessTokenDataSelector);
-export const useActions = () => useAuthStore(actionsSelector);
+export const useAuthActions = (action: AuthType) =>
+  useStore(authStore, (state: ExtractState<typeof authStore>) => state[action]);

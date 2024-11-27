@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { api } from "../axios";
+import { addAuthInterceptor, api } from "../axios";
 import { AuthFormType } from "../form-schemas";
 import { toast } from "@/hooks/use-toast";
 import { AxiosError, isAxiosError } from "axios";
@@ -34,6 +34,7 @@ export async function registerUser(data: AuthFormType) {
     );
 
     console.log("res register", res);
+    addAuthInterceptor();
     api.defaults.headers.common["Authorization"] = "Bearer " + res.data.jwt;
     return res.data;
   } catch (error) {
