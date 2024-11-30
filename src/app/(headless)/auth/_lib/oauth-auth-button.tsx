@@ -1,8 +1,7 @@
 import { Icons } from "@/components/icons";
 import { Button } from "@/components/ui/button";
 
-function OathButton({ mode, isLoading }: { mode: string; isLoading: boolean }) {
-  console.log(mode);
+function OathButton({ isLoading }: { isLoading: boolean }) {
   return (
     <>
       <div className="relative">

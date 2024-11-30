@@ -9,7 +9,7 @@ export default function AppLayout({ children }: AppLayoutProps) {
   return (
     <>
       <SiteHeader />
-      <main className="min-h-noHeader relative flex flex-col">{children}</main>
+      <main className="min-h-noHeader">{children}</main>
       <SiteFooter />
     </>
   );

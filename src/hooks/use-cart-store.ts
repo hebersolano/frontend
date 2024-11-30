@@ -39,7 +39,6 @@ const useCartStore = create<CartState>()(
       },
 
       updateQuantity(id: string, quantity: number) {
-        console.log(id, quantity);
         const { items: currentItems } = get();
         const items = currentItems.map((item) =>
           item.documentId === id ? { ...item, quantity } : item,

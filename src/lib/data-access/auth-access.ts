@@ -33,7 +33,6 @@ export async function registerUser(data: AuthFormType) {
       RegistrationData.parse(data),
     );
 
-    console.log("res register", res);
     addAuthInterceptor();
     api.defaults.headers.common["Authorization"] = "Bearer " + res.data.jwt;
     return res.data;
@@ -59,7 +58,7 @@ export async function registerUser(data: AuthFormType) {
     }
 
     if (error instanceof Error) console.error("Error", error.message);
-    else console.log(error);
+    else console.error(error);
   }
 }
 
@@ -70,7 +69,7 @@ export function loginUser(data: AuthFormType) {
       password: data.password,
     })
     .then((res) => {
-      console.log("res login", res);
+      addAuthInterceptor();
       api.defaults.headers.common["Authorization"] = "Bearer " + res.data.jwt;
       return res.data;
     })

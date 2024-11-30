@@ -21,8 +21,8 @@ function ProductTable({ items }: { items: ProductCartItem[] }) {
       <div className="my-12 sm:overflow-hidden sm:rounded-md sm:border-x sm:border-t">
         <Table className="">
           {/* <TableCaption>A list of your chosen products.</TableCaption> */}
-          <TableHeader className="hidden bg-muted/50 py-4 sm:table-header-group">
-            <TableRow className="sm:text-lg">
+          <TableHeader className="hidden py-4 sm:table-header-group">
+            <TableRow className="bg-muted hover:bg-muted data-[state=selected]:bg-muted sm:text-lg">
               <TableHead className="px-0"></TableHead>
               <TableHead></TableHead>
               <TableHead>Producto</TableHead>

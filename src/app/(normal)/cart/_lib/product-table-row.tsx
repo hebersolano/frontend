@@ -19,8 +19,6 @@ function ProductTableRow({ product }: { product: ProductCartItem }) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [quantity]);
 
-  console.count("product row");
-
   return (
     <TableRow
       key={product.id}

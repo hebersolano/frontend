@@ -10,8 +10,8 @@ function CartPage() {
   if (cartLength <= 0) return <div>Empty cart</div>;
 
   return (
-    <div className="grow bg-accent">
-      <div className="mx-auto w-full max-w-screen-xl bg-background px-4 py-16 sm:my-16 sm:p-24">
+    <div className="bg-accent py-24">
+      <div className="mx-auto w-full max-w-screen-xl bg-background px-4 sm:p-24">
         <div className="mb-8">
           <HeadingH1>Carrito</HeadingH1>
           {cartLength <= 0 ? "" : <ProductTable items={items} />}

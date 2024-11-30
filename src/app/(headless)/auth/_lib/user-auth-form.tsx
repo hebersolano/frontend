@@ -45,8 +45,6 @@ export function UserRegistrationForm({ mode }: UserAuthFormProps) {
 
   const onSubmit: SubmitHandler<AuthFormType> = (formData) => {
     try {
-      console.log(formData);
-
       if (mode === "signup")
         registerUser(formData)
           .then((data) => {

@@ -6,10 +6,10 @@ export const api = axios.create({
   baseURL: process.env.NEXT_PUBLIC_API_URL + "/api",
 });
 
-api.interceptors.request.use(function (config) {
-  console.log("axios auth:", config.headers.Authorization);
-  return config;
-});
+// api.interceptors.request.use(function (config) {
+//   console.log("axios auth:", config.headers.Authorization);
+//   return config;
+// });
 
 // axios instance when generating static params
 export const apiStatic = axios.create({
@@ -33,7 +33,6 @@ export function addAuthInterceptor() {
 }
 
 export function removeAuthInterceptor() {
-  console.log("interceptor id:", interceptorId);
   api.defaults.headers.common["Authorization"] = undefined;
   api.interceptors.request.eject(interceptorId);
 }

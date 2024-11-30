@@ -7,7 +7,6 @@ export default function cloudinaryLoader({
   width: number;
   quality?: number;
 }) {
-  console.log("loader props", src, width, quality);
   return (
     process.env.NEXT_PUBLIC_CLOUDINARY_URL +
     `/f_auto/c_scale,w_${width}/q_${quality}/${src}`

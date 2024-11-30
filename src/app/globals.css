@@ -10,6 +10,10 @@
   filter: drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4));
 }
 
+/* body {
+  scrollbar-gutter: stable;
+} */
+
 @layer base {
   :root {
     --background: 0 0% 100%;

@@ -37,7 +37,6 @@ export async function checkoutStripe(items: ProductCartItem[]) {
       },
     );
 
-    console.log("res stripe", res);
     await stripe?.redirectToCheckout({
       sessionId: res.data.stripeSession.id,
     });

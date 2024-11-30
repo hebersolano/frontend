@@ -37,7 +37,6 @@ function SuccessPage() {
     }
 
     isSucceeded.current = true;
-    console.log("succeed authentication");
     setCookie("stripe_cs", "", 0);
     removeAll();
     // eslint-disable-next-line react-hooks/exhaustive-deps

@@ -16,7 +16,6 @@ function BookmarkProduct({ product }: { product: Product }) {
     useFavoriteStore();
 
   const isFavorite = isFavoriteItem(product.documentId);
-  console.log("is favorite", isFavorite);
 
   useEffect(() => {
     setMounted(true);

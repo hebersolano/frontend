@@ -1,10 +1,7 @@
-import { ThemeProvider } from "next-themes";
 import { DesktopNav } from "./desktop-nav";
-import HeartButton from "./heart-button";
 import { MobileNav } from "./mobile-nav";
 import ProfileMenu from "./profile-button";
 import ShoppingCartButton from "./shopping-cart-button";
-import ThemeToggle from "./theme-toggle";
 
 function SiteHeader() {
   return (
@@ -16,13 +13,9 @@ function SiteHeader() {
           <div className="w-full flex-1 md:w-auto md:flex-none">
             {/* Search */}
           </div>
-          <nav className="flex items-center">
+          <nav className="flex items-center gap-2">
             <ShoppingCartButton />
-            <HeartButton />
             <ProfileMenu />
-            <ThemeProvider attribute="class" enableSystem={false}>
-              <ThemeToggle />
-            </ThemeProvider>
           </nav>
         </div>
       </div>

@@ -29,6 +29,7 @@ function ContactForm() {
   });
 
   const onSubmit: SubmitHandler<ContactFormTypes> = (formData) => {
+    //TODO: send data to backend
     console.log(formData);
   };
 
