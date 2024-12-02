@@ -8,6 +8,7 @@ export default function SettingsProfilePage() {
     <div className="space-y-6">
       <Profile />
 
+      <Separator />
       <div>
         <h3 className="text-lg font-medium">Appearance</h3>
         <p className="text-sm text-muted-foreground">
@@ -15,7 +16,6 @@ export default function SettingsProfilePage() {
           and night themes.
         </p>
       </div>
-      <Separator />
       <ThemeProvider attribute="class" enableSystem={false}>
         <ThemeSelector />
       </ThemeProvider>

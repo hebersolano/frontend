@@ -2,15 +2,30 @@
 
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { useUserData } from "@/hooks/auth-store";
-import { Mail, MapPin, User } from "lucide-react";
+import { ImageUp, Mail, Pen, User } from "lucide-react";
+import Link from "next/link";
 
 function Profile() {
   const user = useUserData();
   return (
     <section className="">
-      <div className="flex flex-wrap gap-6 rounded-xl border p-8">
+      <div className="relative flex flex-wrap gap-6 rounded-md border p-8">
+        <Link
+          href="/profile/config"
+          className="absolute right-3 top-3 rounded-full bg-gray-100 p-2"
+        >
+          <Pen className="h-4 w-4" />
+        </Link>
+
+        {/* profile photo */}
         <div className="">
-          <div className="flex w-full justify-center">
+          <div className="relative flex w-full justify-center">
+            <Link
+              href="/profile/config"
+              className="absolute -bottom-3 -right-0 z-10 rounded-full bg-gray-100 p-2"
+            >
+              <ImageUp className="h-4 w-4" />
+            </Link>
             <Avatar className="h-24 w-24">
               <AvatarImage
                 className="h-24 w-24"

@@ -21,3 +21,20 @@ export function truncateString(str: string, num: number = 60) {
     return str;
   }
 }
+
+export function imgFileToDataURL(imgFile: File): Promise<string | undefined> {
+  return new Promise((resolve) => {
+    try {
+      const reader = new FileReader();
+      reader.onload = (event) => {
+        const imgDataURL = event?.target?.result;
+        if (typeof imgDataURL === "string") return resolve(imgDataURL);
+        resolve(undefined);
+      };
+
+      reader.readAsDataURL(imgFile);
+    } catch {
+      resolve(undefined);
+    }
+  });
+}
