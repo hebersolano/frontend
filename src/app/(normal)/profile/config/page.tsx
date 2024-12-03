@@ -4,6 +4,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import {
   Form,
@@ -16,10 +17,10 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { ChangeEvent, useRef, useState } from "react";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { User } from "lucide-react";
 import { imgFileToDataURL } from "@/lib/utils";
+import { User } from "lucide-react";
+import { ChangeEvent, useRef } from "react";
+import AvatarForm from "../components/avatar-form";
 
 const profileFormSchema = z.object({
   profile: z.string().optional(),
@@ -65,66 +66,99 @@ export default function ProfileForm() {
   }
 
   return (
-    <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
-        <div className="flex gap-8">
-          <Avatar className="h-24 w-24">
-            <AvatarImage
-              ref={avatarRef}
-              className="h-24 w-24 object-cover"
-              src="https://github.com/shadcn.png"
+    <div>
+      <AvatarForm />
+      <Form {...form}>
+        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+          <div className="flex gap-8">
+            <Avatar className="h-24 w-24">
+              <AvatarImage
+                ref={avatarRef}
+                className="h-24 w-24 object-cover"
+                src="https://github.com/shadcn.png"
+              />
+              <AvatarFallback className="h-24 w-24">
+                <User className="h-6 w-6" />
+              </AvatarFallback>
+            </Avatar>
+            <FormField
+              control={form.control}
+              name="profile"
+              render={({ field }) => {
+                return (
+                  <FormItem className="">
+                    <FormLabel>Photo</FormLabel>
+                    <FormControl>
+                      <Input
+                        {...field}
+                        type="file"
+                        accept="image/*"
+                        onChange={(event: ChangeEvent<HTMLInputElement>) => {
+                          const file = event.target.files?.[0];
+                          field.onChange(event);
+                          form.setValue("file", file);
+                          updateAvatar(file);
+                        }}
+                        className="text-xs font-medium"
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                );
+              }}
             />
-            <AvatarFallback className="h-24 w-24">
-              <User className="h-6 w-6" />
-            </AvatarFallback>
-          </Avatar>
-          <FormField
-            control={form.control}
-            name="profile"
-            render={({ field }) => {
-              return (
-                <FormItem className="">
-                  <FormLabel>Photo</FormLabel>
+          </div>
+          <div className="flex gap-8">
+            <FormField
+              control={form.control}
+              name="firstName"
+              render={({ field }) => (
+                <FormItem className="w-full">
+                  <FormLabel>Nombre</FormLabel>
                   <FormControl>
-                    <Input
-                      {...field}
-                      type="file"
-                      accept="image/*"
-                      onChange={(event: ChangeEvent<HTMLInputElement>) => {
-                        const file = event.target.files?.[0];
-                        field.onChange(event);
-                        form.setValue("file", file);
-                        updateAvatar(file);
-                      }}
-                      className="text-xs font-medium"
-                    />
+                    <Input {...field} className="w-full" />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
-              );
-            }}
-          />
-        </div>
-        <div className="flex gap-8">
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="lastName"
+              render={({ field }) => (
+                <FormItem className="w-full">
+                  <FormLabel>Apellido</FormLabel>
+                  <FormControl>
+                    <Input {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+          </div>
           <FormField
             control={form.control}
-            name="firstName"
+            name="username"
             render={({ field }) => (
-              <FormItem className="w-full">
-                <FormLabel>Nombre</FormLabel>
+              <FormItem>
+                <FormLabel>Username</FormLabel>
                 <FormControl>
-                  <Input {...field} className="w-full" />
+                  <Input {...field} />
                 </FormControl>
+                <FormDescription>
+                  Así será como se mostrará tu nombre en la sección de tu cuenta
+                  y en las valoraciones
+                </FormDescription>
                 <FormMessage />
               </FormItem>
             )}
           />
           <FormField
             control={form.control}
-            name="lastName"
+            name="email"
             render={({ field }) => (
-              <FormItem className="w-full">
-                <FormLabel>Apellido</FormLabel>
+              <FormItem>
+                <FormLabel>Email</FormLabel>
                 <FormControl>
                   <Input {...field} />
                 </FormControl>
@@ -132,54 +166,22 @@ export default function ProfileForm() {
               </FormItem>
             )}
           />
-        </div>
-        <FormField
-          control={form.control}
-          name="username"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Username</FormLabel>
-              <FormControl>
-                <Input {...field} />
-              </FormControl>
-              <FormDescription>
-                Así será como se mostrará tu nombre en la sección de tu cuenta y
-                en las valoraciones
-              </FormDescription>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        <FormField
-          control={form.control}
-          name="email"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Email</FormLabel>
-              <FormControl>
-                <Input {...field} />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        <FormField
-          control={form.control}
-          name="address"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Delivery Address</FormLabel>
-              <FormControl>
-                <Textarea className="resize-none" {...field} />
-              </FormControl>
-
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-
-        <Button type="submit">Update profile</Button>
-      </form>
-    </Form>
+          <FormField
+            control={form.control}
+            name="address"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Delivery Address</FormLabel>
+                <FormControl>
+                  <Textarea className="resize-none" {...field} />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <Button type="submit">Update profile</Button>
+        </form>
+      </Form>
+    </div>
   );
 }

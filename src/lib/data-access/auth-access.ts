@@ -64,13 +64,22 @@ export async function registerUser(data: AuthFormType) {
 
 export function loginUser(data: AuthFormType) {
   return api
-    .post<RegisterResponse>("auth/local", {
-      identifier: data.email,
-      password: data.password,
-    })
+    .post<RegisterResponse>(
+      "auth/local",
+      {
+        identifier: data.email,
+        password: data.password,
+      },
+      {
+        params: {
+          populate: "*",
+        },
+      },
+    )
     .then((res) => {
       addAuthInterceptor();
       api.defaults.headers.common["Authorization"] = "Bearer " + res.data.jwt;
+      console.log("login user", res.data);
       return res.data;
     })
     .catch((error: Error | AxiosError) => {
