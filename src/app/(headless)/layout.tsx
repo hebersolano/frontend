@@ -3,7 +3,5 @@ interface AppLayoutProps {
 }
 
 export default function AppLayout({ children }: AppLayoutProps) {
-  return (
-    <main className="relative flex min-h-screen flex-col">{children}</main>
-  );
+  return <main className="relative flex flex-col">{children}</main>;
 }

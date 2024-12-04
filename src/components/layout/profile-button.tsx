@@ -53,7 +53,9 @@ function ProfileMenu() {
       <DropdownMenuContent>
         <DropdownMenuLabel className="flex items-center gap-2">
           <Avatar>
-            <AvatarImage src="https://github.com/shadcn.png" />
+            <AvatarImage
+              src={process.env.NEXT_PUBLIC_API_URL! + user?.profile?.url}
+            />
             <AvatarFallback>
               {user?.username.slice(0, 1).toLocaleUpperCase()}
             </AvatarFallback>

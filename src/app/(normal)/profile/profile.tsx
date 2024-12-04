@@ -7,9 +7,10 @@ import Link from "next/link";
 
 function Profile() {
   const user = useUserData();
+
   return (
     <section className="">
-      <div className="relative flex flex-wrap gap-6 rounded-md border p-8">
+      <div className="relative flex flex-wrap justify-center gap-6 rounded-md border p-8 md:justify-start">
         <Link
           href="/profile/config"
           className="absolute right-3 top-3 rounded-full bg-gray-100 p-2"
@@ -18,25 +19,17 @@ function Profile() {
         </Link>
 
         {/* profile photo */}
-        <div className="">
-          <div className="relative flex w-full justify-center">
-            <Link
-              href="/profile/config"
-              className="absolute -bottom-3 -right-0 z-10 rounded-full bg-gray-100 p-2"
-            >
-              <ImageUp className="h-4 w-4" />
-            </Link>
-            <Avatar className="h-24 w-24">
-              <AvatarImage
-                className="h-24 w-24"
-                src="https://github.com/shadcn.png"
-              />
-              <AvatarFallback className="h-24 w-24">
-                <User className="h-6 w-6" />
-              </AvatarFallback>
-            </Avatar>
-          </div>
-        </div>
+        <Avatar className="h-24 w-24">
+          <AvatarImage
+            className="h-24 w-24 object-cover"
+            src={process.env.NEXT_PUBLIC_API_URL! + user?.profile?.url}
+          />
+          <AvatarFallback className="h-24 w-24">
+            <User className="h-6 w-6" />
+          </AvatarFallback>
+        </Avatar>
+
+        {/* profile details */}
         <div className="space-y-1">
           <h3 className="text-xl font-semibold leading-normal">
             {user?.username}

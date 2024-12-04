@@ -15,3 +15,40 @@ https://stackoverflow.com/questions/45975135/access-control-origin-header-error-
 
 1. [actions outside store](https://zustand.docs.pmnd.rs/guides/practice-with-no-store-actions)
 2. [state slices hooks](https://github.com/pmndrs/zustand/tree/2b29d736841dc7b3fd7dec8cbfea50fee7295974#selecting-multiple-state-slices)
+
+```
+{
+    "id": 30,
+    "documentId": "wudrti214te0omndsbbi74ij",
+    "name": "madara.jpeg",
+    "alternativeText": null,
+    "caption": null,
+    "width": 474,
+    "height": 267,
+    "formats": {
+        "thumbnail": {
+            "ext": ".jpeg",
+            "url": "/uploads/thumbnail_madara_9abe744982.jpeg",
+            "hash": "thumbnail_madara_9abe744982",
+            "mime": "image/jpeg",
+            "name": "thumbnail_madara.jpeg",
+            "path": null,
+            "size": 6.18,
+            "width": 245,
+            "height": 138,
+            "sizeInBytes": 6184
+        }
+    },
+    "hash": "madara_9abe744982",
+    "ext": ".jpeg",
+    "mime": "image/jpeg",
+    "size": 13.55,
+    "url": "/uploads/madara_9abe744982.jpeg",
+    "previewUrl": null,
+    "provider": "local",
+    "provider_metadata": null,
+    "createdAt": "2024-12-03T14:52:33.584Z",
+    "updatedAt": "2024-12-03T14:52:33.584Z",
+    "publishedAt": "2024-12-03T14:52:33.585Z"
+}
+```

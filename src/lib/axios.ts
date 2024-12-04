@@ -18,6 +18,7 @@ export const apiStatic = axios.create({
 
 function authInterceptor(config: InternalAxiosRequestConfig) {
   // Do something before request is sent
+  console.log(config.headers.Authorization);
   if (config.headers.Authorization) return config;
   const token = getAccessToken();
   if (!token) return config;
@@ -26,6 +27,7 @@ function authInterceptor(config: InternalAxiosRequestConfig) {
   return config;
 }
 
+api.interceptors.request.use(authInterceptor);
 let interceptorId: number;
 
 export function addAuthInterceptor() {

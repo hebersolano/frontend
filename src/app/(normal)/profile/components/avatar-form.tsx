@@ -1,41 +1,49 @@
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { ImageUp, User } from "lucide-react";
 
+import { Button } from "@/components/ui/button";
 import {
   Dialog,
+  DialogClose,
   DialogContent,
   DialogDescription,
   DialogHeader,
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import { FormEventHandler } from "react";
-import { api } from "@/lib/axios";
-import { useUserData } from "@/hooks/auth-store";
-import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { getSetUserData, useUserData } from "@/hooks/auth-store";
+import { api } from "@/lib/axios";
+import { Dispatch, FormEventHandler, SetStateAction, useState } from "react";
+import { UserResponse } from "@/types/user";
+
+const setUserData = getSetUserData();
 
 function AvatarForm() {
+  const [open, setOpen] = useState(false);
+  const user = useUserData();
+
   return (
     <div className="flex w-full justify-center">
-      <Dialog>
+      <Dialog open={open} onOpenChange={setOpen}>
         <div className="relative">
           <DialogTrigger>
-            <button className="absolute -bottom-3 -right-0 z-10 rounded-full bg-gray-100 p-2">
-              <ImageUp className="z-20 h-4 w-4" />
+            <button className="group absolute -bottom-3 right-3 z-10 rounded-full bg-gray-100 p-2 shadow">
+              <ImageUp className="w-5: z-20 h-5 w-5 group-hover:stroke-primary" />
             </button>
           </DialogTrigger>
-          <Avatar className="h-24 w-24">
+          <Avatar className="h-32 w-32">
             <AvatarImage
-              className="h-24 w-24"
-              src="https://github.com/shadcn.png"
+              className="h-32 w-32 object-cover"
+              src={process.env.NEXT_PUBLIC_API_URL! + user?.profile?.url}
             />
-            <AvatarFallback className="h-24 w-24">
+            <AvatarFallback className="h-32 w-32">
               <User className="h-6 w-6" />
             </AvatarFallback>
           </Avatar>
         </div>
-        <UpdateAvatarDialog />
+
+        <UpdateAvatarDialog userId={user?.id} setOpen={setOpen} />
       </Dialog>
     </div>
   );
@@ -43,37 +51,65 @@ function AvatarForm() {
 
 export default AvatarForm;
 
-function UpdateAvatarDialog() {
-  const user = useUserData();
+function UpdateAvatarDialog({
+  userId,
+  setOpen,
+}: {
+  userId: number | undefined;
+  setOpen: Dispatch<SetStateAction<boolean>>;
+}) {
+  const [isLoading, setIsLoading] = useState(false);
 
-  const handleSubmit: FormEventHandler<HTMLFormElement> = (event) => {
-    if (!user) return;
-    event.preventDefault();
-    const formData = new FormData(event.target as HTMLFormElement);
-    formData.append("ref", "plugin::users-permissions.user");
-    formData.append("refId", `${user.id}`);
-    formData.append("field", "profile");
+  const handleSubmit: FormEventHandler<HTMLFormElement> = async (event) => {
+    try {
+      setIsLoading(true);
+      if (!userId) return;
+      event.preventDefault();
+      const formData = new FormData(event.target as HTMLFormElement);
+      formData.append("ref", "plugin::users-permissions.user");
+      formData.append("refId", `${userId}`);
+      formData.append("field", "profile");
 
-    api.post("/upload", formData).then((res) => console.log("upload res", res));
+      await api.post("/upload", formData);
+      const meRes = await api.get<UserResponse>("/users/me", {
+        params: { populate: "*" },
+      });
+      setUserData(meRes.data);
+    } catch (error) {
+      console.error("error uploading profile", error);
+    } finally {
+      setIsLoading(false);
+      setOpen(false);
+    }
   };
 
   return (
     <DialogContent>
-      <DialogContent>
-        <DialogHeader>
-          <DialogTitle>Update Profile Photo</DialogTitle>
-          <DialogDescription>
-            This action cannot be undone. This will permanently delete your
-            account and remove your data from our servers.
-          </DialogDescription>
-          <form onSubmit={handleSubmit} className="space-y-4">
-            <Input type="file" name="files" />
-            <Button type="submit" value="Submit">
-              Update
+      <DialogHeader>
+        <DialogTitle>Update Profile Photo</DialogTitle>
+        <DialogDescription>
+          This action cannot be undone. This will permanently delete your
+          account and remove your data from our servers.
+        </DialogDescription>
+      </DialogHeader>
+      <form onSubmit={handleSubmit} className="space-y-4">
+        <Input type="file" name="files" />
+        <div className="">
+          <Button
+            disabled={isLoading}
+            type="submit"
+            value="Submit"
+            className="mr-4"
+          >
+            Update
+          </Button>
+          <DialogClose>
+            <Button disabled={isLoading} variant="outline" type="button">
+              Close
             </Button>
-          </form>
-        </DialogHeader>
-      </DialogContent>
+          </DialogClose>
+        </div>
+      </form>
     </DialogContent>
   );
 }

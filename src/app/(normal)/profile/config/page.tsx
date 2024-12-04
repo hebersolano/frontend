@@ -21,10 +21,9 @@ import { imgFileToDataURL } from "@/lib/utils";
 import { User } from "lucide-react";
 import { ChangeEvent, useRef } from "react";
 import AvatarForm from "../components/avatar-form";
+import { useUserData } from "@/hooks/auth-store";
 
 const profileFormSchema = z.object({
-  profile: z.string().optional(),
-  file: z.unknown(),
   firstName: z.string().max(30).optional(),
   lastName: z.string().max(30).optional(),
   username: z
@@ -46,7 +45,7 @@ type ProfileFormValues = z.infer<typeof profileFormSchema>;
 const defaultValues: Partial<ProfileFormValues> = {};
 
 export default function ProfileForm() {
-  const avatarRef = useRef<HTMLImageElement | null>(null);
+  const user = useUserData();
 
   const form = useForm<ProfileFormValues>({
     resolver: zodResolver(profileFormSchema),
@@ -58,56 +57,12 @@ export default function ProfileForm() {
     console.log(data);
   }
 
-  function updateAvatar(file: File | undefined) {
-    if (!file || !avatarRef.current) return;
-    imgFileToDataURL(file).then((e) => {
-      if (avatarRef.current?.src && e) avatarRef.current.src = e;
-    });
-  }
-
   return (
-    <div>
+    <div className="space-y-16">
       <AvatarForm />
+
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
-          <div className="flex gap-8">
-            <Avatar className="h-24 w-24">
-              <AvatarImage
-                ref={avatarRef}
-                className="h-24 w-24 object-cover"
-                src="https://github.com/shadcn.png"
-              />
-              <AvatarFallback className="h-24 w-24">
-                <User className="h-6 w-6" />
-              </AvatarFallback>
-            </Avatar>
-            <FormField
-              control={form.control}
-              name="profile"
-              render={({ field }) => {
-                return (
-                  <FormItem className="">
-                    <FormLabel>Photo</FormLabel>
-                    <FormControl>
-                      <Input
-                        {...field}
-                        type="file"
-                        accept="image/*"
-                        onChange={(event: ChangeEvent<HTMLInputElement>) => {
-                          const file = event.target.files?.[0];
-                          field.onChange(event);
-                          form.setValue("file", file);
-                          updateAvatar(file);
-                        }}
-                        className="text-xs font-medium"
-                      />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                );
-              }}
-            />
-          </div>
           <div className="flex gap-8">
             <FormField
               control={form.control}

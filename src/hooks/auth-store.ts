@@ -9,6 +9,15 @@ export const UserDataSchema = z.object({
   documentId: z.string(),
   username: z.string(),
   email: z.string(),
+  profile: z
+    .object({
+      id: z.number(),
+      documentId: z.string(),
+      width: z.number(),
+      height: z.number(),
+      url: z.string(),
+    })
+    .nullable(),
 });
 
 type UserData = z.infer<typeof UserDataSchema>;
@@ -95,12 +104,9 @@ export const getIsAuthenticated = () =>
 export const getAccessToken = () => accessTokenSelector(authStore.getState());
 export const getAccessTokenData = () =>
   accessTokenDataSelector(authStore.getState());
-
-type AuthType = "clearTokens" | "initAuthStore";
-
-export const getAuthActions = (action: AuthType) => {
-  return authStore.getState()[action];
-};
+export const getInitAuthStore = () => authStore.getState().initAuthStore;
+export const getSetUserData = () => authStore.getState().setUserData;
+export const getClearTokes = () => authStore.getState().clearTokens;
 
 // Hooks
 function useAuthStore<U>(selector: Params<U>[1]) {
@@ -111,5 +117,3 @@ export const useUserData = () => useAuthStore(accessUserDataSelector);
 export const useIsAuthenticated = () => useAuthStore(accessIsAuthSelector);
 export const useAccessToken = () => useAuthStore(accessTokenSelector);
 export const useAccessTokenData = () => useAuthStore(accessTokenDataSelector);
-export const useAuthActions = (action: AuthType) =>
-  useStore(authStore, (state: ExtractState<typeof authStore>) => state[action]);

@@ -1,9 +1,9 @@
-import { getAuthActions } from "@/hooks/auth-store";
+import { getClearTokes } from "@/hooks/auth-store";
 import { removeAuthInterceptor } from "@/lib/axios";
 import { useRouter } from "next/navigation";
 import { ReactNode } from "react";
 
-const clearTokens = getAuthActions("clearTokens");
+const clearTokens = getClearTokes();
 
 function LogoutButton({ children }: { children: ReactNode }) {
   const { push } = useRouter();
