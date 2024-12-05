@@ -16,6 +16,7 @@
   - [x] Auth page
   - [x] Login and Sign up form
   - [x] Zustand [Auth Store](https://doichevkostia.dev/blog/authentication-store-with-zustand/)
+  - [ ] Server: Allow user update his [data](https://youtu.be/2ZwiiY6tnmw)
   - [ ] Refresh token [strapi](https://strapi.io/blog/how-to-create-a-refresh-token-feature-in-your-strapi-application)
 - [ ] Profile page
   - [ ] user can update his data

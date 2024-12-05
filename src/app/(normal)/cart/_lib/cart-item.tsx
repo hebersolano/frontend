@@ -1,4 +1,4 @@
-import QuantitySelector from "@/components/store/QuantitySelector";
+import QuantitySelector from "@/components/store/quantity-selector";
 import { Button } from "@/components/ui/button";
 import useCartStore from "@/hooks/use-cart-store";
 import { formatPrice } from "@/lib/utils";

@@ -1,8 +1,8 @@
 import { toast } from "@/hooks/use-toast";
 import { AuthUserResponse, UserResponse } from "@/types/user";
-import { AxiosError, isAxiosError } from "axios";
+import { isAxiosError } from "axios";
 import { z } from "zod";
-import { addAuthInterceptor, api } from "../axios";
+import { api } from "../axios";
 import { AuthFormType } from "../form-schemas";
 
 const RegistrationData = z.object({
@@ -18,7 +18,6 @@ export async function registerUser(data: AuthFormType) {
       RegistrationData.parse(data),
     );
 
-    addAuthInterceptor();
     api.defaults.headers.common["Authorization"] = "Bearer " + res.data.jwt;
     return res.data;
   } catch (error) {
@@ -54,17 +53,17 @@ export async function loginUser(data: AuthFormType) {
       password: data.password,
     });
 
-    addAuthInterceptor();
     api.defaults.headers.common["Authorization"] = "Bearer " + res.data.jwt;
 
     const meRes = await api.get<UserResponse>("/users/me/", {
       params: { populate: "*" },
     }); // fetch all user data
 
+    console.log("me data:", meRes.data);
     res.data.user = meRes.data;
 
     return res.data;
-  } catch (error: Error | AxiosError | unknown) {
+  } catch (error: unknown) {
     if (isAxiosError(error)) {
       // Access to config, request, and response
       if (error.response) {

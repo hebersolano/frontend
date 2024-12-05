@@ -2,7 +2,7 @@
 
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { useUserData } from "@/hooks/auth-store";
-import { ImageUp, Mail, Pen, User } from "lucide-react";
+import { Mail, Pen, User } from "lucide-react";
 import Link from "next/link";
 
 function Profile() {

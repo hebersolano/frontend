@@ -14,8 +14,16 @@ export interface UserResponse {
   createdAt: string;
   updatedAt: string;
   publishedAt: string;
-  info: string | null;
+  info: Info | null;
   profile: Profile | null;
+}
+
+export interface Info {
+  id: number;
+  firstName: string;
+  lastName: string;
+  address: string;
+  details: string;
 }
 
 export interface Profile {

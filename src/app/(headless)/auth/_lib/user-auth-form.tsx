@@ -43,31 +43,25 @@ export function UserRegistrationForm({ mode }: UserAuthFormProps) {
 
   const { isSubmitting } = form.formState;
 
-  const onSubmit: SubmitHandler<AuthFormType> = (formData) => {
+  const onSubmit: SubmitHandler<AuthFormType> = async (formData) => {
+    //TODO: check if user is already logged
     try {
-      if (mode === "signup")
-        registerUser(formData)
-          .then((data) => {
-            if (!data) return;
-            initAuthStore(data.user, data.jwt);
-            replace("/");
-          })
-          .finally(() => {
-            form.reset();
-          });
+      let data;
+      if (mode === "signup") {
+        data = await registerUser(formData);
+      }
 
-      if (mode === "login")
-        loginUser(formData)
-          .then((data) => {
-            if (!data) return;
-            initAuthStore(data.user, data.jwt);
-            replace("/");
-          })
-          .finally(() => {
-            form.reset();
-          });
+      if (mode === "login") {
+        data = await loginUser(formData);
+      }
+
+      if (!data) return;
+      initAuthStore(data.user, data.jwt);
+      replace("/");
     } catch (error) {
       console.error("Error auth-form", error);
+    } finally {
+      form.reset();
     }
   };
 

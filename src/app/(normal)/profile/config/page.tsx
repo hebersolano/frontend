@@ -4,7 +4,6 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import {
   Form,
@@ -17,11 +16,8 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { imgFileToDataURL } from "@/lib/utils";
-import { User } from "lucide-react";
-import { ChangeEvent, useRef } from "react";
-import AvatarForm from "../components/avatar-form";
 import { useUserData } from "@/hooks/auth-store";
+import AvatarForm from "../components/avatar-form";
 
 const profileFormSchema = z.object({
   firstName: z.string().max(30).optional(),
@@ -42,15 +38,21 @@ type ProfileFormValues = z.infer<typeof profileFormSchema>;
 
 // This can come from your database or API.
 //TODO: sync user data
-const defaultValues: Partial<ProfileFormValues> = {};
 
 export default function ProfileForm() {
   const user = useUserData();
 
+  const defaultValues = {
+    username: user?.username,
+    email: user?.email,
+    firstName: user?.info?.firstName || undefined,
+    lastName: user?.info?.lastName || undefined,
+    address: user?.info?.address || undefined,
+  };
+
   const form = useForm<ProfileFormValues>({
     resolver: zodResolver(profileFormSchema),
     defaultValues,
-    mode: "onChange",
   });
 
   function onSubmit(data: ProfileFormValues) {
