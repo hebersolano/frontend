@@ -2,7 +2,6 @@
 
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
-import { z } from "zod";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -16,28 +15,14 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { useUserData } from "@/hooks/auth-store";
+import { getSetUserData, useUserData } from "@/hooks/auth-store";
+import { profileFormSchema, ProfileFormValues } from "@/lib/form-schemas";
 import AvatarForm from "../components/avatar-form";
-
-const profileFormSchema = z.object({
-  firstName: z.string().max(30).optional(),
-  lastName: z.string().max(30).optional(),
-  username: z
-    .string()
-    .min(2, {
-      message: "Username must be at least 2 characters.",
-    })
-    .max(30, {
-      message: "Username must not be longer than 30 characters.",
-    }),
-  email: z.string().email(),
-  address: z.string().max(160).min(4),
-});
-
-type ProfileFormValues = z.infer<typeof profileFormSchema>;
+import { updateUser } from "@/lib/data-access/auth-access";
 
 // This can come from your database or API.
 //TODO: sync user data
+const setUserData = getSetUserData();
 
 export default function ProfileForm() {
   const user = useUserData();
@@ -55,8 +40,10 @@ export default function ProfileForm() {
     defaultValues,
   });
 
-  function onSubmit(data: ProfileFormValues) {
+  async function onSubmit(data: ProfileFormValues) {
     console.log(data);
+    const user = await updateUser(data);
+    setUserData(user);
   }
 
   return (

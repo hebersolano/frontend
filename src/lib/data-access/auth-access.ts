@@ -3,7 +3,7 @@ import { AuthUserResponse, UserResponse } from "@/types/user";
 import { isAxiosError } from "axios";
 import { z } from "zod";
 import { api } from "../axios";
-import { AuthFormType } from "../form-schemas";
+import { AuthFormType, ProfileFormValues } from "../form-schemas";
 
 const RegistrationData = z.object({
   username: z.string(),
@@ -38,7 +38,6 @@ export async function registerUser(data: AuthFormType) {
         // The request was made but no response was received
         console.error(error.request);
       }
-      console.error(error.config);
     }
 
     if (error instanceof Error) console.error("Error", error.message);
@@ -82,7 +81,36 @@ export async function loginUser(data: AuthFormType) {
         // Something happened in setting up the request that triggered an Error
         console.log("Error", error.message);
       }
-      console.log(error.config);
+    }
+  }
+}
+
+export async function updateUser(data: ProfileFormValues) {
+  try {
+    const res = await api.put<UserResponse>("/user/me", {
+      data,
+    });
+
+    return res.data;
+  } catch (error: unknown) {
+    if (isAxiosError(error)) {
+      // Access to config, request, and response
+      if (error.response) {
+        // server responded with a error status code
+        console.log(error.response.data);
+        console.log(error.response.status);
+        console.log(error.response.headers);
+        toast({
+          title: error.response.data.error.message,
+          variant: "destructive",
+        });
+      } else if (error.request) {
+        // The request was made but no response was received
+        console.log(error.request);
+      } else {
+        // Something happened in setting up the request that triggered an Error
+        console.log("Error", error.message);
+      }
     }
   }
 }

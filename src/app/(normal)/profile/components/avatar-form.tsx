@@ -1,7 +1,7 @@
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { ImageUp, User } from "lucide-react";
 
-import { Button } from "@/components/ui/button";
+import { Button, buttonVariants } from "@/components/ui/button";
 import {
   Dialog,
   DialogClose,
@@ -27,10 +27,8 @@ function AvatarForm() {
     <div className="flex w-full justify-center">
       <Dialog open={open} onOpenChange={setOpen}>
         <div className="relative">
-          <DialogTrigger>
-            <button className="group absolute -bottom-3 right-3 z-10 rounded-full bg-gray-100 p-2 shadow">
-              <ImageUp className="w-5: z-20 h-5 w-5 group-hover:stroke-primary" />
-            </button>
+          <DialogTrigger className="group absolute -bottom-3 right-3 z-10 rounded-full bg-gray-100 p-2 shadow">
+            <ImageUp className="w-5: z-20 h-5 w-5 group-hover:stroke-primary" />
           </DialogTrigger>
           <Avatar className="h-32 w-32">
             <AvatarImage
@@ -103,10 +101,12 @@ function UpdateAvatarDialog({
           >
             Update
           </Button>
-          <DialogClose>
-            <Button disabled={isLoading} variant="outline" type="button">
-              Close
-            </Button>
+          <DialogClose
+            type="button"
+            disabled={isLoading}
+            className={buttonVariants({ variant: "outline" })}
+          >
+            Close
           </DialogClose>
         </div>
       </form>
