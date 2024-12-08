@@ -2,7 +2,7 @@
 
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { useUserData } from "@/hooks/auth-store";
-import { Mail, Pen, User } from "lucide-react";
+import { Mail, MapPin, Pen, User } from "lucide-react";
 import Link from "next/link";
 
 function Profile() {
@@ -34,14 +34,23 @@ function Profile() {
           <h3 className="text-xl font-semibold leading-normal">
             {user?.username}
           </h3>
+
+          {user?.info?.firstName && (
+            <p className="text-muted-foreground">
+              <User className="mr-3 inline h-5 w-5 stroke-primary" />
+              {user.info.firstName + " " + user.info.lastName}
+            </p>
+          )}
           <p className="text-muted-foreground">
             <Mail className="mr-3 inline h-5 w-5 stroke-primary" />
             {user?.email}
           </p>
-          <p className="text-muted-foreground">
-            <Mail className="mr-3 inline h-5 w-5 stroke-primary" />
-            {user?.documentId}
-          </p>
+          {user?.info && (
+            <p className="text-muted-foreground">
+              <MapPin className="mr-3 inline h-5 w-5 stroke-primary" />
+              {user?.info?.address}
+            </p>
+          )}
         </div>
       </div>
     </section>

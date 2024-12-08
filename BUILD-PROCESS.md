@@ -5,9 +5,11 @@
 ## Tasks
 
 - [x] Change serif font
-- [ ] Empty cart message
+- [x] Empty cart message
 - [ ] Error handling
   - [ ] User error interface
+  - [ ] Error [NextJS](https://nextjs.org/docs/app/api-reference/file-conventions/error) handling
+  - [ ] No found page
 - [ ] Stripe custom payment flow [link](https://docs.stripe.com/payments/quickstart?client=react)
   - [x] Server: Create a [ =Payment intent](https://docs.stripe.com/api/payment_intents) endpoint
   - [x] Configure stripe elements provider, and Address and Payment element
@@ -18,15 +20,17 @@
   - [x] Auth page
   - [x] Login and Sign up form
   - [ ] Email verification
+    - [ ] Server: [Resent](https://market.strapi.io/providers/strapi-provider-email-resend) email provider
   - [x] Zustand [Auth Store](https://doichevkostia.dev/blog/authentication-store-with-zustand/)
   - [x] Server: Allow user update his [data](https://youtu.be/2ZwiiY6tnmw)
   - [ ] Refresh token [strapi](https://strapi.io/blog/how-to-create-a-refresh-token-feature-in-your-strapi-application)
 - [ ] Profile page
-  - [ ] user can update his data
+  - [x] user can update his data
   - [x] upload a profile image
   - [ ] Change password
   - [ ] user can change email (need to confirm)
 - [ ] Orders page
+- [ ] Security checklist
 
 ### Pages
 

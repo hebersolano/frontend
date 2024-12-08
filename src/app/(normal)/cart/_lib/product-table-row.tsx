@@ -52,12 +52,11 @@ function ProductTableRow({ product }: { product: ProductCartItem }) {
         {formatPrice(product.price)}
       </TableCell>
       <TableCell className="before:float-left before:font-medium before:text-foreground before:content-['Cantidad:'] sm:before:content-none">
-        <span className="" />
         <QuantitySelector
           size="sm"
           quantity={quantity}
           setQuantity={setQuantity}
-          className="ml-auto"
+          className=""
         />
       </TableCell>
       <TableCell className="before:mr-4 before:font-medium before:text-foreground before:content-['Subtotal:'] sm:before:content-none">

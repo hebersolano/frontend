@@ -27,7 +27,7 @@ function QuantitySelector({
   }
 
   return (
-    <div className={cn("flex w-fit items-center justify-center", className)}>
+    <div className={cn("ml-auto flex w-fit items-center sm:ml-0", className)}>
       <Button
         onClick={() => updateQuantityHandler("-")}
         disabled={false}

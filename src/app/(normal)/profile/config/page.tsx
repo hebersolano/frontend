@@ -19,6 +19,8 @@ import { getSetUserData, useUserData } from "@/hooks/auth-store";
 import { profileFormSchema, ProfileFormValues } from "@/lib/form-schemas";
 import AvatarForm from "../components/avatar-form";
 import { updateUser } from "@/lib/data-access/auth-access";
+import { useRouter } from "next/navigation";
+import { toastAlert } from "@/lib/error-utils";
 
 // This can come from your database or API.
 //TODO: sync user data
@@ -26,6 +28,7 @@ const setUserData = getSetUserData();
 
 export default function ProfileForm() {
   const user = useUserData();
+  const router = useRouter();
 
   const defaultValues = {
     username: user?.username,
@@ -41,9 +44,15 @@ export default function ProfileForm() {
   });
 
   async function onSubmit(data: ProfileFormValues) {
-    console.log(data);
-    const user = await updateUser(data);
-    setUserData(user);
+    try {
+      console.log(data);
+      const user = await updateUser(data);
+      setUserData(user);
+      router.push("/profile");
+    } catch (error) {
+      console.error("error update user form:", error);
+      toastAlert("Something went wrong, try again.");
+    }
   }
 
   return (

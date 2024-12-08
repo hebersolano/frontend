@@ -54,18 +54,23 @@ export const authFormSchemas = {
 };
 
 export const profileFormSchema = z.object({
-  firstName: z.string().max(30).optional(),
-  lastName: z.string().max(30).optional(),
+  firstName: z
+    .string()
+    .max(30)
+    .regex(/^[a-zA-Z]+$/, "No numbers or special characters allowed")
+    .optional(),
+  lastName: z
+    .string()
+    .max(30)
+    .regex(/^[a-zA-Z]+$/, "No numbers or special characters allowed")
+    .optional(),
   username: z
     .string()
-    .min(2, {
-      message: "Username must be at least 2 characters.",
-    })
-    .max(30, {
-      message: "Username must not be longer than 30 characters.",
-    }),
+    .min(2)
+    .max(25)
+    .regex(/^[a-z0-9_]+$/, "No special or uppercase characters allowed"),
   email: z.string().email(),
-  address: z.string().max(160).min(4),
+  address: z.string().max(160).min(4).optional(),
 });
 
 export type ProfileFormValues = z.infer<typeof profileFormSchema>;

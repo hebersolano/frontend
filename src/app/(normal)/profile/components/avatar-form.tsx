@@ -84,10 +84,10 @@ function UpdateAvatarDialog({
   return (
     <DialogContent>
       <DialogHeader>
-        <DialogTitle>Update Profile Photo</DialogTitle>
+        <DialogTitle>Update Profile Image</DialogTitle>
         <DialogDescription>
-          This action cannot be undone. This will permanently delete your
-          account and remove your data from our servers.
+          Select a image file to upload. This action cannot be undone. This will
+          permanently delete your current profile image.
         </DialogDescription>
       </DialogHeader>
       <form onSubmit={handleSubmit} className="space-y-4">

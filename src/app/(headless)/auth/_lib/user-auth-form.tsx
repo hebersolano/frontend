@@ -11,11 +11,14 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { getInitAuthStore } from "@/hooks/auth-store";
+import { getInitAuthStore, useIsAuthenticated } from "@/hooks/auth-store";
+import { toast } from "@/hooks/use-toast";
 import { loginUser, registerUser } from "@/lib/data-access/auth-access";
+import { toastAlert } from "@/lib/error-utils";
 import { authFormSchemas, AuthFormType } from "@/lib/form-schemas";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useRouter } from "next/navigation";
+import { useEffect } from "react";
 import {
   SubmitErrorHandler,
   type SubmitHandler,
@@ -30,6 +33,15 @@ const initAuthStore = getInitAuthStore();
 
 export function UserRegistrationForm({ mode }: UserAuthFormProps) {
   const { replace } = useRouter();
+  const isAuthenticated = useIsAuthenticated();
+
+  useEffect(() => {
+    if (isAuthenticated) {
+      setTimeout(() => replace("/"), 2000);
+      toast({ title: "Your are already authenticated" });
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const form = useForm<AuthFormType>({
     resolver: zodResolver(authFormSchemas[mode]),
@@ -44,7 +56,6 @@ export function UserRegistrationForm({ mode }: UserAuthFormProps) {
   const { isSubmitting } = form.formState;
 
   const onSubmit: SubmitHandler<AuthFormType> = async (formData) => {
-    //TODO: check if user is already logged
     try {
       let data;
       if (mode === "signup") {
@@ -57,11 +68,12 @@ export function UserRegistrationForm({ mode }: UserAuthFormProps) {
 
       if (!data) return;
       initAuthStore(data.user, data.jwt);
+      toast({ title: "Welcome, " + data.user.username });
+      form.reset();
       replace("/");
     } catch (error) {
-      console.error("Error auth-form", error);
-    } finally {
-      form.reset();
+      console.error("auth-form error:", error);
+      toastAlert("Sorry, something went wrong. Please try again");
     }
   };
 

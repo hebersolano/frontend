@@ -1,9 +1,25 @@
-import { toast } from "@/hooks/use-toast";
 import { AuthUserResponse, UserResponse } from "@/types/user";
-import { isAxiosError } from "axios";
+import { AxiosError, isAxiosError } from "axios";
 import { z } from "zod";
 import { api } from "../axios";
+import { toastAlert } from "../error-utils";
 import { AuthFormType, ProfileFormValues } from "../form-schemas";
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+function handleAxiosError(error: AxiosError<any, any>) {
+  if (error.response) {
+    // server responded with a error status code
+    console.error("status code error", error.request.status);
+    console.error(error.response.data, error.response.headers);
+
+    toastAlert(error.response.data.error.message);
+  } else if (error.request) {
+    // The request was made but no response was received
+    console.error(error.request);
+    console.error("The request was made but no response was received");
+    toastAlert("Sorry, no response from the server. Please try again");
+  }
+}
 
 const RegistrationData = z.object({
   username: z.string(),
@@ -22,26 +38,8 @@ export async function registerUser(data: AuthFormType) {
     return res.data;
   } catch (error) {
     if (isAxiosError(error)) {
-      if (error.response) {
-        // server responded with a error status code
-        console.error(
-          error.response.status,
-          error.response.data,
-          error.response.headers,
-        );
-
-        toast({
-          title: error.response.data.error.message,
-          variant: "destructive",
-        });
-      } else if (error.request) {
-        // The request was made but no response was received
-        console.error(error.request);
-      }
-    }
-
-    if (error instanceof Error) console.error("Error", error.message);
-    else console.error(error);
+      handleAxiosError(error);
+    } else throw error;
   }
 }
 
@@ -64,24 +62,8 @@ export async function loginUser(data: AuthFormType) {
     return res.data;
   } catch (error: unknown) {
     if (isAxiosError(error)) {
-      // Access to config, request, and response
-      if (error.response) {
-        // server responded with a error status code
-        console.log(error.response.data);
-        console.log(error.response.status);
-        console.log(error.response.headers);
-        toast({
-          title: error.response.data.error.message,
-          variant: "destructive",
-        });
-      } else if (error.request) {
-        // The request was made but no response was received
-        console.log(error.request);
-      } else {
-        // Something happened in setting up the request that triggered an Error
-        console.log("Error", error.message);
-      }
-    }
+      handleAxiosError(error);
+    } else throw error;
   }
 }
 
@@ -94,23 +76,7 @@ export async function updateUser(data: ProfileFormValues) {
     return res.data;
   } catch (error: unknown) {
     if (isAxiosError(error)) {
-      // Access to config, request, and response
-      if (error.response) {
-        // server responded with a error status code
-        console.log(error.response.data);
-        console.log(error.response.status);
-        console.log(error.response.headers);
-        toast({
-          title: error.response.data.error.message,
-          variant: "destructive",
-        });
-      } else if (error.request) {
-        // The request was made but no response was received
-        console.log(error.request);
-      } else {
-        // Something happened in setting up the request that triggered an Error
-        console.log("Error", error.message);
-      }
-    }
+      handleAxiosError(error);
+    } else throw error;
   }
 }
