@@ -20,12 +20,13 @@ function authInterceptor(config: InternalAxiosRequestConfig) {
   return config;
 }
 
-api.interceptors.request.use(authInterceptor);
 let interceptorId: number;
 
 export function addAuthInterceptor() {
   interceptorId = api.interceptors.request.use(authInterceptor);
 }
+
+addAuthInterceptor();
 
 export function removeAuthInterceptor() {
   api.defaults.headers.common["Authorization"] = undefined;

@@ -3,8 +3,12 @@ export type Enum = {
   enum: string[];
 };
 
-export type ReqSlug = {
+export type Slug = {
   id: number;
   documentId: string;
   slug: string;
+};
+
+export type Req<T> = {
+  data: T;
 };

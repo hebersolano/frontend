@@ -1,14 +1,4 @@
-import { getProductCategoriesSlug } from "@/lib/data-access/product-categories";
-import { ReqSlug } from "@/types/content-type";
 import { Product } from "@/types/product";
-
-// export async function generateStaticParams() {
-//   const cats = await getProductCategoriesSlug();
-
-//   return cats.map((cat: ReqSlug) => ({
-//     slug: cat.slug,
-//   }));
-// }
 
 export function filterProducts(
   { origin, roast }: Record<string, string>,

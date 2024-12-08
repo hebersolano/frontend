@@ -1,67 +1,60 @@
-import type { Enum } from "@/types/content-type";
-import { api, apiStatic } from "../axios";
+import type { Req } from "@/types/content-type";
 import { Product } from "@/types/product";
+import { isAxiosError } from "axios";
+import { api } from "../axios";
+import { handleAxiosError } from "../error-utils";
 
-export async function getProductBySlug(slug: string): Promise<Product> {
-  const res = await api.get("/products", {
-    params: {
-      "filters[slug][$eq]": slug,
+export async function getProductBySlug(slug: string) {
+  try {
+    const res = await api.get<Req<Product[]>>("/products", {
+      params: {
+        "filters[slug][$eq]": slug,
+        populate: "images",
+      },
+    });
+
+    return res.data?.data?.[0];
+  } catch (error) {
+    if (isAxiosError(error)) {
+      handleAxiosError(error);
+    } else throw error;
+  }
+}
+
+export async function getFeaturedProducts() {
+  try {
+    const res = await api.get<Req<Product[]>>("/products", {
+      params: {
+        "filters[isFeatured][$eq]": "true",
+        "pagination[pageSize]": "3",
+        populate: "*",
+      },
+    });
+
+    return res.data.data;
+  } catch (error) {
+    if (isAxiosError(error)) {
+      handleAxiosError(error);
+    } else throw error;
+  }
+}
+
+export async function getProductByCategory(slug: string = "all") {
+  try {
+    const params = {
       populate: "images",
-      // "populate[category][fields]": "slug",
-    },
-  });
+    };
+    if (slug !== "all")
+      Object.assign(params, { "filters[category][slug][$eq]": slug });
 
-  return res.data?.data?.[0];
-}
+    const res = await api.get<Req<Product[]>>("/products", {
+      params,
+    });
 
-export async function getProductsSlug() {
-  const res = await apiStatic.get("/products", {
-    params: {
-      fields: "slug",
-    },
-  });
-
-  return res.data.data;
-}
-
-export async function getFeaturedProducts(): Promise<Product[] | undefined[]> {
-  const res = await api.get("/products", {
-    params: {
-      "filters[isFeatured][$eq]": "true",
-      "pagination[pageSize]": "3",
-      populate: "*",
-    },
-  });
-
-  return res.data.data;
-}
-
-export async function getProductByCategory(
-  slug: string = "all",
-): Promise<Product[]> {
-  const params = {
-    populate: "images",
-  };
-  if (slug !== "all")
-    Object.assign(params, { "filters[category][slug][$eq]": slug });
-
-  const res = await api.get("/products", {
-    params,
-  });
-
-  return res.data.data;
-}
-
-type ProductFields = {
-  origin: Enum;
-  roast: Enum;
-};
-
-export async function getProductFields(): Promise<ProductFields> {
-  const res = await api.get(
-    "/content-type-builder/content-types/api::product.product",
-  );
-
-  const { origin, roast } = res.data?.data?.schema?.attributes;
-  return { origin, roast };
+    return res.data.data;
+  } catch (error) {
+    if (isAxiosError(error)) {
+      handleAxiosError(error);
+    } else throw error;
+  }
 }

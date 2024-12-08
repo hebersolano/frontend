@@ -8,12 +8,12 @@ function CategoryTabMenu() {
   const pathname = usePathname();
   const searchParams = useSearchParams();
   const category = searchParams.get("cat");
-  const { replace } = useRouter();
+  const router = useRouter();
 
   function addSearchParam(name: string, value: string) {
     const params = new URLSearchParams(searchParams);
     params.set(name, value);
-    replace(pathname + "?" + params.toString());
+    router.push(pathname + "?" + params.toString());
   }
 
   useEffect(function () {

@@ -1,25 +1,9 @@
 import { AuthUserResponse, UserResponse } from "@/types/user";
-import { AxiosError, isAxiosError } from "axios";
+import { isAxiosError } from "axios";
 import { z } from "zod";
 import { api } from "../axios";
-import { toastAlert } from "../error-utils";
 import { AuthFormType, ProfileFormValues } from "../form-schemas";
-
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-function handleAxiosError(error: AxiosError<any, any>) {
-  if (error.response) {
-    // server responded with a error status code
-    console.error("status code error", error.request.status);
-    console.error(error.response.data, error.response.headers);
-
-    toastAlert(error.response.data.error.message);
-  } else if (error.request) {
-    // The request was made but no response was received
-    console.error(error.request);
-    console.error("The request was made but no response was received");
-    toastAlert("Sorry, no response from the server. Please try again");
-  }
-}
+import { handleAxiosError } from "../error-utils";
 
 const RegistrationData = z.object({
   username: z.string(),

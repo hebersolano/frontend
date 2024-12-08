@@ -13,7 +13,7 @@ function ProductItem2({ product }: { product: Product }) {
 
   return (
     <div className="overflow-hidden rounded-xl border">
-      <Link href={"/product/" + product.slug} className="cursor-pointer">
+      <Link href={"/shop/" + product.slug} className="cursor-pointer">
         <AspectRatio ratio={1 / 1} className="overflow-hidden">
           <Image
             className="h-full object-cover transition duration-500 hover:scale-110"
@@ -34,7 +34,7 @@ function ProductItem2({ product }: { product: Product }) {
         </p>
         <div className="flex justify-between pt-2">
           <Link
-            href={"/product/" + product.slug}
+            href={"/shop/" + product.slug}
             className={buttonVariants({ size: "sm", variant: "outline" })}
           >
             Details

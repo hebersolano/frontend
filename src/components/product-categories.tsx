@@ -8,9 +8,9 @@ import useSWR from "swr";
 import { Skeleton } from "./ui/skeleton";
 import { Separator } from "./ui/separator";
 
-function ProductCategories() {
+export default function ProductCategories() {
   const {
-    data: categories = Array.from({ length: 3 }),
+    data: categories = Array.from({ length: 4 }),
     error,
     isLoading,
   } = useSWR("product-categories", getProductCategories);
@@ -34,11 +34,9 @@ function ProductCategories() {
   );
 }
 
-export default ProductCategories;
-
 function ProductCategoryItem({ cat }: { cat: Category }) {
   return (
-    <div key={cat.documentId} className="w-[180px] space-y-2">
+    <div key={cat.documentId} className="w-[140px] space-y-2 md:w-[180px]">
       <Link
         href={"/shop?cat=" + cat.slug}
         className="block aspect-square h-[140px] w-[140px] cursor-pointer overflow-hidden rounded-md md:h-[180px] md:w-[180px]"
@@ -62,10 +60,11 @@ function ProductCategoryItem({ cat }: { cat: Category }) {
 
 function SkProductCategoryItem() {
   return (
-    <div className="w-[180px] space-y-2">
-      <Skeleton className="h-[180px] w-[180px] rounded-md" />
-      <Skeleton className="h-4" />
-      <Skeleton className="h-" />
+    <div className="w-[140px] space-y-2 md:w-[180px]">
+      <Skeleton className="aspect-square h-[140px] w-[140px] rounded-md md:h-[180px] md:w-[180px]" />
+      <Skeleton className="h-6" />
+      <Skeleton className="" />
+      <Skeleton className="h-10" />
     </div>
   );
 }
