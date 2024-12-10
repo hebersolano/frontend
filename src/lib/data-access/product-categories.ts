@@ -14,12 +14,12 @@ export async function getProductCategories() {
 
     return res.data.data;
   } catch (error) {
-    if (isAxiosError(error)) {
-      handleAxiosError(error);
-    } else throw error;
+    if (isAxiosError(error)) handleAxiosError(error);
+    throw error;
   }
 }
 
+// no in use
 export async function getProductCategoryBySlug(slug: string) {
   try {
     const res = await api.get<Req<Category[]>>("/categories", {
@@ -28,8 +28,7 @@ export async function getProductCategoryBySlug(slug: string) {
 
     return res.data.data?.[0];
   } catch (error) {
-    if (isAxiosError(error)) {
-      handleAxiosError(error);
-    } else throw error;
+    if (isAxiosError(error)) handleAxiosError(error);
+    throw error;
   }
 }

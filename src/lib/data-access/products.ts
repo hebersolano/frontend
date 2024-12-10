@@ -4,23 +4,6 @@ import { isAxiosError } from "axios";
 import { api } from "../axios";
 import { handleAxiosError } from "../error-utils";
 
-export async function getProductBySlug(slug: string) {
-  try {
-    const res = await api.get<Req<Product[]>>("/products", {
-      params: {
-        "filters[slug][$eq]": slug,
-        populate: "images",
-      },
-    });
-
-    return res.data?.data?.[0];
-  } catch (error) {
-    if (isAxiosError(error)) {
-      handleAxiosError(error);
-    } else throw error;
-  }
-}
-
 export async function getFeaturedProducts() {
   try {
     const res = await api.get<Req<Product[]>>("/products", {
@@ -33,9 +16,8 @@ export async function getFeaturedProducts() {
 
     return res.data.data;
   } catch (error) {
-    if (isAxiosError(error)) {
-      handleAxiosError(error);
-    } else throw error;
+    if (isAxiosError(error)) handleAxiosError(error);
+    throw error;
   }
 }
 
@@ -53,8 +35,7 @@ export async function getProductByCategory(slug: string = "all") {
 
     return res.data.data;
   } catch (error) {
-    if (isAxiosError(error)) {
-      handleAxiosError(error);
-    } else throw error;
+    if (isAxiosError(error)) handleAxiosError(error);
+    throw error;
   }
 }

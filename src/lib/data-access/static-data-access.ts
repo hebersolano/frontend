@@ -1,7 +1,20 @@
 import { Enum, Req, Slug } from "@/types/content-type";
 import { apiStatic } from "../axios";
+import { Product } from "@/types/product";
 
 // fetchers to generate static pages
+
+export async function getProductBySlug(slug: string) {
+  const res = await apiStatic.get<Req<Product[]>>("/products", {
+    params: {
+      "filters[slug][$eq]": slug,
+      populate: "images",
+    },
+  });
+
+  return res.data?.data?.[0];
+}
+
 export async function getProductsSlug() {
   const res = await apiStatic.get<Req<Slug[]>>("/products", {
     params: {

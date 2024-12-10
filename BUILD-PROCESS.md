@@ -6,10 +6,10 @@
 
 - [x] Change serif font
 - [x] Empty cart message
-- [ ] Error handling
-  - [ ] User error interface
-  - [ ] Error [NextJS](https://nextjs.org/docs/app/api-reference/file-conventions/error) handling
-  - [ ] No found page
+- [x] Error handling
+  - [x] User error interface (toast notifications)
+  - [x] Error [NextJS](https://nextjs.org/docs/app/api-reference/file-conventions/error) handling
+  - [x] No found page
 - [ ] Stripe custom payment flow [link](https://docs.stripe.com/payments/quickstart?client=react)
   - [x] Server: Create a [ =Payment intent](https://docs.stripe.com/api/payment_intents) endpoint
   - [x] Configure stripe elements provider, and Address and Payment element

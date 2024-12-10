@@ -10,10 +10,12 @@ import { Separator } from "./ui/separator";
 
 export default function ProductCategories() {
   const {
-    data: categories = Array.from({ length: 4 }),
+    data: categories,
     error,
     isLoading,
   } = useSWR("product-categories", getProductCategories);
+
+  console.log("error swr product categories:", error);
 
   return (
     <div className="my-8 space-y-4">
@@ -22,13 +24,14 @@ export default function ProductCategories() {
       </h3>
       <Separator />
       <div className="flex flex-wrap gap-3 md:gap-6">
-        {categories.map((cat: Category, i: number) =>
-          isLoading || error ? (
+        {(isLoading || error) &&
+          Array.from({ length: 4 }).map((_, i) => (
             <SkProductCategoryItem key={i} />
-          ) : (
+          ))}
+        {categories !== undefined &&
+          categories.map((cat: Category) => (
             <ProductCategoryItem key={cat.id} cat={cat} />
-          ),
-        )}
+          ))}
       </div>
     </div>
   );

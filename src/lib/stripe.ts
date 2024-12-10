@@ -1,19 +1,23 @@
 import { loadStripe, PaymentIntent } from "@stripe/stripe-js";
 import { api } from "./axios";
 import { ProductCartItem } from "@/types/product";
+import { toastAlert } from "./error-utils";
 
-export function getPaymentIntent(totalPrice: number) {
-  return api
-    .post<PaymentIntent>(
+export async function getPaymentIntent(totalPrice: number) {
+  try {
+    const res = await api.post<PaymentIntent>(
       "/payment",
       { amount: totalPrice },
       {
         withCredentials: true,
       },
-    )
-    .then((res) => {
-      return res.data.client_secret;
-    });
+    );
+
+    return res.data.client_secret;
+  } catch (error) {
+    toastAlert("An error occurred loading checkout");
+    console.error("error requesting payment intent:", error);
+  }
 }
 
 export async function checkoutStripe(items: ProductCartItem[]) {
@@ -40,7 +44,8 @@ export async function checkoutStripe(items: ProductCartItem[]) {
     await stripe?.redirectToCheckout({
       sessionId: res.data.stripeSession.id,
     });
-  } catch (e) {
-    console.error("buyStripe", e);
+  } catch (error) {
+    toastAlert("An error occurred creating checkout");
+    console.error("checkout stripe error:", error);
   }
 }

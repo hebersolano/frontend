@@ -2,10 +2,11 @@ import Image from "next/image";
 import Link from "next/link";
 import { Icons } from "../icons";
 import { siteConfig } from "@/config/siteConfig";
+import { Separator } from "../ui/separator";
 
 function SiteFooter() {
   return (
-    <footer className="bg-muted">
+    <footer className="bg-[#27272a] text-neutral-100">
       <div className="mx-auto max-w-screen-xl px-4 pt-16 text-sm">
         {/* top */}
         <div className="grid grid-cols-1 gap-12 pb-6 sm:grid-cols-2 lg:grid-cols-4">
@@ -122,7 +123,8 @@ function SiteFooter() {
         </div>
 
         {/* bottom */}
-        <div className="flex flex-col items-center justify-between gap-8 border-t border-border py-6 text-sm md:flex-row">
+        <Separator className="bg-gray-400" />
+        <div className="flex flex-col items-center justify-between gap-8 py-6 text-sm md:flex-row">
           <p>
             {new Date().getFullYear()} | Torrecaf
             <span className="text-primary">he</span>&copy;

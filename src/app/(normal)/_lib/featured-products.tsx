@@ -15,7 +15,7 @@ import ProductCategories from "@/components/product-categories";
 function FeaturedProducts() {
   const {
     data: products = Array.from({ length: 3 }),
-    // error,
+    error,
     isLoading,
   } = useSWR("featured-products", getFeaturedProducts);
 
@@ -32,9 +32,11 @@ function FeaturedProducts() {
             {products.map((product, idx) => (
               <CarouselItem key={idx} className="md:basis-1/2 lg:basis-1/3">
                 <div className="p-1">
-                  {isLoading && <SkProductItem />}
-                  {!isLoading && product !== undefined && (
-                    <ProductItem2 product={product} />
+                  {isLoading || error ? (
+                    <SkProductItem />
+                  ) : (
+                    !isLoading &&
+                    product !== undefined && <ProductItem2 product={product} />
                   )}
                 </div>
               </CarouselItem>

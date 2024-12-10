@@ -30,7 +30,7 @@ function CartPage() {
 
   return (
     <div className="min-h-noHeader bg-accent py-24">
-      <div className="mx-auto w-full max-w-screen-xl bg-background px-4 sm:p-24">
+      <div className="mx-auto w-full max-w-screen-xl bg-background px-4 py-12 sm:p-24">
         <div className="mb-8">
           <HeadingH1>Carrito</HeadingH1>
         </div>
