@@ -16,6 +16,8 @@ https://stackoverflow.com/questions/45975135/access-control-origin-header-error-
 1. [actions outside store](https://zustand.docs.pmnd.rs/guides/practice-with-no-store-actions)
 2. [state slices hooks](https://github.com/pmndrs/zustand/tree/2b29d736841dc7b3fd7dec8cbfea50fee7295974#selecting-multiple-state-slices)
 
+http://localhost:3000/success?payment_intent=pi_3QXD7wJ5QluLMJOg0RvwEvDT&payment_intent_client_secret=pi_3QXD7wJ5QluLMJOg0RvwEvDT_secret_ee3MMq1x8g30VNeHo0iWXCVyb&redirect_status=succeeded
+
 ```
 {
     "id": 30,

@@ -13,7 +13,7 @@
 - [ ] Stripe custom payment flow [link](https://docs.stripe.com/payments/quickstart?client=react)
   - [x] Server: Create a [ =Payment intent](https://docs.stripe.com/api/payment_intents) endpoint
   - [x] Configure stripe elements provider, and Address and Payment element
-  - [ ] Handle success and error payment
+  - [x] Handle success and error payment
   - [ ] Style form to meet theme
   - [x] Configure success page: verify client and payment, clear cookies and cart
 - [ ] Authentication and authorization

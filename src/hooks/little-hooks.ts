@@ -1,9 +1,8 @@
 import { ProductCartItem } from "@/types/product";
-import { useMemo } from "react";
 
-export function useTotalPrice(items: ProductCartItem[]) {
-  return useMemo(
-    () => items.reduce((prev, curr) => prev + curr.price * curr.quantity, 0),
-    [items],
-  );
+export function getTotalPrice(items: ProductCartItem[]) {
+  return items.reduce((prev, curr) => {
+    console.log(prev + curr.price * curr.quantity);
+    return prev + curr.price * curr.quantity;
+  }, 0);
 }

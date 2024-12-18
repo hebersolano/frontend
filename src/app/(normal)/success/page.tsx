@@ -31,8 +31,6 @@ function SuccessPage() {
 
     const payIntCk = JSON.parse(getCookie("stripe_cs") || "{}");
 
-    //TODO: handle redirect status error
-
     if (payIntCk.id !== paymentIntent) {
       setCookie("stripe_cs", "", 0);
       notFound();
@@ -46,6 +44,7 @@ function SuccessPage() {
 
   if (!redirectStatus && !paymentIntent) notFound();
 
+  //TODO: look up possible stripe error payments
   if (redirectStatus !== "succeeded")
     return (
       <div className="h-noHeader bg-accent py-24">

@@ -1,4 +1,4 @@
-import { getProductBySlug } from "@/lib/data-access/products";
+import { getProductBySlug } from "@/lib/data-access/static-data-access";
 import CarouselProduct from "./_lib/carousel-product";
 import ProductInfo from "./_lib/product-info";
 import { TooltipProvider } from "@/components/ui/tooltip";

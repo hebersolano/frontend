@@ -6,14 +6,14 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { HeadingH3 } from "@/components/ui/typography";
-import { useTotalPrice } from "@/hooks/little-hooks";
+import { getTotalPrice } from "@/hooks/little-hooks";
 import { formatPrice } from "@/lib/utils";
 import { ProductCartItem } from "@/types/product";
 import Link from "next/link";
 import ProductTableRow from "./product-table-row";
 
 function ProductTable({ items }: { items: ProductCartItem[] }) {
-  const totalPrice = useTotalPrice(items);
+  const totalPrice = getTotalPrice(items);
 
   return (
     <div>

@@ -20,7 +20,6 @@ function CheckoutForm() {
   const [message, setMessage] = useState<string | undefined>(undefined);
   const [isLoading, setIsLoading] = useState(false);
 
-
   const handleSubmit: FormEventHandler<HTMLFormElement> = async (e) => {
     e.preventDefault();
 
@@ -63,6 +62,7 @@ function CheckoutForm() {
   return (
     <div id="checkout-page">
       <form id="payment-form" onSubmit={handleSubmit}>
+        <div className="my-2 h-2"></div>
         <AddressElement options={addressElementOptions} />
         <PaymentElement id="payment-element" options={paymentElementOptions} />
         <button disabled={isLoading || !stripe || !elements} id="submit">

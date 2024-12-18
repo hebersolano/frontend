@@ -14,7 +14,6 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { useIsAuthenticated, useUserData } from "@/hooks/auth-store";
-import { ThemeProvider } from "next-themes";
 import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
 import MenuLink from "./favorites-button";
 import LogoutButton from "./logout-button";
@@ -82,9 +81,7 @@ function ProfileMenu() {
           </MenuLink>
         </DropdownMenuItem>
         <DropdownMenuItem>
-          <ThemeProvider attribute="class" enableSystem={false}>
-            <ThemeToggle />
-          </ThemeProvider>
+          <ThemeToggle />
         </DropdownMenuItem>
         <DropdownMenuSeparator />
         <DropdownMenuItem>

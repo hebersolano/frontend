@@ -1,7 +1,6 @@
-import { ThemeProvider } from "next-themes";
+import { Separator } from "@/components/ui/separator";
 import ThemeSelector from "./components/theme-selector";
 import Profile from "./profile";
-import { Separator } from "@/components/ui/separator";
 
 export default function SettingsProfilePage() {
   return (
@@ -16,9 +15,7 @@ export default function SettingsProfilePage() {
           and night themes.
         </p>
       </div>
-      <ThemeProvider attribute="class" enableSystem={false}>
-        <ThemeSelector />
-      </ThemeProvider>
+      <ThemeSelector />
     </div>
   );
 }
