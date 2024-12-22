@@ -17,7 +17,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { getSetUserData, useUserData } from "@/hooks/auth-store";
 import { profileFormSchema, ProfileFormValues } from "@/lib/form-schemas";
-import AvatarForm from "../components/avatar-form";
+import AvatarForm from "../_components/avatar-form";
 import { updateUser } from "@/lib/data-access/auth-access";
 import { useRouter } from "next/navigation";
 import { toastAlert } from "@/lib/error-utils";

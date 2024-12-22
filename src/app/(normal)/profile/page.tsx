@@ -1,6 +1,6 @@
 import { Separator } from "@/components/ui/separator";
-import ThemeSelector from "./components/theme-selector";
-import Profile from "./profile";
+import ThemeSelector from "./_components/theme-selector";
+import Profile from "./_components/profile";
 
 export default function SettingsProfilePage() {
   return (

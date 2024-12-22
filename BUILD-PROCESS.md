@@ -14,7 +14,7 @@
   - [x] Server: Create a [ =Payment intent](https://docs.stripe.com/api/payment_intents) endpoint
   - [x] Configure stripe elements provider, and Address and Payment element
   - [x] Handle success and error payment
-  - [ ] Style form to meet theme
+  - [x] Style form to meet theme
   - [x] Configure success page: verify client and payment, clear cookies and cart
 - [ ] Authentication and authorization
   - [x] Auth page
