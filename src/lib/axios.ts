@@ -25,9 +25,6 @@ let interceptorId: number;
 export function addAuthInterceptor() {
   interceptorId = api.interceptors.request.use(authInterceptor);
 }
-interceptorId = api.interceptors.response.use((config) => {
-  return config as { heber: string };
-});
 
 addAuthInterceptor();
 

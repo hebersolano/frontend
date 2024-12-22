@@ -1,10 +1,10 @@
-import type { Metadata } from "next";
 import { Playfair_Display } from "next/font/google";
 import localFont from "next/font/local";
 
 import { Toaster } from "@/components/ui/toaster";
 import { siteConfig } from "@/config/siteConfig";
 import "./globals.css";
+import type { Metadata } from "next";
 
 const playfairDisplay = Playfair_Display({
   subsets: ["latin"],
@@ -76,7 +76,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className="light" style={{ colorScheme: "light" }}>
       <body
         className={`${geistSans.variable} ${playfairDisplay.variable} text-foreground antialiased`}
       >

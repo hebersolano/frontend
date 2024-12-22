@@ -6,7 +6,8 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 // static params for Static Side Generation
 export { generateStaticParams } from "./_lib/helpers";
 
-async function ProductPage({ params }: { params: Record<string, string> }) {
+async function ProductPage(props: { params: Promise<Record<string, string>> }) {
+  const params = await props.params;
   const { slug } = params;
   const product = await getProductBySlug(slug);
 

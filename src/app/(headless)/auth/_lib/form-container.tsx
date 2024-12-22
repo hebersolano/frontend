@@ -89,7 +89,7 @@ function AuthFormContainer() {
 
           <UserRegistrationForm mode={mode} />
 
-          <OathButton mode={mode} isLoading={false} />
+          <OathButton isLoading={false} />
 
           {/* <p className="px-8 text-center text-sm text-muted-foreground">
             By clicking continue, you agree to our{" "}

@@ -1,9 +1,9 @@
 import { cn } from "@/lib/utils";
 import Link from "next/link";
-import { ReactElement } from "react";
+import { ReactElement, ReactNode } from "react";
 
 type PropsLink = {
-  children: ReactElement;
+  children: ReactElement<ReactNode>;
   href: string;
   className?: string;
 };
@@ -23,7 +23,7 @@ export function IconLink({ children, href, className }: PropsLink) {
 }
 
 type PropsButton = {
-  children: ReactElement;
+  children: ReactElement<ReactNode>;
   onClink: () => void;
   className?: string;
 };

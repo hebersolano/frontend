@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, type JSX } from "react";
 
 function Modal({ children }: { children: JSX.Element }) {
   const [show, setShow] = useState(false);

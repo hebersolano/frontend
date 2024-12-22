@@ -7,7 +7,7 @@ import { getPaymentIntent } from "@/lib/stripe";
 import { Elements } from "@stripe/react-stripe-js";
 import { Appearance, loadStripe } from "@stripe/stripe-js";
 import { useTheme } from "next-themes";
-import { useEffect, useState } from "react";
+import { useEffect, useState, type JSX } from "react";
 
 function getTheme(themeSystem: string | undefined) {
   if (!themeSystem) return "stripe";

@@ -53,7 +53,7 @@ export function DesktopNav() {
               <ul className="grid gap-0 p-6 md:w-[450px] lg:w-[750px] lg:grid-cols-[0.85fr_1fr_1fr] lg:gap-3">
                 <li className="row-span-3">
                   <NavigationMenuLink asChild>
-                    <a
+                    <Link
                       className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md"
                       href="/shop"
                     >
@@ -65,7 +65,7 @@ export function DesktopNav() {
                         Encuentra todo nuestro catalogo de productos para los
                         amantes del café como nosotros.
                       </p>
-                    </a>
+                    </Link>
                   </NavigationMenuLink>
                 </li>
 

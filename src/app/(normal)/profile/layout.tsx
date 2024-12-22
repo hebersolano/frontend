@@ -1,5 +1,5 @@
 import { Separator } from "@/components/ui/separator";
-import { Metadata } from "next";
+import type { Metadata } from "next";
 import { SidebarNav } from "./_components/sidebar-nav";
 
 export const metadata: Metadata = {
