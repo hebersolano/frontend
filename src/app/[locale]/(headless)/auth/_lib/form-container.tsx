@@ -7,7 +7,7 @@ import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useEffect } from "react";
 import { UserRegistrationForm } from "./user-auth-form";
 import OathButton from "./oauth-auth-button";
-import LoadingPage from "@/app/loading";
+import LoadingPage from "@/app/[locale]/loading";
 import { ArrowLeft } from "lucide-react";
 
 const content = {

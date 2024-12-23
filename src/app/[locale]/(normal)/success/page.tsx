@@ -6,7 +6,7 @@ import { useEffect, useRef } from "react";
 import useCartStore from "@/hooks/use-cart-store";
 import { getCookie, setCookie } from "@/lib/cookie";
 import SuccessMessage from "./_lib/success-message";
-import LoadingPage from "@/app/loading";
+import LoadingPage from "@/app/[locale]/loading";
 import Link from "next/link";
 import { buttonVariants } from "@/components/ui/button";
 

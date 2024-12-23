@@ -5,6 +5,9 @@ import { Toaster } from "@/components/ui/toaster";
 import { siteConfig } from "@/config/siteConfig";
 import "./globals.css";
 import type { Metadata } from "next";
+import LocalesProvider from "@/locales/locales-provider";
+import { getStaticParams } from "@/locales/server";
+import { setStaticParamsLocale } from "next-international/server";
 
 const playfairDisplay = Playfair_Display({
   subsets: ["latin"],
@@ -70,17 +73,26 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+export function generateStaticParams() {
+  return getStaticParams();
+}
+
+export default async function RootLayout({
+  params,
   children,
 }: Readonly<{
+  params: Promise<{ locale: string }>;
   children: React.ReactNode;
 }>) {
+  const { locale } = await params;
+  setStaticParamsLocale(locale);
+
   return (
     <html lang="en" className="light" style={{ colorScheme: "light" }}>
       <body
         className={`${geistSans.variable} ${playfairDisplay.variable} text-foreground antialiased`}
       >
-        {children}
+        <LocalesProvider locale={locale}>{children}</LocalesProvider>
         <Toaster />
       </body>
     </html>
