@@ -16,6 +16,7 @@ import { getSetUserData, useUserData } from "@/hooks/auth-store";
 import { api } from "@/lib/axios";
 import { Dispatch, FormEventHandler, SetStateAction, useState } from "react";
 import { UserResponse } from "@/types/user";
+import { UserData } from "@/lib/user-schemas";
 
 const setUserData = getSetUserData();
 
@@ -41,7 +42,7 @@ function AvatarForm() {
           </Avatar>
         </div>
 
-        <UpdateAvatarDialog userId={user?.id} setOpen={setOpen} />
+        <UpdateAvatarDialog user={user} setOpen={setOpen} />
       </Dialog>
     </div>
   );
@@ -50,10 +51,10 @@ function AvatarForm() {
 export default AvatarForm;
 
 function UpdateAvatarDialog({
-  userId,
+  user,
   setOpen,
 }: {
-  userId: number | undefined;
+  user: UserData | undefined;
   setOpen: Dispatch<SetStateAction<boolean>>;
 }) {
   const [isLoading, setIsLoading] = useState(false);
@@ -61,12 +62,15 @@ function UpdateAvatarDialog({
   const handleSubmit: FormEventHandler<HTMLFormElement> = async (event) => {
     try {
       setIsLoading(true);
-      if (!userId) return;
+      if (!user) return;
       event.preventDefault();
+      if (user.profile?.id)
+        await api.delete("/upload/files/" + user.profile.id);
       const formData = new FormData(event.target as HTMLFormElement);
       formData.append("ref", "plugin::users-permissions.user");
-      formData.append("refId", `${userId}`);
+      formData.append("refId", `${user.id}`);
       formData.append("field", "profile");
+      formData.append("source", "users-permissions");
 
       await api.post("/upload", formData);
       const meRes = await api.get<UserResponse>("/users/me", {

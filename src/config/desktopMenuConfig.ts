@@ -5,32 +5,32 @@ export const shopMenuItems: {
 }[] = [
   {
     title: "Café tostado molido",
-    href: "/cafe-molido",
+    href: "/shop?cat=cafe-molido",
     description: "Una selecta variedad de cafés para todos los gustos",
   },
   {
     title: "Café en grano",
-    href: "/cafe-tostado",
+    href: "/shop?cat=cafe-tostado",
     description: "Café tostado en grano para los entuciastas",
   },
   {
     title: "Café verder",
-    href: "/cafe-en-grano",
+    href: "/shop?cat=cafe-verde",
     description: "Café de la mejor calidad para exportación",
   },
   {
     title: "Lotes de café",
-    href: "/green-coffee",
+    href: "/shop?cat=green-coffee",
     description: "Buscas lotes únicos, somos proveedores de café para tiendas",
   },
   {
     title: "Ofertas",
-    href: "/offers",
+    href: "/shop?cat=offers",
     description: "Ofertas y descuentos especiales",
   },
   {
     title: "Equipo y accesorios ",
-    href: "/accessories",
+    href: "/shop?cat=accessories",
     description: "Lo mejor en equipo para preparar cafe",
   },
 ];

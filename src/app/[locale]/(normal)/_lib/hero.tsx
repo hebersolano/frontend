@@ -1,11 +1,7 @@
 import Image from "next/image";
-import { setStaticParamsLocale } from "next-international/server";
-import { getCurrentLocale, getI18n } from "@/locales/server";
+import { getI18n } from "@/locales/server";
 
 async function Hero() {
-  const curr = await getCurrentLocale();
-  console.log("current locale", curr);
-  setStaticParamsLocale(curr);
   const t = await getI18n();
 
   return (

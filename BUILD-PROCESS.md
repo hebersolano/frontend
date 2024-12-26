@@ -31,6 +31,8 @@
   - [ ] user can change email (need to confirm)
 - [ ] Orders page
 - [ ] Security checklist
+- [ ] Locale feature
+  - [ ] Spanish version
 
 ### Pages
 

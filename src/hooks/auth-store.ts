@@ -1,34 +1,8 @@
 import { createStore } from "zustand/vanilla";
 import { createJSONStorage, persist } from "zustand/middleware";
-import { z } from "zod";
 
 import { useStore } from "zustand";
-
-export const UserDataSchema = z.object({
-  id: z.number(),
-  documentId: z.string(),
-  username: z.string(),
-  email: z.string(),
-  info: z
-    .object({
-      firstName: z.string().nullable(),
-      lastName: z.string().nullable(),
-      address: z.string().nullable(),
-      details: z.string().nullable(),
-    })
-    .nullable(),
-  profile: z
-    .object({
-      id: z.number(),
-      documentId: z.string(),
-      width: z.number(),
-      height: z.number(),
-      url: z.string(),
-    })
-    .nullable(),
-});
-
-type UserData = z.infer<typeof UserDataSchema>;
+import { UserData, UserDataSchema } from "@/lib/user-schemas";
 
 type AuthStore = {
   userData: UserData | undefined;

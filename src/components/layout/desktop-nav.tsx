@@ -16,13 +16,20 @@ import { Coffee } from "lucide-react";
 
 import { Icons } from "../icons";
 import { shopMenuItems } from "@/config/desktopMenuConfig";
+import { useCurrentLocale } from "@/locales/client";
 
 export function DesktopNav() {
+  const locale = useCurrentLocale();
+  console.log("nav locale", locale);
   const pathname = usePathname();
 
   return (
     <div className="mr-4 hidden md:flex">
-      <Link href="/" className="mr-4 flex items-center space-x-2 lg:mr-6">
+      <Link
+        href={`/${locale}`}
+        locale={locale}
+        className="mr-4 flex items-center space-x-2 lg:mr-6"
+      >
         <Icons.iconLogo className="h-6" />
         <span className="hidden lg:inline-block">
           <Icons.upperLogo className="h-4" />
@@ -32,10 +39,13 @@ export function DesktopNav() {
         <NavigationMenuList>
           <li>
             <Link
-              href="/"
+              href={`/${locale}/`}
+              locale="es"
               className={cn(
                 "transition-colors hover:text-primary",
-                pathname === "/" ? "text-foreground" : "text-foreground/60",
+                pathname.startsWith(`/${locale}/`)
+                  ? "text-foreground"
+                  : "text-foreground/60",
               )}
             >
               Inicio
@@ -44,7 +54,9 @@ export function DesktopNav() {
           <NavigationMenuItem>
             <NavigationMenuTrigger
               className={
-                pathname === "/shop" ? "text-foreground" : "text-foreground/60"
+                pathname.startsWith(`/${locale}/shop`)
+                  ? "text-foreground"
+                  : "text-foreground/60"
               }
             >
               Tienda
@@ -54,8 +66,8 @@ export function DesktopNav() {
                 <li className="row-span-3">
                   <NavigationMenuLink asChild>
                     <Link
+                      href={`/${locale}/shop`}
                       className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md"
-                      href="/shop"
                     >
                       <Coffee />
                       <div className="mb-2 mt-4 text-lg font-medium">
@@ -73,7 +85,7 @@ export function DesktopNav() {
                   <ListItem
                     key={component.title}
                     title={component.title}
-                    href={component.href}
+                    href={`/${locale}${component.href}`}
                   >
                     {component.description}
                   </ListItem>
@@ -83,10 +95,10 @@ export function DesktopNav() {
           </NavigationMenuItem>
           <li>
             <Link
-              href="/about-us"
+              href={`/${locale}/about-us`}
               className={cn(
                 "transition-colors hover:text-primary",
-                pathname?.startsWith("/sobre-nosotros")
+                pathname?.startsWith(locale + "/about-ut")
                   ? "text-foreground"
                   : "text-foreground/60",
               )}
@@ -96,7 +108,7 @@ export function DesktopNav() {
           </li>
           <li>
             <Link
-              href="/contact"
+              href={`/${locale}/contact`}
               className={cn(
                 "transition-colors hover:text-primary",
                 pathname?.startsWith("/contacto")

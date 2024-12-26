@@ -5,13 +5,11 @@ import Hero from "./_lib/hero";
 import InHonduras from "./_lib/honduras-call-to-action";
 import KnowAboutUs from "./_lib/know-about-us";
 import ServicesAndProducts from "./_lib/services-and-products";
+import { setStaticParamsLocale } from "next-international/server";
 
-export default async function Home({
-  params,
-}: {
-  params: Promise<{ locale: string }>;
-}) {
-  console.log(await params);
+export default async function Home() {
+  const locale = await getCurrentLocale();
+  setStaticParamsLocale(locale);
   return (
     <>
       <Hero />
