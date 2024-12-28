@@ -1,7 +1,6 @@
 import { Separator } from "@/components/ui/separator";
 import type { Metadata } from "next";
 import { SidebarNav } from "./_components/sidebar-nav";
-import { getCurrentLocale } from "@/locales/server";
 
 export const metadata: Metadata = {
   title: "Forms",
@@ -26,8 +25,6 @@ interface SettingsLayoutProps {
 export default async function SettingsLayout({
   children,
 }: SettingsLayoutProps) {
-  const curr = await getCurrentLocale();
-  console.log("settings locale", curr);
   return (
     <div className="mx-auto max-w-screen-xl space-y-6 px-4 py-10 pb-16">
       <div className="space-y-0.5">

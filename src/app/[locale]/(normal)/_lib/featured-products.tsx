@@ -11,8 +11,10 @@ import SkProductItem from "../../../../components/store/sk-product-item";
 import ProductItem2 from "@/components/store/product-item-02";
 import SectionHeader from "@/components/section-header";
 import ProductCategories from "@/components/product-categories";
+import { useI18n, useScopedI18n } from "@/locales/client";
 
 function FeaturedProducts() {
+  const t = useScopedI18n("home.featuredProducts");
   const {
     data: products = Array.from({ length: 3 }),
     error,
@@ -22,10 +24,7 @@ function FeaturedProducts() {
   return (
     <section className="mx-auto max-w-screen-xl px-4">
       <div className="my-32">
-        <SectionHeader
-          title="Productos Destacados"
-          description="Lo que la gente más compra"
-        />
+        <SectionHeader title={t("title")} description={t("description")} />
 
         <Carousel className="mt-8">
           <CarouselContent className="">

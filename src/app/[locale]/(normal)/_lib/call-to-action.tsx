@@ -1,13 +1,16 @@
 /* eslint-disable @next/next/no-img-element */
 import { Button } from "@/components/ui/button";
+import { getI18n, getScopedI18n } from "@/locales/server";
 import Image from "next/image";
 
-function CallToAction() {
+async function CallToAction() {
+  const t = await getScopedI18n("home.callToAction");
+
   return (
     <section className="relative">
       <Image
         src="bg-leaves-img.webp"
-        alt="logo csl"
+        alt="green leaves"
         width={315}
         height={182}
         className="absolute bottom-0 right-0 -z-10 opacity-20"
@@ -17,20 +20,13 @@ function CallToAction() {
           <div className="flex items-center justify-center md:w-1/2 md:justify-start">
             <div className="space-y-6 text-center md:text-left">
               <img src="logo-leaf-new.webp" className="mb-4 inline" alt="" />
-              <p className="font-semibold md:text-xl">
-                Un compromiso con la calidad
-              </p>
+              <p className="font-semibold md:text-xl">{t("subtitle")}</p>
               <h2 className="scroll-m-20 font-serif text-4xl font-semibold leading-loose tracking-tight lg:text-5xl">
-                ¡Disfruta de muestra variedad en café!
+                {t("title")}
               </h2>
-              <p className="leading-7">
-                Café San Luis es una línea de cafés proveniente de la hermosa
-                región de San Luis, Comayagua, Honduras y que busca satisfacer
-                los gustos mas variados y exiges. Explora toda la variedad que
-                tenemos para ti.
-              </p>
+              <p className="leading-7">{t("description")}</p>
               <Button size="lg" className="md:text-lg">
-                Tienda
+                {t("button")}
               </Button>
             </div>
           </div>
@@ -46,7 +42,7 @@ function CallToAction() {
             />
             <Image
               src="primera-promo-cafe-600x514.webp"
-              alt="logo csl"
+              alt="image of coffee"
               width={600}
               height={514}
               className="inline w-full transition-all duration-200 ease-in hover:scale-110"

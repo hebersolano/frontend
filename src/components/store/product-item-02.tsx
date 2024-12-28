@@ -6,8 +6,10 @@ import { Product } from "@/types/product";
 import Link from "next/link";
 import { AspectRatio } from "../ui/aspect-ratio";
 import { Button, buttonVariants } from "../ui/button";
+import { useI18n, useScopedI18n } from "@/locales/client";
 
 function ProductItem2({ product }: { product: Product }) {
+  const t = useScopedI18n("home.featuredProducts.productItem");
   const { addItem } = useCartStore();
   const image = product.images?.[0];
 
@@ -37,13 +39,13 @@ function ProductItem2({ product }: { product: Product }) {
             href={"/shop/" + product.slug}
             className={buttonVariants({ size: "sm", variant: "outline" })}
           >
-            Details
+            {t("btns.details")}
           </Link>
           <Button
             size="sm"
             onClick={() => addItem({ ...product, quantity: 1 })}
           >
-            Add to cart
+            {t("btns.addToCart")}
           </Button>
         </div>
       </div>

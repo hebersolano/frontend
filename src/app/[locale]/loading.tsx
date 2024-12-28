@@ -1,6 +1,6 @@
 import { Icons } from "@/components/icons";
 
-function LoadingPage({ text }: { text?: string }) {
+function LoadingPage({ text = "Loading" }: { text?: string }) {
   return (
     <div className="flex h-screen items-center justify-center gap-2">
       <Icons.spinner className="h-8 w-8 animate-spin stroke-primary" />

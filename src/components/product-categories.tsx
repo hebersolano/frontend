@@ -7,8 +7,10 @@ import Link from "next/link";
 import useSWR from "swr";
 import { Skeleton } from "./ui/skeleton";
 import { Separator } from "./ui/separator";
+import { useScopedI18n } from "@/locales/client";
 
 export default function ProductCategories() {
+  const t = useScopedI18n("home.featuredProducts.productCategories");
   const {
     data: categories,
     error,
@@ -20,7 +22,7 @@ export default function ProductCategories() {
   return (
     <div className="my-8 space-y-4">
       <h3 className="scroll-m-20 font-serif text-2xl font-semibold tracking-tight">
-        Categories
+        {t("title")}
       </h3>
       <Separator />
       <div className="flex flex-wrap gap-3 md:gap-6">

@@ -1,5 +1,6 @@
 import SectionHeader from "@/components/section-header";
 import { buttonVariants } from "@/components/ui/button";
+import { getScopedI18n } from "@/locales/server";
 import { CircleDollarSign, Leaf, Recycle } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -18,50 +19,48 @@ type Article = {
 
 type TsectionData = Article[];
 
-const sectionData: TsectionData = [
-  {
-    title: "Tostado Artesanal de Café",
-    description:
-      "El método de tostado es tan importante como el café mismo, un tostado artesanal expone las características del café de una manera única e inigualable.",
-    btn: "#",
-    img: {
-      url: "/service-01.png",
-      altText: "servicio de café tostado",
-      width: 498,
-      height: 650,
+export default async function ServicesAndProducts() {
+  const t = await getScopedI18n("home.servicesAndProducts");
+  const sectionData: TsectionData = [
+    {
+      title: t("items.artisanalCoffeeRoasting.title"),
+      description: t("items.artisanalCoffeeRoasting.description"),
+      btn: "#",
+      img: {
+        url: "/service-01.png",
+        altText: t("items.artisanalCoffeeRoasting.title"),
+        width: 498,
+        height: 650,
+      },
     },
-  },
-  {
-    title: "Microlotes de café",
-    description:
-      "Junto a nuestra red de productores a lo largo de Honduras te brindamos una amplia variedad café con las mejores características de la región.",
-    btn: "#",
-    img: {
-      url: "/service-02.png",
-      altText: "microlotes de café",
-      width: 498,
-      height: 650,
+    {
+      title: t("items.microlots.title"),
+      description: t("items.microlots.description"),
+      btn: "#",
+      img: {
+        url: "/service-02.png",
+        altText: t("items.microlots.title"),
+        width: 498,
+        height: 650,
+      },
     },
-  },
-  {
-    title: "Empaques",
-    description:
-      "Te brindamos una amplia variedad de empaques para tus productos. Mantén tus productos lo más frescos posible y destaca entre la competencia.",
-    btn: null,
-    img: {
-      url: "/service-03.png",
-      altText: "empaques image",
-      width: 498,
-      height: 650,
+    {
+      title: t("items.packaging.title"),
+      description: t("items.packaging.description"),
+      btn: null,
+      img: {
+        url: "/service-03.png",
+        altText: t("items.packaging.title"),
+        width: 498,
+        height: 650,
+      },
     },
-  },
-];
+  ];
 
-export default function ServicesAndProducts() {
   return (
     <section className="bg-accent">
       <div className="mx-auto max-w-screen-xl px-4 py-32">
-        <SectionHeader title="Más productos y servicios" />
+        <SectionHeader title={t("title")} description={t("description")} />
 
         <div className="grid grid-cols-1 gap-2 sm:grid-cols-2 md:gap-x-16 md:gap-y-8 lg:grid-cols-3">
           {/* item 01 */}
@@ -76,27 +75,27 @@ export default function ServicesAndProducts() {
             <Leaf className="h-8 w-8 text-secondary" />
             <div className="">
               <h4 className="font-serif text-xl font-semibold tracking-tight">
-                Orgánicos
+                {t("caracteristics.organic.title")}
               </h4>
-              <p>Sin aditivos preservantes</p>
+              <p>{t("caracteristics.organic.description")}</p>
             </div>
           </div>
           <div className="flex gap-4 rounded-xl bg-zinc-600 p-6 text-background">
             <CircleDollarSign className="h-8 w-8 text-secondary" />
             <div className="">
               <h4 className="font-serif text-xl font-semibold tracking-tight">
-                Precios especiales
+                {t("caracteristics.specialPrices.title")}
               </h4>
-              <p>Para mayoristas</p>
+              <p>{t("caracteristics.specialPrices.description")}</p>
             </div>
           </div>
           <div className="flex gap-4 rounded-xl bg-zinc-600 p-6 text-background">
             <Recycle className="h-8 w-8 text-secondary" />
             <div className="">
               <h4 className="font-serif text-xl font-semibold tracking-tight">
-                Ecológico
+                {t("caracteristics.ecological.title")}
               </h4>
-              <p>Con responsabilidad</p>
+              <p>{t("caracteristics.ecological.description")}</p>
             </div>
           </div>
         </div>
