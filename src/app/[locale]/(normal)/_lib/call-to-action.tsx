@@ -1,6 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import { Button } from "@/components/ui/button";
-import { getI18n, getScopedI18n } from "@/locales/server";
+import { getI18n, getScopedI18n } from "@/intl/server";
 import Image from "next/image";
 
 async function CallToAction() {

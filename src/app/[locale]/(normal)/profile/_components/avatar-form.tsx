@@ -13,7 +13,7 @@ import {
 } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { getSetUserData, useUserData } from "@/hooks/auth-store";
-import { api } from "@/lib/axios";
+import { api } from "@/lib/data-access/axios";
 import { Dispatch, FormEventHandler, SetStateAction, useState } from "react";
 import { UserResponse } from "@/types/user";
 import { UserData } from "@/lib/user-schemas";

@@ -33,6 +33,7 @@
 - [ ] Security checklist
 - [ ] Locale feature
   - [ ] Spanish version
+  - [ ] English version
 
 ### Pages
 

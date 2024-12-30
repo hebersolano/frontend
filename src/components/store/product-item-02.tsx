@@ -6,7 +6,7 @@ import { Product } from "@/types/product";
 import Link from "next/link";
 import { AspectRatio } from "../ui/aspect-ratio";
 import { Button, buttonVariants } from "../ui/button";
-import { useI18n, useScopedI18n } from "@/locales/client";
+import { useI18n, useScopedI18n } from "@/intl/client";
 
 function ProductItem2({ product }: { product: Product }) {
   const t = useScopedI18n("home.featuredProducts.productItem");

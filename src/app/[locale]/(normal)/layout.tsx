@@ -1,6 +1,6 @@
 import SiteFooter from "@/components/layout/site-footer";
 import SiteHeader from "@/components/layout/site-header";
-import { LOCALES } from "@/locales/types";
+import { LOCALES } from "@/intl/types";
 import { setStaticParamsLocale } from "next-international/server";
 import { ThemeProvider } from "next-themes";
 
@@ -13,7 +13,6 @@ export default async function AppLayout({
 }>) {
   const { locale } = await params;
   await setStaticParamsLocale(locale);
-  console.log("nolmal layout locale", locale);
 
   return (
     <>

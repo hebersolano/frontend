@@ -1,5 +1,5 @@
 import { Enum, Req, Slug } from "@/types/content-type";
-import { apiStatic } from "../axios";
+import { apiStatic } from "./axios";
 import { Product } from "@/types/product";
 
 // fetchers to generate static pages

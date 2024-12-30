@@ -1,8 +1,11 @@
 import YoutubeVideo from "@/components/youtube-video";
+import { getScopedI18n } from "@/intl/server";
 import { MessageSquareQuote } from "lucide-react";
 import Image from "next/image";
 
-function KnowAboutUs() {
+async function KnowAboutUs() {
+  const t = await getScopedI18n("home.knowAboutUs");
+
   return (
     <div className="">
       <div className="mx-auto max-w-screen-xl px-4 py-32">
@@ -18,11 +21,7 @@ function KnowAboutUs() {
               />
               <MessageSquareQuote className="absolute -bottom-3 left-1/2 -translate-x-1/2 text-primary" />
             </div>
-            <p className="text-balance leading-7">
-              Te doy la bienvenida a esta comunidad de productores y en nombre
-              de todos te agradezco que consideres este proyecto o alguno de
-              nuestros productos y servicios.
-            </p>
+            <p className="text-balance leading-7">{t("message")}</p>
             <p className="font-serif text-lg font-bold">Brayan Herrera</p>
           </div>
           {/* video */}

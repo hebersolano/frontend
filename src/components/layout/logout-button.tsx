@@ -1,5 +1,5 @@
 import { getClearTokes } from "@/hooks/auth-store";
-import { removeAuthInterceptor } from "@/lib/axios";
+import { removeAuthInterceptor } from "@/lib/data-access/axios";
 import { useRouter } from "next/navigation";
 import { ReactNode } from "react";
 

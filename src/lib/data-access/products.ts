@@ -1,7 +1,7 @@
 import type { Req } from "@/types/content-type";
 import { Product } from "@/types/product";
 import { isAxiosError } from "axios";
-import { api } from "../axios";
+import { api } from "./axios";
 import { handleAxiosError } from "../error-utils";
 
 export async function getFeaturedProducts() {

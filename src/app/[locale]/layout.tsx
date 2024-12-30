@@ -1,8 +1,8 @@
 import { Toaster } from "@/components/ui/toaster";
 import { siteConfig } from "@/config/siteConfig";
-import LocalesProvider from "@/locales/locales-provider";
-import { getStaticParams } from "@/locales/server";
-import { LOCALES } from "@/locales/types";
+import LocalesProvider from "@/intl/locales-provider";
+import { getStaticParams } from "@/intl/server";
+import { LOCALES } from "@/intl/types";
 import { Metadata } from "next";
 import { setStaticParamsLocale } from "next-international/server";
 import { Playfair_Display } from "next/font/google";

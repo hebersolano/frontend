@@ -1,5 +1,5 @@
 import { loadStripe, PaymentIntent } from "@stripe/stripe-js";
-import { api } from "./axios";
+import { api } from "./data-access/axios";
 import { ProductCartItem } from "@/types/product";
 import { toastAlert } from "./error-utils";
 

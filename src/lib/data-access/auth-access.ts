@@ -1,7 +1,7 @@
 import { AuthUserResponse, UserResponse } from "@/types/user";
 import { isAxiosError } from "axios";
 import { z } from "zod";
-import { api } from "../axios";
+import { api } from "./axios";
 import { AuthFormType, ProfileFormValues } from "../form-schemas";
 import { handleAxiosError } from "../error-utils";
 

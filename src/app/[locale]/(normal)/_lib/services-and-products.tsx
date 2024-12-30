@@ -1,6 +1,6 @@
 import SectionHeader from "@/components/section-header";
 import { buttonVariants } from "@/components/ui/button";
-import { getScopedI18n } from "@/locales/server";
+import { getScopedI18n } from "@/intl/server";
 import { CircleDollarSign, Leaf, Recycle } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";

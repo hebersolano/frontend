@@ -16,7 +16,7 @@ import { Coffee } from "lucide-react";
 
 import { Icons } from "../icons";
 import { shopMenuItems } from "@/config/desktopMenuConfig";
-import { useCurrentLocale } from "@/locales/client";
+import { useCurrentLocale } from "@/intl/client";
 
 export function DesktopNav() {
   const locale = useCurrentLocale();

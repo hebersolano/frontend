@@ -1,4 +1,4 @@
-import { getScopedI18n } from "@/locales/server";
+import { getScopedI18n } from "@/intl/server";
 import Image from "next/image";
 
 async function Hero() {

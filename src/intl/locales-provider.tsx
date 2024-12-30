@@ -1,5 +1,5 @@
 "use client";
-import { I18nProviderClient } from "@/locales/client";
+import { I18nProviderClient } from "@/intl/client";
 
 function LocalesProvider({
   locale,

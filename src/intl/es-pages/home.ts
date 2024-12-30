@@ -1,5 +1,6 @@
-const home = {
+export default {
   hero: { welcome: "Bienbenido {br}a esta comunidad {br}dedicada mi casa" },
+
   callToAction: {
     subtitle: "Un compromiso con la calidad",
     title: "¡Disfruta de muestra variedad en café!",
@@ -7,6 +8,7 @@ const home = {
       "Café San Luis es una línea de cafés proveniente de la hermosa región de San Luis, Comayagua, Honduras y que busca satisfacer los gustos mas variados y exiges. Explora toda la variedad que tenemos para ti.",
     button: "Tienda",
   },
+
   featuredProducts: {
     title: "Productos Destacados",
     description: "Lo que la gente más compra",
@@ -20,6 +22,7 @@ const home = {
       title: "Categorías",
     },
   },
+
   servicesAndProducts: {
     title: "Productos y Servicios",
     description: "Lo que ofrecemos",
@@ -54,21 +57,18 @@ const home = {
         description: "Con responsabilidad",
       },
     },
-    knowAboutUs: {
-      title: "Conoce más sobre nosotros",
-      description: "Nuestra misión",
-      message: {
-        text: "Te doy la bienvenida a esta comunidad de productores y en nombre de todos te agradezco que consideres este proyecto o alguno de nuestros productos y servicios.",
-      },
-    },
   },
-} as const;
 
-export default {
-  notFound: {
-    title: "Página no encontrada",
-    description: "Lo sentimos, la página que buscas no existe.",
-    button: "Volver al inicio",
+  knowAboutUs: {
+    title: "Conoce más sobre nosotros",
+    message:
+      "Te doy la bienvenida a esta comunidad de productores y en nombre de todos te agradezco que consideres este proyecto o alguno de nuestros productos y servicios.",
   },
-  home,
+
+  inHonduras: {
+    title: "Está en Honduras",
+    description:
+      "¿Está buscando un café de un perfil específico? Nosotros lo encontramos y te lo enviamos a cualquier parte del mundo.",
+    btn: "Contáctanos",
+  },
 } as const;

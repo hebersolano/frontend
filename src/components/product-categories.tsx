@@ -7,7 +7,7 @@ import Link from "next/link";
 import useSWR from "swr";
 import { Skeleton } from "./ui/skeleton";
 import { Separator } from "./ui/separator";
-import { useScopedI18n } from "@/locales/client";
+import { useScopedI18n } from "@/intl/client";
 
 export default function ProductCategories() {
   const t = useScopedI18n("home.featuredProducts.productCategories");

@@ -11,7 +11,7 @@ import SkProductItem from "../../../../components/store/sk-product-item";
 import ProductItem2 from "@/components/store/product-item-02";
 import SectionHeader from "@/components/section-header";
 import ProductCategories from "@/components/product-categories";
-import { useI18n, useScopedI18n } from "@/locales/client";
+import { useI18n, useScopedI18n } from "@/intl/client";
 
 function FeaturedProducts() {
   const t = useScopedI18n("home.featuredProducts");
