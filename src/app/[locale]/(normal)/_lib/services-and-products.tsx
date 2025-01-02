@@ -21,6 +21,7 @@ type TsectionData = Article[];
 
 export default async function ServicesAndProducts() {
   const t = await getScopedI18n("home.servicesAndProducts");
+
   const sectionData: TsectionData = [
     {
       title: t("items.artisanalCoffeeRoasting.title"),

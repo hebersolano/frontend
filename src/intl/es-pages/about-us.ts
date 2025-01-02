@@ -39,6 +39,7 @@ export default {
         "Alcanzar gran éxito en toda la gama empresarial; industria y comercio. Ganando reconocimiento a nivel nacional e internacional, convirtiéndonos en un referente de calidad y prestigio. Buscando concluir satisfactoriamente cada una de las metas fijadas; a través de la perseverancia y el esmero organizacional; con el fin de convertirnos en una marca líder en el mercado.",
     },
   },
+
   staff: {
     title: "Nuestro equipo",
     members: [
