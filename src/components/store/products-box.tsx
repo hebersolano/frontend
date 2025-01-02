@@ -6,7 +6,7 @@ import useSWR from "swr";
 import ProductItem2 from "./product-item-02";
 import SkProductItem from "./sk-product-item";
 import { Product } from "@/types/product";
-import { filterProducts } from "@/app/(normal)/shop/_lib/helpers";
+import { filterProducts } from "@/app/[locale]/(normal)/shop/_lib/helpers";
 
 function ProductsBox({ slug }: { slug?: string }) {
   const params = Object.fromEntries(useSearchParams());
