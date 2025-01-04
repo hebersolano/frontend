@@ -3,7 +3,7 @@
 import { getProductByCategory } from "@/lib/data-access/products";
 import { useSearchParams } from "next/navigation";
 import useSWR from "swr";
-import ProductItem2 from "./product-item-02";
+import ProductItem from "./product-item";
 import SkProductItem from "./sk-product-item";
 import { Product } from "@/types/product";
 import { filterProducts } from "@/app/[locale]/(normal)/shop/_lib/helpers";
@@ -27,7 +27,7 @@ function ProductsBox({ slug }: { slug?: string }) {
   const filteredProducts = filterProducts(params, products);
 
   return filteredProducts.map((product: Product) => (
-    <ProductItem2 key={product.id} product={product} />
+    <ProductItem key={product.id} product={product} />
   ));
 }
 

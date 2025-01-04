@@ -1,47 +1,55 @@
 import Image from "next/image";
-import { Card, CardContent } from "../ui/card";
-import { IconButton, IconLink } from "../icon-button";
-import { Expand, ShoppingCart } from "lucide-react";
-import { Product } from "@/types/product";
+
 import useCartStore from "@/hooks/use-cart-store";
+import { formatPrice, truncateString } from "@/lib/utils";
+import { Product } from "@/types/product";
+import Link from "next/link";
+import { AspectRatio } from "../ui/aspect-ratio";
+import { Button, buttonVariants } from "../ui/button";
+import { useTranslations } from "next-intl";
 
 function ProductItem({ product }: { product: Product }) {
+  const t = useTranslations("home.featuredProducts.productItem");
   const { addItem } = useCartStore();
   const image = product.images?.[0];
 
   return (
-    <Card className="py-4 shadow-none">
-      <CardContent className="relative flex items-center justify-center px-6 py-2">
-        <Image
-          className="border"
-          src={process.env.NEXT_PUBLIC_API_URL + image.url}
-          alt={image.alternativeText || "product image image"}
-          height={image.height}
-          width={image.width}
-        />
-        <div className="duration-20 absolute bottom-6 w-full px-6 transition">
-          <div className="flex justify-center gap-x-6">
-            <IconLink href={"/product/" + product.slug}>
-              <Expand />
-            </IconLink>
-            <IconButton onClink={() => addItem({ ...product, quantity: 1 })}>
-              <ShoppingCart />
-            </IconButton>
-          </div>
+    <div className="overflow-hidden rounded-xl border">
+      <Link href={"/shop/" + product.slug} className="cursor-pointer">
+        <AspectRatio ratio={1 / 1} className="overflow-hidden">
+          <Image
+            className="h-full object-cover transition duration-500 hover:scale-110"
+            src={process.env.NEXT_PUBLIC_API_URL + image.url}
+            alt={image.alternativeText || "product image image"}
+            height={image.height}
+            width={image.width}
+          />
+        </AspectRatio>
+      </Link>
+      <div className="space-y-2 p-6">
+        <div className="flex justify-between">
+          <h3 className="font-medium">{product.productName}</h3>
+          <p className="font-semibold">{formatPrice(product.price)}</p>
         </div>
-      </CardContent>
-      <div className="px-8">
-        <h3>{product.productName}</h3>
-        <div className="flex justify-between gap-3">
-          <p className="w-fit rounded-full bg-foreground px-2 py-1 text-sm text-background">
-            {product.roast}
-          </p>
-          <p className="w-fit rounded-full bg-foreground px-2 py-1 text-sm text-background">
-            {product.origin}
-          </p>
+        <p className="h-8 text-sm text-muted-foreground">
+          {truncateString(product.description)}
+        </p>
+        <div className="flex justify-between pt-2">
+          <Link
+            href={"/shop/" + product.slug}
+            className={buttonVariants({ size: "sm", variant: "outline" })}
+          >
+            {t("btns.details")}
+          </Link>
+          <Button
+            size="sm"
+            onClick={() => addItem({ ...product, quantity: 1 })}
+          >
+            {t("btns.addToCart")}
+          </Button>
         </div>
       </div>
-    </Card>
+    </div>
   );
 }
 

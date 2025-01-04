@@ -8,11 +8,14 @@ import {
   CarouselItem,
 } from "../../../../components/ui/carousel";
 import SkProductItem from "../../../../components/store/sk-product-item";
-import ProductItem2 from "@/components/store/product-item-02";
+import ProductItem from "@/components/store/product-item";
 import SectionHeader from "@/components/section-header";
 import ProductCategories from "@/components/product-categories";
+import { useTranslations } from "next-intl";
 
 function FeaturedProducts() {
+  const t = useTranslations("home.featuredProducts");
+
   const {
     data: products = Array.from({ length: 3 }),
     error,
@@ -23,8 +26,8 @@ function FeaturedProducts() {
     <section className="mx-auto max-w-screen-xl px-4">
       <div className="my-32">
         <SectionHeader
-          title="Productos Destacados"
-          description="Lo que la gente más compra"
+          title={t("sectTitle")}
+          description={t("sectDescription")}
         />
 
         <Carousel className="mt-8">
@@ -36,7 +39,7 @@ function FeaturedProducts() {
                     <SkProductItem />
                   ) : (
                     !isLoading &&
-                    product !== undefined && <ProductItem2 product={product} />
+                    product !== undefined && <ProductItem product={product} />
                   )}
                 </div>
               </CarouselItem>

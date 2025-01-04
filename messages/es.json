@@ -1,5 +1,127 @@
 {
-  "HomePage": {
-    "title": "Hola Mundo!"
+  "localeSwitcher": {
+    "locale": "{locale, select, es {Spanish} en {English} other {Unknown}}"
+  },
+  "notFound": {
+    "title": "Página no encontrada",
+    "description": "Lo sentimos, la página que buscas no existe.",
+    "button": "Volver al inicio"
+  },
+  "home": {
+    "hero": {
+      "welcome": [
+        "Bienbenido",
+        "a esta comunidad ",
+        "dedicada al café"
+      ]
+    },
+    "callToAction": {
+      "subtitle": "Un compromiso con la calidad",
+      "title": "¡Disfruta de muestra variedad en café!",
+      "description": "Café San Luis es una línea de cafés proveniente de la hermosa región de San Luis, Comayagua, Honduras y que busca satisfacer los gustos mas variados y exiges. Explora toda la variedad que tenemos para ti.",
+      "button": "Tienda"
+    },
+    "featuredProducts": {
+      "secTitle": "Productos Destacados",
+      "secDescription": "Lo que la gente más compra",
+      "productItem": {
+        "btns": {
+          "details": "Detalles",
+          "addToCart": "Agregar al carrito"
+        }
+      },
+      "productCategories": {
+        "title": "Categorías"
+      }
+    },
+    "servicesAndProducts": {
+      "secTitle": "Productos y Servicios",
+      "secDescription": "Lo que ofrecemos",
+      "items": {
+        "artisanCoffeeRoasting": {
+          "title": "Tostado Artesanal de Café",
+          "description": "El método de tostado es tan importante como el café mismo, un tostado artesanal expone las características del café de una manera única e inigualable."
+        },
+        "microlotCoffee": {
+          "title": "Microlotes de café",
+          "description": "Junto a nuestra red de productores a lo largo de Honduras te brindamos una amplia variedad café con las mejores características de la región."
+        },
+        "packaging": {
+          "title": "Empaques",
+          "description": "Te brindamos una amplia variedad de empaques para tus productos. Mantén tus productos lo más frescos posible y destaca entre la competencia."
+        }
+      },
+      "caracteristics": {
+        "organic": {
+          "title": "Orgánico",
+          "description": "Sin aditivos preservantes"
+        },
+        "specialPrices": {
+          "title": "Precios especiales",
+          "description": "Para mayoristas"
+        },
+        "ecological": {
+          "title": "Ecológico",
+          "description": "Con responsabilidad"
+        }
+      }
+    },
+    "knowAboutUs": {
+      "title": "Conoce más sobre nosotros",
+      "message": "Te doy la bienvenida a esta comunidad de productores y en nombre de todos te agradezco que consideres este proyecto o alguno de nuestros productos y servicios."
+    },
+    "inHonduras": {
+      "title": "Está en Honduras",
+      "description": "¿Está buscando un café de un perfil específico? Nosotros lo encontramos y te lo enviamos a cualquier parte del mundo.",
+      "btn": "Contáctanos"
+    }
+  },
+  "aboutUs": {
+    "pageTitle": "Sobre nosotros",
+    "businessBiography": {
+      "paragraph1": "Somos una empresa familiar que inicia sus operaciones un verano de 2015 en la remota zona del pueblo de San Luis, Comayagua, Honduras. Café San Luis es un sueño realizado con ardua labor y que representa lo mejor que tiene nuestra tierra para ofrecer al mundo. Siempre tuvimos claro nuestro compromiso con cada etapa del proceso de elaboración artesanal de nuestro café, del que estamos actualmente orgullosos. Hoy contamos con una variada línea de café para todos los gustos y exigencias, para las personas que distinguen y aprecian el buen café. Si eres de esas personas, Café San Luis es para ti.",
+      "paragraph2": "En el 2010, damos comienzo al proyecto como productores de café en la zona de San Luis del departamento de Comayagua, Honduras; cultivando café convencional de altura a 1,425 msnm; manejando las siguientes variedades de café, en híbrido: café 90, lempira, y h27. También café de la línea arábiga en menores dimensiones como ser: catuahí, bourbon y caturra. Procurando siempre el mejor tratado y cuidado a nuestro café en cada proceso."
+    },
+    "businessValues": {
+      "values": [
+        {
+          "title": "Integridad",
+          "description": "Siempre hacemos lo correcto. Somos justos con nuestros clientes y genuinos en todos nuestros tratos comerciales."
+        },
+        {
+          "title": "Compromiso",
+          "description": "Escuchamos a nuestros clientes y estamos constantemente aprendiendo y mejorando continuamente."
+        },
+        {
+          "title": "Excelencia",
+          "description": "Escuchamos a nuestros clientes y estamos constantemente aprendiendo y mejorando continuamente."
+        }
+      ],
+      "mission": {
+        "title": "Misión",
+        "paragraph": "Brindamos un producto bajo estándares de calidad y un servicio personalizado; eficiente y eficaz. Siendo nuestro principal objetivo la satisfacción de nuestros clientes, de modo que estos nos prefieran y recomienden; posicionándonos exitosamente en el mercado con nuestros valores de innovación y liderazgo."
+      },
+      "vision": {
+        "title": "Visión",
+        "paragraph": "Alcanzar gran éxito en toda la gama empresarial; industria y comercio. Ganando reconocimiento a nivel nacional e internacional, convirtiéndonos en un referente de calidad y prestigio. Buscando concluir satisfactoriamente cada una de las metas fijadas; a través de la perseverancia y el esmero organizacional; con el fin de convertirnos en una marca líder en el mercado."
+      }
+    },
+    "staff": {
+      "title": "Nuestro equipo",
+      "members": [
+        {
+          "name": "Brayan Herrera",
+          "role": "Gerente General"
+        },
+        {
+          "name": "Heber Solano",
+          "role": "Administrador"
+        },
+        {
+          "name": "Tony Herrera",
+          "role": "Maestro Tostador"
+        }
+      ]
+    }
   }
 }

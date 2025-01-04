@@ -79,23 +79,19 @@ export const metadata: Metadata = {
 };
 
 type LOCALES = "en" | "es";
-
-async function RootLayout({
-  params,
-  children,
-}: Readonly<{
+type RootLayoutProps = Readonly<{
   params: Promise<{ locale: LOCALES }>;
   children: React.ReactNode;
-}>) {
+}>;
+
+async function RootLayout({ params, children }: RootLayoutProps) {
   const { locale } = await params;
   console.log("layout locale", locale);
 
-  // Ensure that the incoming `locale` is valid
   if (!routing.locales.includes(locale)) {
     notFound();
   }
 
-  // Enable static rendering
   setRequestLocale(locale);
   const messages = await getMessages();
 
