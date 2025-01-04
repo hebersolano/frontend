@@ -1,7 +1,7 @@
 "use client";
 import { cn } from "@/lib/utils";
 import { Heart } from "lucide-react";
-import Link from "next/link";
+import { Link } from "@/i18n/routing";
 import { buttonVariants } from "../ui/button";
 import useFavoriteStore from "@/hooks/use-favorite-products-store";
 

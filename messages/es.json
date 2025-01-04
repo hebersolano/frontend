@@ -37,6 +37,9 @@
     "servicesAndProducts": {
       "secTitle": "Productos y Servicios",
       "secDescription": "Lo que ofrecemos",
+      "ServiceProductItem": {
+        "btn": "Saber más"
+      },
       "items": {
         "artisanCoffeeRoasting": {
           "title": "Tostado Artesanal de Café",
@@ -68,6 +71,7 @@
     },
     "knowAboutUs": {
       "title": "Conoce más sobre nosotros",
+      "author": "Brayan Herrera",
       "message": "Te doy la bienvenida a esta comunidad de productores y en nombre de todos te agradezco que consideres este proyecto o alguno de nuestros productos y servicios."
     },
     "inHonduras": {

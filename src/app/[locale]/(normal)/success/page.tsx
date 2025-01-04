@@ -7,7 +7,7 @@ import useCartStore from "@/hooks/use-cart-store";
 import { getCookie, setCookie } from "@/lib/cookie";
 import SuccessMessage from "./_lib/success-message";
 import LoadingPage from "@/app/[locale]/loading";
-import Link from "next/link";
+import { Link } from "@/i18n/routing";
 import { buttonVariants } from "@/components/ui/button";
 
 // http://localhost:3000/success?payment_intent=pi_3QNL5QJ5QluLMJOg0LfUKYut&payment_intent_client_secret=pi_3QNJOlJ5QluLMJOg0LR8humA_secret_SRgDBeiuG2WKaq6hzxzCLk51V&redirect_status=succeeded

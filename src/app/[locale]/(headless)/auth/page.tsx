@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 
 import AuthFormContainer from "./_lib/form-container";
-import Link from "next/link";
+import { Link } from "@/i18n/routing";
 import { Icons } from "@/components/icons";
 
 export const metadata: Metadata = {

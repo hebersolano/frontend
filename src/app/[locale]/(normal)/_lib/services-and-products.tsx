@@ -3,7 +3,7 @@ import { buttonVariants } from "@/components/ui/button";
 import { CircleDollarSign, Leaf, Recycle } from "lucide-react";
 import { getTranslations } from "next-intl/server";
 import Image from "next/image";
-import Link from "next/link";
+import { Link } from "@/i18n/routing";
 
 type Article = {
   title: string;
@@ -26,7 +26,7 @@ export default async function ServicesAndProducts() {
     {
       title: t("items.artisanCoffeeRoasting.title"),
       description: t("items.artisanCoffeeRoasting.description"),
-      btn: "#",
+      btn: "/artisan-coffee",
       img: {
         url: "/service-01.png",
         altText: t("items.artisanCoffeeRoasting.title"),
@@ -37,7 +37,7 @@ export default async function ServicesAndProducts() {
     {
       title: t("items.microlotCoffee.title"),
       description: t("items.microlotCoffee.description"),
-      btn: "#",
+      btn: "/microlot-coffee",
       img: {
         url: "/service-02.png",
         altText: t("items.microlotCoffee.title"),
@@ -105,7 +105,9 @@ export default async function ServicesAndProducts() {
 }
 
 async function ServiceProductItem({ itemData }: { itemData: Article }) {
-  const t = await getTranslations("home.servicesAndProducts");
+  const t = await getTranslations(
+    "home.servicesAndProducts.ServiceProductItem",
+  );
   const { title, description, img, btn } = itemData;
 
   return (
@@ -117,7 +119,7 @@ async function ServiceProductItem({ itemData }: { itemData: Article }) {
       <div className="py-6">
         {btn && (
           <Link href={btn} className={buttonVariants()}>
-            Saber más
+            {t("btn")}
           </Link>
         )}
       </div>

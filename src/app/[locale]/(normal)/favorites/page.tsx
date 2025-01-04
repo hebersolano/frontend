@@ -4,7 +4,7 @@ import FavoriteItem from "./_lib/favorite-item";
 import { HeadingH1 } from "@/components/ui/typography";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Bookmark } from "lucide-react";
-import Link from "next/link";
+import { Link } from "@/i18n/routing";
 import { buttonVariants } from "@/components/ui/button";
 
 function EmptyAlert() {

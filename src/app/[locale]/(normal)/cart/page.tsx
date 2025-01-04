@@ -4,7 +4,7 @@ import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { HeadingH1 } from "@/components/ui/typography";
 import useCartStore from "@/hooks/use-cart-store";
 import { ShoppingCart } from "lucide-react";
-import Link from "next/link";
+import { Link } from "@/i18n/routing";
 import ProductTable from "./_lib/product-table";
 import { buttonVariants } from "@/components/ui/button";
 

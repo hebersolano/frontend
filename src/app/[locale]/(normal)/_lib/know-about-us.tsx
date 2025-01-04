@@ -1,8 +1,11 @@
 import YoutubeVideo from "@/components/youtube-video";
 import { MessageSquareQuote } from "lucide-react";
+import { getTranslations } from "next-intl/server";
 import Image from "next/image";
 
-function KnowAboutUs() {
+async function KnowAboutUs() {
+  const t = await getTranslations("home.knowAboutUs");
+
   return (
     <div className="">
       <div className="mx-auto max-w-screen-xl px-4 py-32">
@@ -10,7 +13,7 @@ function KnowAboutUs() {
           <div className="space-y-4 text-center">
             <div className="relative mx-auto w-fit">
               <Image
-                src="herrera.webp"
+                src="/herrera.webp"
                 alt="herrera profile photo"
                 width={150}
                 height={150}
@@ -18,12 +21,8 @@ function KnowAboutUs() {
               />
               <MessageSquareQuote className="absolute -bottom-3 left-1/2 -translate-x-1/2 text-primary" />
             </div>
-            <p className="text-balance leading-7">
-              Te doy la bienvenida a esta comunidad de productores y en nombre
-              de todos te agradezco que consideres este proyecto o alguno de
-              nuestros productos y servicios.
-            </p>
-            <p className="font-serif text-lg font-bold">Brayan Herrera</p>
+            <p className="text-balance leading-7">{t("message")}</p>
+            <p className="font-serif text-lg font-bold">{t("author")}</p>
           </div>
           {/* video */}
           <div className="w-full grow">

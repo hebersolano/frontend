@@ -3,7 +3,7 @@ import Image from "next/image";
 import useCartStore from "@/hooks/use-cart-store";
 import { formatPrice, truncateString } from "@/lib/utils";
 import { Product } from "@/types/product";
-import Link from "next/link";
+import { Link } from "@/i18n/routing";
 import { AspectRatio } from "../ui/aspect-ratio";
 import { Button, buttonVariants } from "../ui/button";
 import { useTranslations } from "next-intl";

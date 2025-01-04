@@ -1,5 +1,5 @@
 import { buttonVariants } from "@/components/ui/button";
-import Link from "next/link";
+import { Link } from "@/i18n/routing";
 import AppLayout from "./(normal)/layout";
 
 export default function NotFound() {

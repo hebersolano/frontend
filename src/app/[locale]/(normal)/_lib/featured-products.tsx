@@ -26,8 +26,8 @@ function FeaturedProducts() {
     <section className="mx-auto max-w-screen-xl px-4">
       <div className="my-32">
         <SectionHeader
-          title={t("sectTitle")}
-          description={t("sectDescription")}
+          title={t("secTitle")}
+          description={t("secDescription")}
         />
 
         <Carousel className="mt-8">

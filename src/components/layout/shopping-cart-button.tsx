@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import { Link } from "@/i18n/routing";
 import { buttonVariants } from "../ui/button";
 import { cn } from "@/lib/utils";
 import { ShoppingCart } from "lucide-react";

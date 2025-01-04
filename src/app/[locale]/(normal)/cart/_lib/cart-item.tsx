@@ -5,7 +5,7 @@ import { formatPrice } from "@/lib/utils";
 import type { ProductCartItem } from "@/types/product";
 import { X } from "lucide-react";
 import Image from "next/image";
-import Link from "next/link";
+import { Link } from "@/i18n/routing";
 import { useEffect, useState } from "react";
 
 function CartItem({ product }: { product: ProductCartItem }) {

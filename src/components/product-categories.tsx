@@ -3,7 +3,7 @@
 import { getProductCategories } from "@/lib/data-access/product-categories";
 import { Category } from "@/types/product";
 import Image from "next/image";
-import Link from "next/link";
+import { Link } from "@/i18n/routing";
 import useSWR from "swr";
 import { Skeleton } from "./ui/skeleton";
 import { Separator } from "./ui/separator";

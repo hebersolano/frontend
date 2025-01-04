@@ -2,7 +2,7 @@ import { Icons } from "@/components/icons";
 import { Separator } from "@/components/ui/separator";
 import { siteConfig } from "@/config/siteConfig";
 import { LucidePhone, MailIcon, MapPin } from "lucide-react";
-import Link from "next/link";
+import { Link } from "@/i18n/routing";
 
 function ContactInfo() {
   const { phones, mails, address } = siteConfig;

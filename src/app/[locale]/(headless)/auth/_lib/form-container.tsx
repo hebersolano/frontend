@@ -2,7 +2,7 @@
 
 import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import Link from "next/link";
+import { Link } from "@/i18n/routing";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useEffect } from "react";
 import { UserRegistrationForm } from "./user-auth-form";

@@ -5,7 +5,7 @@ import { formatPrice } from "@/lib/utils";
 import { Product } from "@/types/product";
 import { X } from "lucide-react";
 import Image from "next/image";
-import Link from "next/link";
+import { Link } from "@/i18n/routing";
 
 function FavoriteItem({ product }: { product: Product }) {
   const { removeFavoriteItem } = useFavoriteStore();
