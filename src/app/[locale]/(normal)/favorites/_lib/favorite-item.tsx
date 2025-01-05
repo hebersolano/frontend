@@ -6,8 +6,10 @@ import { Product } from "@/types/product";
 import { X } from "lucide-react";
 import Image from "next/image";
 import { Link } from "@/i18n/routing";
+import { useTranslations } from "next-intl";
 
 function FavoriteItem({ product }: { product: Product }) {
+  const t = useTranslations("favorites.favoriteItem");
   const { removeFavoriteItem } = useFavoriteStore();
   const { addItem } = useCartStore();
 
@@ -57,7 +59,7 @@ function FavoriteItem({ product }: { product: Product }) {
             onClick={addItem.bind(null, { ...product, quantity: 1 })}
             className="rounded-full"
           >
-            Añadir al carrito
+            {t("btns.addToCart")}
           </Button>
         </div>
       </div>

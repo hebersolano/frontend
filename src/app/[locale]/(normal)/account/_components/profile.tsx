@@ -10,10 +10,10 @@ function Profile() {
 
   return (
     <section className="">
-      <div className="relative flex flex-wrap justify-center gap-6 rounded-md border p-8 md:justify-start">
+      <div className="relative flex flex-wrap justify-center gap-6 p-8 md:justify-start">
         <Link
-          href="/profile/config"
-          className="absolute right-3 top-3 rounded-full bg-gray-100 p-2"
+          href="/account/edit-account"
+          className="absolute right-3 top-3 rounded-full bg-muted p-2"
         >
           <Pen className="h-4 w-4" />
         </Link>

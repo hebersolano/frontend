@@ -21,20 +21,23 @@ import AvatarForm from "../_components/avatar-form";
 import { updateUser } from "@/lib/data-access/auth-access";
 import { useRouter } from "next/navigation";
 import { toastAlert } from "@/lib/error-utils";
+import { useTranslations } from "next-intl";
+import { shallowCompareObjects } from "@/lib/utils";
 
 // This can come from your database or API.
 //TODO: sync user data
 const setUserData = getSetUserData();
 
 export default function ProfileForm() {
+  const t = useTranslations("account.editAccount");
   const user = useUserData();
   const router = useRouter();
 
   const defaultValues = {
-    username: user?.username,
-    email: user?.email,
     firstName: user?.info?.firstName || undefined,
     lastName: user?.info?.lastName || undefined,
+    username: user?.username,
+    email: user?.email,
     address: user?.info?.address || undefined,
   };
 
@@ -44,11 +47,17 @@ export default function ProfileForm() {
   });
 
   async function onSubmit(data: ProfileFormValues) {
+    console.log();
     try {
+      if (shallowCompareObjects(data, defaultValues)) {
+        toastAlert("No changes made");
+        return;
+      }
+      console.log("CHANGES !!!");
       console.log(data);
       const user = await updateUser(data);
       setUserData(user);
-      router.push("/profile");
+      router.push("/account/edit-account");
     } catch (error) {
       console.error("error update user form:", error);
       toastAlert("Something went wrong, try again.");
@@ -67,7 +76,7 @@ export default function ProfileForm() {
               name="firstName"
               render={({ field }) => (
                 <FormItem className="w-full">
-                  <FormLabel>Nombre</FormLabel>
+                  <FormLabel>{t("name")}</FormLabel>
                   <FormControl>
                     <Input {...field} className="w-full" />
                   </FormControl>
@@ -80,7 +89,7 @@ export default function ProfileForm() {
               name="lastName"
               render={({ field }) => (
                 <FormItem className="w-full">
-                  <FormLabel>Apellido</FormLabel>
+                  <FormLabel>{t("lastName")}</FormLabel>
                   <FormControl>
                     <Input {...field} />
                   </FormControl>
@@ -94,14 +103,11 @@ export default function ProfileForm() {
             name="username"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Username</FormLabel>
+                <FormLabel>{t("username.field")}</FormLabel>
                 <FormControl>
                   <Input {...field} />
                 </FormControl>
-                <FormDescription>
-                  Así será como se mostrará tu nombre en la sección de tu cuenta
-                  y en las valoraciones
-                </FormDescription>
+                <FormDescription>{t("username.description")}</FormDescription>
                 <FormMessage />
               </FormItem>
             )}
@@ -111,7 +117,7 @@ export default function ProfileForm() {
             name="email"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Email</FormLabel>
+                <FormLabel>{t("email")}</FormLabel>
                 <FormControl>
                   <Input {...field} />
                 </FormControl>
@@ -124,7 +130,7 @@ export default function ProfileForm() {
             name="address"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Delivery Address</FormLabel>
+                <FormLabel>{t("deliveryAddress")}</FormLabel>
                 <FormControl>
                   <Textarea className="resize-none" {...field} />
                 </FormControl>
@@ -132,7 +138,16 @@ export default function ProfileForm() {
               </FormItem>
             )}
           />
-          <Button type="submit">Update profile</Button>
+          <div className="flex gap-4">
+            <Button type="submit">{t("btns.submit")}</Button>
+            <Button
+              variant="outline"
+              onClick={() => form.reset(defaultValues)}
+              type="button"
+            >
+              {t("btns.reset")}
+            </Button>
+          </div>
         </form>
       </Form>
     </div>

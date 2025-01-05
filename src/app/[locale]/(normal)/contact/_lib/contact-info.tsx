@@ -3,15 +3,18 @@ import { Separator } from "@/components/ui/separator";
 import { siteConfig } from "@/config/siteConfig";
 import { LucidePhone, MailIcon, MapPin } from "lucide-react";
 import { Link } from "@/i18n/routing";
+import { getTranslations } from "next-intl/server";
 
-function ContactInfo() {
+async function ContactInfo() {
+  const t = await getTranslations("contact.contactInfo");
   const { phones, mails, address } = siteConfig;
+
   return (
     <div className="mx-6 space-y-12">
       <div className="mb-6 space-y-4">
         <div className="flex flex-1 flex-row items-center gap-4">
           <p className="text-nowrap font-serif text-xl font-bold">
-            Información de Contácto
+            {t("title")}
           </p>
           <Separator className="w-full shrink" />
         </div>
@@ -50,7 +53,9 @@ function ContactInfo() {
       {/* map */}
       <div>
         <div className="mb-6 flex flex-1 flex-row items-center gap-4">
-          <p className="text-nowrap font-serif text-xl font-bold">Ubicación</p>
+          <p className="text-nowrap font-serif text-xl font-bold">
+            {t("location")}
+          </p>
           <Separator className="w-full shrink" />
         </div>
         <div className="space-y-4">
@@ -91,7 +96,7 @@ function ContactInfo() {
       <div>
         <div className="mb-6 flex flex-1 flex-row items-center gap-4">
           <p className="text-nowrap font-serif text-xl font-bold">
-            Redes Sociales
+            {t("socialMedia")}
           </p>
           <Separator className="w-full shrink" />
         </div>

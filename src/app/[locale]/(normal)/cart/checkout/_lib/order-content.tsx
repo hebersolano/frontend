@@ -13,8 +13,10 @@ import { getTotalPrice } from "@/hooks/little-hooks";
 import useCartStore from "@/hooks/use-cart-store";
 import { formatPrice } from "@/lib/utils";
 import { X } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 function OrderContent() {
+  const t = useTranslations("cart.checkout.orderContent");
   const { items } = useCartStore();
   const totalPrice = getTotalPrice(items);
 
@@ -22,8 +24,12 @@ function OrderContent() {
     <Table className="text-base">
       <TableHeader>
         <TableRow>
-          <TableHead className="text-foreground">Producto</TableHead>
-          <TableHead className="text-foreground">Subtotal</TableHead>
+          <TableHead className="text-foreground">
+            {t("tableHeader.0")}
+          </TableHead>
+          <TableHead className="text-foreground">
+            {t("tableHeader.1")}
+          </TableHead>
         </TableRow>
       </TableHeader>
       <TableBody>
@@ -40,7 +46,9 @@ function OrderContent() {
       </TableBody>
       <TableFooter>
         <TableRow>
-          <TableCell className="text-muted-foreground">Total</TableCell>
+          <TableCell className="text-muted-foreground">
+            {t("tableFooter.0")}
+          </TableCell>
           <TableCell className="text-muted-foreground">
             {formatPrice(totalPrice)}
           </TableCell>

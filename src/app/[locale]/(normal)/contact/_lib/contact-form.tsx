@@ -15,8 +15,10 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 
 import { ContactFormSchema, type ContactFormTypes } from "@/lib/form-schemas";
+import { useTranslations } from "next-intl";
 
 function ContactForm() {
+  const t = useTranslations("contact.contactForm");
   const form = useForm<ContactFormTypes>({
     resolver: zodResolver(ContactFormSchema),
     defaultValues: {
@@ -41,9 +43,9 @@ function ContactForm() {
           name="name"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Name</FormLabel>
+              <FormLabel>{t("name")}</FormLabel>
               <FormControl>
-                <Input placeholder="John" {...field} />
+                <Input {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -54,7 +56,7 @@ function ContactForm() {
           name="email"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Correo</FormLabel>
+              <FormLabel>{t("email")}</FormLabel>
               <FormControl>
                 <Input {...field} />
               </FormControl>
@@ -67,7 +69,7 @@ function ContactForm() {
           name="phone"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Teléfono</FormLabel>
+              <FormLabel>{t("phone")}</FormLabel>
               <FormControl>
                 <Input {...field} />
               </FormControl>
@@ -80,7 +82,7 @@ function ContactForm() {
           name="subject"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Asunto</FormLabel>
+              <FormLabel>{t("issue")}</FormLabel>
               <FormControl>
                 <Input {...field} />
               </FormControl>
@@ -93,7 +95,7 @@ function ContactForm() {
           name="message"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Asunto</FormLabel>
+              <FormLabel>{t("message")}</FormLabel>
               <FormControl>
                 <Textarea {...field} />
               </FormControl>
@@ -102,7 +104,7 @@ function ContactForm() {
           )}
         />
         <Button type="submit" size="lg">
-          Submit
+          {t("submit")}
         </Button>
       </form>
     </Form>

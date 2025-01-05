@@ -11,13 +11,14 @@ import { formatPrice } from "@/lib/utils";
 import { ProductCartItem } from "@/types/product";
 import { Link } from "@/i18n/routing";
 import ProductTableRow from "./product-table-row";
+import { useTranslations } from "next-intl";
 
 function ProductTable({ items }: { items: ProductCartItem[] }) {
+  const t = useTranslations("cart.productTable");
   const totalPrice = getTotalPrice(items);
 
   return (
     <div>
-      {" "}
       <div className="my-12 sm:overflow-hidden sm:rounded-md sm:border-x sm:border-t">
         <Table className="">
           {/* <TableCaption>A list of your chosen products.</TableCaption> */}
@@ -25,10 +26,10 @@ function ProductTable({ items }: { items: ProductCartItem[] }) {
             <TableRow className="bg-muted hover:bg-muted data-[state=selected]:bg-muted sm:text-lg">
               <TableHead className="px-0"></TableHead>
               <TableHead></TableHead>
-              <TableHead>Producto</TableHead>
-              <TableHead className="">Precio</TableHead>
-              <TableHead className="">Cantidad</TableHead>
-              <TableHead className="">Subtotal</TableHead>
+              <TableHead>{t("tableHeader.2")}</TableHead>
+              <TableHead className="">{t("tableHeader.3")}</TableHead>
+              <TableHead className="">{t("tableHeader.4")}</TableHead>
+              <TableHead className="">{t("tableHeader.5")}</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody className="flex flex-col gap-8 border-0 text-base sm:table-row-group">
@@ -42,11 +43,11 @@ function ProductTable({ items }: { items: ProductCartItem[] }) {
         {/* cart totals */}
         <div className="w-full min-w-fit rounded-md border sm:w-[40%]">
           <div className="border-b bg-muted/50 p-4">
-            <HeadingH3>Totales</HeadingH3>
+            <HeadingH3>{t("tableTotals.header")}</HeadingH3>
           </div>
           <div className="divide-y px-4">
             <div className="flex justify-between p-4 text-lg font-medium">
-              <p>Subtotal:</p>
+              <p>{t("tableTotals.subtotal")}</p>
               <p>{formatPrice(totalPrice)}</p>
             </div>
             <div className="p-4">
@@ -54,7 +55,7 @@ function ProductTable({ items }: { items: ProductCartItem[] }) {
                 href="/cart/checkout"
                 className="inline-flex h-10 w-full items-center justify-center gap-2 whitespace-nowrap rounded-md bg-secondary px-8 text-xl font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0"
               >
-                Finalizar
+                {t("tableTotals.btn")}
               </Link>
             </div>
           </div>

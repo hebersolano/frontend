@@ -1,9 +1,11 @@
 "use client";
 
+import { useTranslations } from "next-intl";
 import { useTheme } from "next-themes";
 import { MouseEventHandler, useEffect, useRef } from "react";
 
 function ThemeSelector() {
+  const t = useTranslations("account.theme");
   const { theme, setTheme } = useTheme();
   const divRef = useRef<HTMLDivElement | null>(null);
   const btnsRef = useRef<HTMLButtonElement[] | null>(null);
@@ -59,7 +61,9 @@ function ThemeSelector() {
             </div>
           </div>
         </button>
-        <span className="block w-full p-2 text-center font-normal">Light</span>
+        <span className="block w-full p-2 text-center font-normal">
+          {t("btns.light")}
+        </span>
       </div>
 
       {/* dark theme */}
@@ -84,7 +88,9 @@ function ThemeSelector() {
             </div>
           </div>
         </button>
-        <span className="block w-full p-2 text-center font-normal">Dark</span>
+        <span className="block w-full p-2 text-center font-normal">
+          {t("btns.dark")}
+        </span>
       </div>
     </div>
   );

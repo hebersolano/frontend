@@ -127,5 +127,118 @@
         }
       ]
     }
+  },
+  "cart": {
+    "pageTitle": "Carrito de compras",
+    "emptyCart": {
+      "title": "Carrito vacío",
+      "description": "Tu carrito de compras está vacío. ¡Ve a la tienda y llena tu carrito!",
+      "btn": "Ir a la tienda"
+    },
+    "productTable": {
+      "tableHeader": [
+        null,
+        null,
+        "Producto",
+        "Cantidad",
+        "Precio",
+        "Total"
+      ],
+      "tableTotals": {
+        "header": "Totales",
+        "subtotal": "Subtotal: ",
+        "shipping": "Envío",
+        "btn": "Total"
+      }
+    },
+    "checkout": {
+      "pageTitle": "Finalizar compra",
+      "orderContent": {
+        "tableHeader": [
+          "Total",
+          "Subtotal"
+        ],
+        "tableFooter": [
+          "Total"
+        ]
+      }
+    }
+  },
+  "contact": {
+    "pageTitle": "Contáctanos",
+    "contactInfo": {
+      "title": "Información de contacto",
+      "location": "Ubicación",
+      "socialMedia": "Redes Sociales"
+    },
+    "contactForm": {
+      "header": {
+        "title": "Contáctanos",
+        "description": "Comparte tus dudas y preguntas con nosotros"
+      },
+      "name": "Nombre",
+      "email": "Correo electrónico",
+      "phone": "Teléfono",
+      "issue": "Asunto",
+      "message": "Mensaje",
+      "submit": "Enviar"
+    }
+  },
+  "favorites": {
+    "pageTitle": "Favoritos",
+    "favoriteItem": {
+      "btns": {
+        "addToCart": "Agregar al carrito"
+      }
+    }
+  },
+  "account": {
+    "pageTitle": "Mi cuenta",
+    "pageDescription": "Administra tu información personal y revisa tus órdenes.",
+    "accountNav": {
+      "dashboard": "Escritorio",
+      "profile": "Detalles de cuenta",
+      "orders": "Mis órdenes",
+      "favorites": "Favoritos"
+    },
+    "profile": {
+      "title": "Perfil",
+      "description": "Administra tu información personal",
+      "btns": {
+        "edit": "Editar"
+      }
+    },
+    "theme": {
+      "title": "Tema",
+      "description": "Personaliza la apariencia de la página",
+      "btns": {
+        "light": "Claro",
+        "dark": "Oscuro"
+      }
+    },
+    "editAccount": {
+      "title": "Información de la cuenta",
+      "name": "Nombre",
+      "username": {
+        "field": "Nombre de usuario",
+        "description": "Así será como se mostrará tu nombre en la sección de tu cuenta y en las valoraciones"
+      },
+      "lastName": "Apellido",
+      "email": "Correo electrónico",
+      "phone": "Teléfono",
+      "deliveryAddress": "Dirección de envío",
+      "btns": {
+        "reset": "Restablecer",
+        "submit": "Guardar"
+      }
+    },
+    "orders": {
+      "title": "Mis órdenes",
+      "orderItem": {
+        "btns": {
+          "details": "Detalles"
+        }
+      }
+    }
   }
 }

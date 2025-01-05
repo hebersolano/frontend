@@ -9,7 +9,7 @@ function PageTitle({ title }: { title: string }) {
         </h1>
         <div className="relative h-12 rounded-t-xl bg-background md:h-24">
           <Image
-            src="header-leaf.webp"
+            src="/header-leaf.webp"
             alt="header leaf"
             width={209}
             height={90}

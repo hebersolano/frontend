@@ -38,3 +38,31 @@ export function imgFileToDataURL(imgFile: File): Promise<string | undefined> {
     }
   });
 }
+
+type shallowObject = Record<string, string | undefined>;
+
+export function shallowCompareObjects(
+  obj1: shallowObject,
+  obj2: shallowObject,
+): boolean {
+  if (obj1 === obj2) return true;
+
+  if (!(obj1 instanceof Object) || !(obj2 instanceof Object)) return false;
+
+  for (const key in obj1) {
+    if (obj1.hasOwnProperty(key)) {
+      if (!obj2.hasOwnProperty(key)) return false;
+      // Allows to compare obj1[key] and obj2[key] when set to undefined
+
+      if (obj1[key] !== obj2[key]) return false;
+      // If they have the same strict value or identity then they are equal
+    }
+  }
+
+  for (const key in obj2) {
+    if (obj2.hasOwnProperty(key) && !obj1.hasOwnProperty(key)) return false;
+    // Allows obj1[key] to be set to undefined
+  }
+
+  return true;
+}

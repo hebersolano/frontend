@@ -6,6 +6,7 @@ import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Bookmark } from "lucide-react";
 import { Link } from "@/i18n/routing";
 import { buttonVariants } from "@/components/ui/button";
+import { useTranslations } from "next-intl";
 
 function EmptyAlert() {
   return (
@@ -24,13 +25,15 @@ function EmptyAlert() {
   );
 }
 
-function FavoritesPage() {
+function FavoritePage() {
+  const t = useTranslations("favorites");
   const { favoriteItems, favoriteLength } = useFavoriteStore();
+
   return (
     <div className="min-h-noHeader bg-accent py-24">
       <div className="mx-auto w-full max-w-screen-xl bg-background px-4 py-12 sm:p-24">
         <div className="mb-8">
-          <HeadingH1>Favoritos</HeadingH1>
+          <HeadingH1>{t("pageTitle")}</HeadingH1>
         </div>
         <div>
           <div>
@@ -50,4 +53,4 @@ function FavoritesPage() {
   );
 }
 
-export default FavoritesPage;
+export default FavoritePage;

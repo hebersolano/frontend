@@ -24,7 +24,6 @@ function ElementsProvider({
 }) {
   const { theme } = useTheme();
   const { items } = useCartStore();
-  console.log(items);
 
   const [clientSecret, setClientSecret] = useState<string | null>();
 
@@ -36,7 +35,6 @@ function ElementsProvider({
       const payIntCk = JSON.parse(cs);
       if (payIntCk.amount && payIntCk.amount !== totalPrice) {
         // update payment intent if total price change
-        console.log("total price changed", payIntCk.amount, totalPrice);
         getPaymentIntent(totalPrice).then((data) => setClientSecret(data));
         return;
       }
@@ -48,7 +46,6 @@ function ElementsProvider({
     }
   }, [items]);
 
-  console.log("theme:", theme);
   const appearance: Appearance = {
     theme: getTheme(theme),
     variables: {

@@ -59,13 +59,13 @@ function ProfileMenu() {
               {user?.username.slice(0, 1).toLocaleUpperCase()}
             </AvatarFallback>
           </Avatar>
-          <Link href="/profile" className="hover:underline">
+          <Link href="/account" className="hover:underline">
             {user?.username}
           </Link>
         </DropdownMenuLabel>
         <DropdownMenuSeparator />
         <DropdownMenuItem>
-          <MenuLink href="/profile">
+          <MenuLink href="/account">
             <User className="h-4 w-4" /> Mi cuenta
           </MenuLink>
         </DropdownMenuItem>
