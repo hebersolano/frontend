@@ -3,14 +3,17 @@ import { Link } from "@/i18n/routing";
 import { Icons } from "../icons";
 import { siteConfig } from "@/config/siteConfig";
 import { Separator } from "../ui/separator";
+import { getTranslations } from "next-intl/server";
 
-function SiteFooter() {
+async function SiteFooter() {
+  const t = await getTranslations("siteFooter");
+
   return (
     <footer className="bg-[#09090B] text-neutral-100">
       <div className="mx-auto max-w-screen-xl px-4 pt-16 text-sm">
         {/* top */}
         <div className="grid grid-cols-1 gap-12 pb-6 sm:grid-cols-2 lg:grid-cols-4">
-          {/* section 1 */}
+          {/* section 01 */}
           <div className="space-y-6">
             <div className="mt-2 flex w-36 flex-col items-center gap-4">
               <Icons.iconLogo className="h-12 w-12" />
@@ -18,8 +21,7 @@ function SiteFooter() {
             </div>
 
             <p className="text-balance leading-7">
-              Somos una empresa familiar dedicada al tostado artesanal de café y
-              a la exportación de microlotes de café verde de altura.
+              {t("section01.businessDescription")}
             </p>
             <div className="flex gap-4">
               <Link
@@ -41,7 +43,7 @@ function SiteFooter() {
 
           {/* section 2 */}
           <div className="space-y-6">
-            <h1 className="text-lg font-medium">Contacto</h1>
+            <h1 className="text-lg font-medium">{t("section02.title")}</h1>
             <div className="flex flex-col gap-4">
               <Link
                 href={siteConfig.phones.HN.link}
@@ -74,15 +76,17 @@ function SiteFooter() {
 
           {/* section 3 */}
           <div className="">
-            <h1 className="text-lg font-medium">Horario</h1>
+            <h1 className="text-lg font-medium">{t("section03.title")}</h1>
 
             <div className="mt-6 space-y-4">
-              <p>Lunes a Viernes — 8AM – 5PM</p>
-              <p>Sábado — 8AM – 4PM</p>
-              <p>Domingo — Cerrado</p>
+              <p>{t("section03.businessHours.0")}</p>
+              <p>{t("section03.businessHours.1")}</p>
+              <p>{t("section03.businessHours.2")}</p>
 
               <div className="">
-                <span className="font-medium">Secure Payments</span>
+                <span className="font-medium">
+                  {t("section03.payments.title")}
+                </span>
                 <div className="mt-2 flex gap-3">
                   <Image
                     src="/icons/paypal.png"
@@ -104,19 +108,19 @@ function SiteFooter() {
 
           {/* section 4 */}
           <div className="space-y-6 lg:block">
-            <h1 className="text-lg font-medium">Links</h1>
+            <h1 className="text-lg font-medium">{t("section04.title")}</h1>
             <div className="flex flex-col gap-4">
               <Link href="/about-us" className="hover:text-primary">
-                Sobre nosotros
+                {t("section04.links.0")}
               </Link>
               <Link href="/people" className="hover:text-primary">
-                Colaboradores
+                {t("section04.links.1")}
               </Link>
               <Link href="/blog" className="hover:text-primary">
-                Noticias
+                {t("section04.links.2")}
               </Link>
               <Link href="/shop" className="hover:text-primary">
-                Ofertas
+                {t("section04.links.3")}
               </Link>
             </div>
           </div>
@@ -131,11 +135,15 @@ function SiteFooter() {
           </p>
           <div className="flex flex-col gap-8 md:flex-row">
             <div>
-              <span className="mr-4 text-muted-foreground">Language</span>
+              <span className="mr-4 text-muted-foreground">
+                {t("bottom.lang")}
+              </span>
               <span className="font-medium">United States | English</span>
             </div>
             <div>
-              <span className="mr-4 text-muted-foreground">Currency</span>
+              <span className="mr-4 text-muted-foreground">
+                {t("bottom.currency")}
+              </span>
               <span className="font-medium">$ USD</span>
             </div>
           </div>

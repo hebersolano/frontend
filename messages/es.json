@@ -7,6 +7,38 @@
     "description": "Lo sentimos, la página que buscas no existe.",
     "button": "Volver al inicio"
   },
+  "siteFooter": {
+    "section01": {
+      "businessDescription": "Somos una empresa familiar dedicada al tostado artesanal de café y a la exportación de microlotes de café verde de altura."
+    },
+    "section02": {
+      "title": "Contacto"
+    },
+    "section03": {
+      "title": "Horario",
+      "businessHours": [
+        "Lunes a Viernes — 8AM – 5PM",
+        "Sábado — 8AM – 4PM",
+        "Domingo — Cerrado"
+      ],
+      "payments": {
+        "title": "Pagos seguros"
+      }
+    },
+    "section04": {
+      "title": "Enlaces",
+      "links": [
+        "Sobre nosotros",
+        "Colaboradores",
+        "Noticias",
+        "Ofertas"
+      ]
+    },
+    "bottom": {
+      "lang": "Idioma",
+      "currency": "Moneda"
+    }
+  },
   "home": {
     "hero": {
       "welcome": [
@@ -239,6 +271,10 @@
           "details": "Detalles"
         }
       }
+    },
+    "favorites": {
+      "secTitle": "Favoritos",
+      "secDescription": "Productos guardados como favoritos "
     }
   }
 }

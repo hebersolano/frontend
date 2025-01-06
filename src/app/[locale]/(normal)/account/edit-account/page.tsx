@@ -19,10 +19,11 @@ import { getSetUserData, useUserData } from "@/hooks/auth-store";
 import { profileFormSchema, ProfileFormValues } from "@/lib/form-schemas";
 import AvatarForm from "../_components/avatar-form";
 import { updateUser } from "@/lib/data-access/auth-access";
-import { useRouter } from "next/navigation";
 import { toastAlert } from "@/lib/error-utils";
 import { useTranslations } from "next-intl";
 import { shallowCompareObjects } from "@/lib/utils";
+import { useRouter } from "@/i18n/routing";
+import { toast } from "@/hooks/use-toast";
 
 // This can come from your database or API.
 //TODO: sync user data
@@ -47,16 +48,15 @@ export default function ProfileForm() {
   });
 
   async function onSubmit(data: ProfileFormValues) {
-    console.log();
     try {
       if (shallowCompareObjects(data, defaultValues)) {
         toastAlert("No changes made");
         return;
       }
-      console.log("CHANGES !!!");
       console.log(data);
       const user = await updateUser(data);
       setUserData(user);
+      toast({ title: "Account updated" });
       router.push("/account/edit-account");
     } catch (error) {
       console.error("error update user form:", error);

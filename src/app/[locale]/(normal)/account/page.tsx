@@ -7,7 +7,7 @@ export default async function AccountPage() {
   const t = await getTranslations("account");
 
   return (
-    <div className="space-y-6">
+    <div className="flex flex-grow flex-col space-y-6">
       <div>
         <h3 className="text-lg font-medium">{t("profile.title")}</h3>
         <p className="text-sm text-muted-foreground">

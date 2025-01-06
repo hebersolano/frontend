@@ -36,11 +36,11 @@ type AuthStore = {
   accessToken: string | undefined;
   accessTokenData: string | undefined;
 
+  // set tokens on the app start
+  initAuthStore: (user?: UserData, accessToken?: string) => void;
   setAccessToken: (accessToken: string | undefined) => void;
   setUserData: (userData: UserData | undefined) => void;
   clearTokens: () => void;
-  // set tokens on the app start
-  initAuthStore: (user?: UserData, accessToken?: string) => void;
 };
 
 const authStore = createStore<AuthStore>()(
