@@ -21,9 +21,6 @@ function BookmarkProduct({ product }: { product: Product }) {
     setMounted(true);
   }, []);
 
-  // if (!mounted)
-  //   return <Icons.spinner className="h-9 w-10 animate-spin stroke-1 p-1" />;
-
   if (!mounted)
     return (
       <Icons.bookmark className="h-9 w-10 shrink-0 animate-pulse cursor-none fill-muted-foreground stroke-muted-foreground drop-shadow-sm" />

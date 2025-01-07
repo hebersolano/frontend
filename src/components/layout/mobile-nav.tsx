@@ -1,18 +1,17 @@
 "use client";
 
-import * as React from "react";
 import Link, { LinkProps } from "next/link";
 import { useRouter } from "next/navigation";
-
-import { cn } from "@/lib/utils";
+import * as React from "react";
 import { Icons } from "@/components/icons";
-
+import { cn } from "@/lib/utils";
+import { useMobileMenuI18n } from "@/hooks/use-nav-menu";
 import { Button } from "../ui/button";
-import { Sheet, SheetContent, SheetTrigger } from "../ui/sheet";
-import { navConfig } from "@/config/desktopMenuConfig";
 import { ScrollArea } from "../ui/scroll-area";
+import { Sheet, SheetContent, SheetTrigger, SheetTitle } from "../ui/sheet";
 
 export function MobileNav() {
+  const mobileMenu = useMobileMenuI18n();
   const [open, setOpen] = React.useState(false);
 
   return (
@@ -55,6 +54,7 @@ export function MobileNav() {
         </Button>
       </SheetTrigger>
       <SheetContent side="left" className="pr-0">
+        <SheetTitle className="sr-only">Mobile Menu</SheetTitle>
         <MobileLink
           href="/"
           className="flex items-center"
@@ -65,7 +65,7 @@ export function MobileNav() {
         </MobileLink>
         <ScrollArea className="my-4 h-[calc(100vh-8rem)] pl-6">
           <div className="flex flex-col space-y-3">
-            {navConfig.mainNav.map((item) => {
+            {mobileMenu.map((item) => {
               if (!item.items?.length) {
                 return (
                   item.href && (

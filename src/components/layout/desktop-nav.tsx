@@ -15,9 +15,12 @@ import { usePathname } from "next/navigation";
 import { Coffee } from "lucide-react";
 
 import { Icons } from "../icons";
-import { shopMenuItems } from "@/config/desktopMenuConfig";
+import { useTranslations } from "next-intl";
+import { useShopMenuI18n } from "@/hooks/use-nav-menu";
 
 export function DesktopNav() {
+  const t = useTranslations("siteHeader.desktopNav");
+  const shopMenu = useShopMenuI18n();
   const pathname = usePathname();
 
   return (
@@ -28,6 +31,7 @@ export function DesktopNav() {
           <Icons.upperLogo className="h-4" />
         </span>
       </Link>
+
       <NavigationMenu>
         <NavigationMenuList>
           <li>
@@ -38,7 +42,7 @@ export function DesktopNav() {
                 pathname === "/" ? "text-foreground" : "text-foreground/60",
               )}
             >
-              Inicio
+              {t("home")}
             </Link>
           </li>
           <NavigationMenuItem>
@@ -47,7 +51,7 @@ export function DesktopNav() {
                 pathname === "/shop" ? "text-foreground" : "text-foreground/60"
               }
             >
-              Tienda
+              {t("shopMenu.label")}
             </NavigationMenuTrigger>
             <NavigationMenuContent>
               <ul className="grid gap-0 p-6 md:w-[450px] lg:w-[750px] lg:grid-cols-[0.85fr_1fr_1fr] lg:gap-3">
@@ -59,19 +63,18 @@ export function DesktopNav() {
                     >
                       <Coffee />
                       <div className="mb-2 mt-4 text-lg font-medium">
-                        Café aquí
+                        {t("shopMenu.callToAction.label")}
                       </div>
                       <p className="text-sm leading-tight text-muted-foreground">
-                        Encuentra todo nuestro catalogo de productos para los
-                        amantes del café como nosotros.
+                        {t("shopMenu.callToAction.description")}
                       </p>
                     </Link>
                   </NavigationMenuLink>
                 </li>
 
-                {shopMenuItems.map((component) => (
+                {shopMenu.map((component) => (
                   <ListItem
-                    key={component.title}
+                    key={component.href}
                     title={component.title}
                     href={component.href}
                   >
@@ -91,7 +94,7 @@ export function DesktopNav() {
                   : "text-foreground/60",
               )}
             >
-              Sobre Nosotros
+              {t("aboutUs")}
             </Link>
           </li>
           <li>
@@ -104,7 +107,7 @@ export function DesktopNav() {
                   : "text-foreground/60",
               )}
             >
-              Contacto
+              {t("contact")}
             </Link>
           </li>
         </NavigationMenuList>

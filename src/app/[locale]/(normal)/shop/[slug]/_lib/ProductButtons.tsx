@@ -8,7 +8,6 @@ import BookmarkProduct from "./bookmark-product";
 
 function ProductButtons({ product }: { product: Product }) {
   const [quantity, setQuantity] = useState(1);
-
   const { addItem } = useCartStore();
 
   function handleAddToCart() {

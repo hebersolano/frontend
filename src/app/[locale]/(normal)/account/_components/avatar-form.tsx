@@ -14,8 +14,10 @@ import {
 import { Input } from "@/components/ui/input";
 import { getSetUserData, useUserData } from "@/hooks/auth-store";
 import { api } from "@/lib/axios";
-import { Dispatch, FormEventHandler, SetStateAction, useState } from "react";
+import { toastAlert } from "@/lib/error-utils";
 import { UserResponse } from "@/types/user";
+import { useTranslations } from "next-intl";
+import { Dispatch, FormEventHandler, SetStateAction, useState } from "react";
 
 const setUserData = getSetUserData();
 
@@ -56,6 +58,7 @@ function UpdateAvatarDialog({
   userId: number | undefined;
   setOpen: Dispatch<SetStateAction<boolean>>;
 }) {
+  const t = useTranslations("account.editAccount.avatarForm");
   const [isLoading, setIsLoading] = useState(false);
 
   const handleSubmit: FormEventHandler<HTMLFormElement> = async (event) => {
@@ -64,6 +67,13 @@ function UpdateAvatarDialog({
       if (!userId) return;
       event.preventDefault();
       const formData = new FormData(event.target as HTMLFormElement);
+      const file = formData.get("files") as File;
+      const fileSize = Number((file.size / 1000).toFixed(2));
+      if (fileSize > 500) {
+        toastAlert(t("toasts.imgSize"));
+        return;
+      }
+      console.log(fileSize, file);
       formData.append("ref", "plugin::users-permissions.user");
       formData.append("refId", `${userId}`);
       formData.append("field", "profile");
@@ -84,11 +94,8 @@ function UpdateAvatarDialog({
   return (
     <DialogContent>
       <DialogHeader>
-        <DialogTitle>Update Profile Image</DialogTitle>
-        <DialogDescription>
-          Select a image file to upload. This action cannot be undone. This will
-          permanently delete your current profile image.
-        </DialogDescription>
+        <DialogTitle>{t("title")}</DialogTitle>
+        <DialogDescription>{t("description")}</DialogDescription>
       </DialogHeader>
       <form onSubmit={handleSubmit} className="space-y-4">
         <Input type="file" name="files" />
@@ -99,14 +106,14 @@ function UpdateAvatarDialog({
             value="Submit"
             className="mr-4"
           >
-            Update
+            {t("btns.upload")}
           </Button>
           <DialogClose
             type="button"
             disabled={isLoading}
             className={buttonVariants({ variant: "outline" })}
           >
-            Close
+            {t("btns.close")}
           </DialogClose>
         </div>
       </form>

@@ -7,6 +7,58 @@
     "description": "Lo sentimos, la página que buscas no existe.",
     "button": "Volver al inicio"
   },
+  "siteHeader": {
+    "desktopNav": {
+      "home": "Inicio",
+      "shopMenu": {
+        "label": "Tienda",
+        "callToAction": {
+          "label": "Compra aquí",
+          "description": "Encuentra todo nuestro catalogo de productos para los amantes del café como nosotros."
+        },
+        "groundRoastedCoffee": {
+          "label": "Café tostado en grano",
+          "description": "Una selecta variedad de cafés para todos los gustos"
+        },
+        "roastedCoffeeBeans": {
+          "label": "Café tostado en grano",
+          "description": "Café tostado en grano para los entuciastas"
+        },
+        "greenCoffeeBeans": {
+          "label": "Café verde en grano",
+          "description": "Café de la mejor calidad para exportación"
+        },
+        "microlotCoffee": {
+          "label": "Microlotes de café",
+          "description": "Buscas lotes únicos, somos proveedores de café para tiendas"
+        },
+        "offers": {
+          "label": "Ofertas",
+          "description": "Ofertas y descuentos especiales"
+        },
+        "accessories": {
+          "label": "Equipo y accesorios",
+          "description": "Lo mejor en equipo para preparar cafe"
+        }
+      },
+      "aboutUs": "Sobre Nosotros",
+      "contact": "Contacto"
+    },
+    "mobileNav": {
+      "home": "Inicio",
+      "shop": {
+        "label": "Tienda",
+        "groundRoastedCoffee": "Café tostado en grano",
+        "roastedCoffeeBeans": "Café tostado en grano",
+        "greenCoffeeBeans": "Café verde en grano",
+        "microlotCoffee": "Microlotes de café",
+        "offers": "Ofertas",
+        "accessories": "Equipo y accesorios"
+      },
+      "aboutUs": "Sobre Nosotros",
+      "contact": "Contacto"
+    }
+  },
   "siteFooter": {
     "section01": {
       "businessDescription": "Somos una empresa familiar dedicada al tostado artesanal de café y a la exportación de microlotes de café verde de altura."
@@ -262,6 +314,17 @@
       "btns": {
         "reset": "Restablecer",
         "submit": "Guardar"
+      },
+      "avatarForm": {
+        "title": "Actualizar foto de perfil",
+        "description": "Selecciona una imagen para cargar como tu nueva imagen de perfil. No se permiten archivos mayores a 500Kb",
+        "btns": {
+          "upload": "Cargar",
+          "close": "Cerrar"
+        },
+        "toasts": {
+          "imgSize": "El tamaño del archivo sobrepasa el limite de 500Kb"
+        }
       }
     },
     "orders": {
@@ -276,5 +339,21 @@
       "secTitle": "Favoritos",
       "secDescription": "Productos guardados como favoritos "
     }
+  },
+  "shop": {
+    "pageTitle": "Tienda",
+    "pageDescription": "Encuentra todo lo relacionado al café",
+    "categoryMenu": {
+      "all": "Todos",
+      "groundRoastedCoffee": "Café Tostado",
+      "roastedCoffeeBeans": "Tostado En Grano"
+    },
+    "productFilter": {
+      "label": "Tostado",
+      "light": "Claro",
+      "medium": "Mediano",
+      "dark": "Oscuro"
+    },
+    "success": {}
   }
 }
