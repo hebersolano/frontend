@@ -1,50 +1,43 @@
 "use client";
 
 import { buttonVariants } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
 import { Link } from "@/i18n/routing";
-import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import { useEffect } from "react";
-import { UserRegistrationForm } from "./user-auth-form";
-import OathButton from "./oauth-auth-button";
-import LoadingPage from "@/app/[locale]/loading";
+import { cn } from "@/lib/utils";
 import { ArrowLeft } from "lucide-react";
+import { useTranslations } from "next-intl";
+import { useEffect } from "react";
 
-const content = {
-  login: {
-    link: {
-      label: "Registrate",
-      link: "?m=signup",
-    },
-    heading: "Bienvenido de nuevo",
-    subheadig: "Ingresa tus datos para continuar",
-    Oauth: {
-      btnLabel: "Registrate",
-    },
-  },
-  signup: {
-    link: {
-      label: "Ingresar",
-      link: "?m=login",
-    },
-    heading: "Crea tu cuenta",
-    subheadig: "Ingresa los datos para crear tu cuenta",
-  },
-};
+import LoadingPage from "@/app/[locale]/loading";
+import { useAddSearchParam } from "@/hooks/little-hooks";
+import AuthenticationForm from "./auth-form";
+import OathButton from "./oauth-auth-button";
 
 type AuthFormModeT = "signup" | "login" | null;
 
 function AuthFormContainer() {
-  const pathname = usePathname();
-  const searchParams = useSearchParams();
-  const mode = searchParams.get("m") as AuthFormModeT;
-  const { replace } = useRouter();
+  const t = useTranslations("auth.formContainer");
+  const { addSearchParam, searchParams } = useAddSearchParam();
 
-  function addSearchParam(name: string, value: string) {
-    const params = new URLSearchParams(searchParams);
-    params.set(name, value);
-    replace(pathname + "?" + params.toString());
-  }
+  const mode = searchParams.get("m") as AuthFormModeT;
+
+  const content = {
+    login: {
+      link: {
+        label: t("login.link"),
+        link: "?m=signup",
+      },
+      heading: t("login.heading"),
+      subheading: t("login.subheading"),
+    },
+    signup: {
+      link: {
+        label: t("signUp.link"),
+        link: "?m=login",
+      },
+      heading: t("signUp.heading"),
+      subheading: t("signUp.subheading"),
+    },
+  };
 
   useEffect(() => {
     if (mode === "signup" || mode === "login") return;
@@ -83,11 +76,11 @@ function AuthFormContainer() {
               {content[mode].heading}
             </h1>
             <p className="text-sm text-muted-foreground">
-              {content[mode].subheadig}
+              {content[mode].subheading}
             </p>
           </div>
 
-          <UserRegistrationForm mode={mode} />
+          <AuthenticationForm mode={mode} />
 
           <OathButton isLoading={false} />
 

@@ -6,8 +6,7 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { HeadingH3 } from "@/components/ui/typography";
-import { getTotalPrice } from "@/hooks/little-hooks";
-import { formatPrice } from "@/lib/utils";
+import { formatPrice, getTotalPrice } from "@/lib/utils";
 import { ProductCartItem } from "@/types/product";
 import { Link } from "@/i18n/routing";
 import ProductTableRow from "./product-table-row";

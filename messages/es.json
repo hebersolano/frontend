@@ -5,7 +5,36 @@
   "notFound": {
     "title": "Página no encontrada",
     "description": "Lo sentimos, la página que buscas no existe.",
-    "button": "Volver al inicio"
+    "btn": "Volver al inicio"
+  },
+  "auth": {
+    "formContainer": {
+      "login": {
+        "link": "Registrarse",
+        "heading": "Bienvenido de nuevo",
+        "subheading": "Ingresa tus datos para continuar"
+      },
+      "signUp": {
+        "link": "Ingresar",
+        "heading": "Crea tu cuenta",
+        "subheading": "Ingresa los datos para crear tu cuenta"
+      }
+    },
+    "authenticationForm": {
+      "username": "Usuario",
+      "email": "Correo electrónico",
+      "password": "Contraseña",
+      "validatePassword": "Confirma tu Contraseña",
+      "btn": {
+        "login": "Iniciar sesión",
+        "signup": "Registrase"
+      },
+      "toasts": {
+        "alreadyAuthenticated": "Ya estas autenticado",
+        "welcome": "Bienvenido, ",
+        "submitError": "Lo sentimos, se produjo un error. Por favor intenta otra vez"
+      }
+    }
   },
   "siteHeader": {
     "desktopNav": {
@@ -353,7 +382,23 @@
       "light": "Claro",
       "medium": "Mediano",
       "dark": "Oscuro"
+    }
+  },
+  "redirect": {
+    "loadingPage": "Procesando",
+    "errorMessage": {
+      "title": "Hubo un problema procesando su pago",
+      "description": "Ningún cargo ha sido realizado. Intenta de nuevo o contáctenos si necesita ayuda",
+      "btn": "Regresar al carrito"
     },
-    "success": {}
+    "successMessage": {
+      "title": "Gracias por tu compra",
+      "description": [
+        "En breve, nuestro equipo se pondrá en contacto con tigo para informarte de los detalles del envió.",
+        "Gracias por confiar en nuestros productos",
+        "¡Disfruta del café!"
+      ],
+      "btn": "Volver a la tienda"
+    }
   }
 }

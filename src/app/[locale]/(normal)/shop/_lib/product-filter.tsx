@@ -10,28 +10,16 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { useAddSearchParam } from "@/hooks/little-hooks";
 import { ListFilter } from "lucide-react";
 import { useTranslations } from "next-intl";
 
-import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useState } from "react";
 
 export function ProductFilter() {
   const t = useTranslations("shop.productFilter");
   const [position, setPosition] = useState("");
-  const pathname = usePathname();
-  const searchParams = useSearchParams();
-  const { replace } = useRouter();
-
-  function addSearchParam(name: string, value: string) {
-    const params = new URLSearchParams(searchParams);
-    if (!value) {
-      params.delete(name);
-    } else {
-      params.set(name, value);
-    }
-    replace(pathname + "?" + params.toString());
-  }
+  const { addSearchParam } = useAddSearchParam();
 
   function onValueChange(value: string) {
     setPosition(value);

@@ -17,6 +17,7 @@ import { loginUser, registerUser } from "@/lib/data-access/auth-access";
 import { toastAlert } from "@/lib/error-utils";
 import { authFormSchemas, AuthFormType } from "@/lib/form-schemas";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useTranslations } from "next-intl";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 import {
@@ -31,14 +32,15 @@ type UserAuthFormProps = {
 
 const initAuthStore = getInitAuthStore();
 
-export function UserRegistrationForm({ mode }: UserAuthFormProps) {
+function AuthenticationForm({ mode }: UserAuthFormProps) {
+  const t = useTranslations("auth.authenticationForm");
   const { replace } = useRouter();
   const isAuthenticated = useIsAuthenticated();
 
   useEffect(() => {
     if (isAuthenticated) {
       setTimeout(() => replace("/"), 2000);
-      toast({ title: "Your are already authenticated" });
+      toast({ title: t("toasts.alreadyAuthenticated") });
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -68,17 +70,17 @@ export function UserRegistrationForm({ mode }: UserAuthFormProps) {
 
       if (!data) return;
       initAuthStore(data.user, data.jwt);
-      toast({ title: "Welcome, " + data.user.username });
+      toast({ title: t("toasts.welcome") + data.user.username });
       form.reset();
       replace("/");
     } catch (error) {
-      console.error("auth-form error:", error);
+      console.error("form error:", error);
       toastAlert("Sorry, something went wrong. Please try again");
     }
   };
 
-  const onError: SubmitErrorHandler<AuthFormType> = (e) => {
-    console.error("form err", e);
+  const onError: SubmitErrorHandler<AuthFormType> = (error) => {
+    console.error("form error", error);
   };
 
   return (
@@ -95,7 +97,7 @@ export function UserRegistrationForm({ mode }: UserAuthFormProps) {
               name="username"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Usuario</FormLabel>
+                  <FormLabel>{t("username")}</FormLabel>
                   <FormControl>
                     <Input {...field} autoComplete="none" />
                   </FormControl>
@@ -109,13 +111,9 @@ export function UserRegistrationForm({ mode }: UserAuthFormProps) {
             name="email"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Correo</FormLabel>
+                <FormLabel>{t("email")}</FormLabel>
                 <FormControl>
-                  <Input
-                    placeholder="example@mail.com"
-                    autoComplete="none"
-                    {...field}
-                  />
+                  <Input autoComplete="none" {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -126,7 +124,7 @@ export function UserRegistrationForm({ mode }: UserAuthFormProps) {
             name="password"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Contraseña</FormLabel>
+                <FormLabel>{t("password")}</FormLabel>
                 <FormControl>
                   <Input type="password" autoComplete="none" {...field} />
                 </FormControl>
@@ -140,14 +138,9 @@ export function UserRegistrationForm({ mode }: UserAuthFormProps) {
               name="validatePassword"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Confirma tu contraseña</FormLabel>
+                  <FormLabel>{t("validatePassword")}</FormLabel>
                   <FormControl>
-                    <Input
-                      type="password"
-                      placeholder=""
-                      autoComplete="none"
-                      {...field}
-                    />
+                    <Input type="password" autoComplete="none" {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -158,10 +151,12 @@ export function UserRegistrationForm({ mode }: UserAuthFormProps) {
             {isSubmitting && (
               <Icons.spinner className="mr-2 h-4 w-4 animate-spin" />
             )}
-            Sign In with Email
+            {t("btn." + mode)}
           </Button>
         </form>
       </Form>
     </div>
   );
 }
+
+export default AuthenticationForm;

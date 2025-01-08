@@ -1,5 +1,6 @@
 import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
+import { ProductCartItem } from "@/types/product";
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
@@ -65,4 +66,11 @@ export function shallowCompareObjects(
   }
 
   return true;
+}
+
+export function getTotalPrice(items: ProductCartItem[]) {
+  return items.reduce((prev, curr) => {
+    console.log(prev + curr.price * curr.quantity);
+    return prev + curr.price * curr.quantity;
+  }, 0);
 }

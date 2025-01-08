@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   description: "Authentication forms built using the components.",
 };
 
-export default function AuthenticationPage() {
+function AuthenticationPage() {
   return (
     <>
       <div className="container relative grid h-screen flex-col items-center justify-center px-4 lg:max-w-none lg:grid-cols-2 lg:px-0">
@@ -24,7 +24,7 @@ export default function AuthenticationPage() {
               </span>
             </Link>
           </div>
-          <div className="relative z-20 mt-auto">
+          {/* <div className="relative z-20 mt-auto">
             <blockquote className="space-y-2">
               <p className="text-lg">
                 &ldquo;This library has saved me countless hours of work and
@@ -33,7 +33,7 @@ export default function AuthenticationPage() {
               </p>
               <footer className="text-sm">Sofia Davis</footer>
             </blockquote>
-          </div>
+          </div> */}
         </div>
 
         <AuthFormContainer />
@@ -41,3 +41,5 @@ export default function AuthenticationPage() {
     </>
   );
 }
+
+export default AuthenticationPage;

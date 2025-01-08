@@ -9,9 +9,8 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { getTotalPrice } from "@/hooks/little-hooks";
 import useCartStore from "@/hooks/use-cart-store";
-import { formatPrice } from "@/lib/utils";
+import { formatPrice, getTotalPrice } from "@/lib/utils";
 import { X } from "lucide-react";
 import { useTranslations } from "next-intl";
 

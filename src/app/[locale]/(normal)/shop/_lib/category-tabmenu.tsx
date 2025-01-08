@@ -1,26 +1,16 @@
 "use client";
+
+import { useAddSearchParam } from "@/hooks/little-hooks";
 import { useTranslations } from "next-intl";
-import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import { useCallback, useEffect, useRef, type MouseEventHandler } from "react";
+import { useEffect, useRef, type MouseEventHandler } from "react";
 
 function CategoryTabMenu() {
   const t = useTranslations("shop.categoryMenu");
   const divRef = useRef<HTMLDivElement | null>(null);
   const btnsRef = useRef<HTMLButtonElement[] | null>(null);
-  const pathname = usePathname();
-  const searchParams = useSearchParams();
-  const router = useRouter();
+  const { addSearchParam, searchParams } = useAddSearchParam();
 
   const category = searchParams.get("cat");
-
-  const addSearchParam = useCallback(
-    function (name: string, value: string) {
-      const params = new URLSearchParams(searchParams);
-      params.set(name, value);
-      router.push(pathname + "?" + params.toString());
-    },
-    [pathname, router, searchParams],
-  );
 
   useEffect(
     function () {
