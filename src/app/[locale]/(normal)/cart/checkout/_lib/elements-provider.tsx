@@ -1,9 +1,9 @@
 "use client";
 
-import { getTotalPrice } from "@/hooks/little-hooks";
 import useCartStore from "@/hooks/use-cart-store";
 import { getCookie } from "@/lib/cookie";
 import { getPaymentIntent } from "@/lib/stripe";
+import { getTotalPrice } from "@/lib/utils";
 import { Elements } from "@stripe/react-stripe-js";
 import { Appearance, loadStripe } from "@stripe/stripe-js";
 import { useTheme } from "next-themes";

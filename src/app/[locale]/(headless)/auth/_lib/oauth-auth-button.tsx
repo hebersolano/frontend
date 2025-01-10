@@ -2,8 +2,11 @@
 
 import { Icons } from "@/components/icons";
 import { Button } from "@/components/ui/button";
+import { useTranslations } from "next-intl";
 
 function OathButton({ isLoading }: { isLoading: boolean }) {
+  const t = useTranslations("auth.Oauth");
+
   return (
     <>
       <div className="relative">
@@ -12,7 +15,7 @@ function OathButton({ isLoading }: { isLoading: boolean }) {
         </div>
         <div className="relative flex justify-center text-xs uppercase">
           <span className="bg-background px-2 text-muted-foreground">
-            O continua con
+            {t("description")}
           </span>
         </div>
       </div>

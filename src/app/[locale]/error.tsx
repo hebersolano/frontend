@@ -2,15 +2,18 @@
 
 import { Button } from "@/components/ui/button";
 import { HeadingH2 } from "@/components/ui/typography";
+import { useTranslations } from "next-intl";
 import { useEffect } from "react";
 
-export default function Error({
+function Error({
   error,
   reset,
 }: {
   error: Error & { digest?: string };
   reset: () => void;
 }) {
+  const t = useTranslations("errorPage");
+
   useEffect(() => {
     // Log the error to an error reporting service
     console.error(error);
@@ -18,7 +21,7 @@ export default function Error({
 
   return (
     <div className="flex min-h-screen w-full flex-col items-center justify-center">
-      <HeadingH2>Something went wrong!</HeadingH2>
+      <HeadingH2>{t("title")}</HeadingH2>
       <br />
       <Button
         onClick={
@@ -26,8 +29,10 @@ export default function Error({
           () => reset()
         }
       >
-        Try again
+        {t("btn")}
       </Button>
     </div>
   );
 }
+
+export default Error;

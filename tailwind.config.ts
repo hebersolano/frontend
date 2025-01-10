@@ -12,10 +12,10 @@ const config: Config = {
   theme: {
     extend: {
       height: {
-        noHeader: "calc(100vh - 4rem)",
+        noHeader: "calc(100svh - 4rem)",
       },
       minHeight: {
-        noHeader: "calc(100vh - 4rem)",
+        noHeader: "calc(100svh - 4rem)",
       },
       fontFamily: {
         serif: ["var(--font-playfair)", ...defaultTheme.fontFamily.serif],

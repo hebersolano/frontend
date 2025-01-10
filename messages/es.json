@@ -1,6 +1,46 @@
 {
+  "metadata": {
+    "layout": {
+      "description": "Proveedor de café desde Honduras para el mundo.",
+      "keywords": [
+        "Torrecafhe",
+        "Café San Luis",
+        "Café de Honduras",
+        "Café tostado",
+        "Café molido"
+      ]
+    },
+    "aboutUs": {
+      "title": "Sobre Nosotros"
+    },
+    "account": {
+      "title": "Cuenta"
+    },
+    "cart": {
+      "title": "Carrito",
+      "checkout": {
+        "title": "Pago"
+      }
+    },
+    "contact": {
+      "title": "Contacto"
+    },
+    "shop": {
+      "title": "Tienda"
+    }
+  },
   "localeSwitcher": {
-    "locale": "{locale, select, es {Spanish} en {English} other {Unknown}}"
+    "locale": "{locale, select, es {Spanish} en {English} other {Unknown}}",
+    "es": {
+      "label": "Español"
+    },
+    "en": {
+      "label": "English"
+    }
+  },
+  "errorPage": {
+    "title": "Lo sentimos, algo salio mal",
+    "btn": "Reintentar"
   },
   "notFound": {
     "title": "Página no encontrada",
@@ -34,6 +74,10 @@
         "welcome": "Bienvenido, ",
         "submitError": "Lo sentimos, se produjo un error. Por favor intenta otra vez"
       }
+    },
+    "Oauth": {
+      "description": "O continua con",
+      "btn": "Google"
     }
   },
   "siteHeader": {
@@ -71,7 +115,15 @@
         }
       },
       "aboutUs": "Sobre Nosotros",
-      "contact": "Contacto"
+      "contact": "Contacto",
+      "profileMenu": {
+        "login": "Iniciar sesión",
+        "signUp": "Registrarse",
+        "signout": "Salir",
+        "account": "Mi cuenta",
+        "favorites": "Favoritos",
+        "orders": "Órdenes"
+      }
     },
     "mobileNav": {
       "home": "Inicio",

@@ -3,6 +3,14 @@ import { getTranslations } from "next-intl/server";
 import CheckoutForm from "./_lib/checkout-form";
 import ElementsProvider from "./_lib/elements-provider";
 import OrderContent from "./_lib/order-content";
+import { Metadata } from "next";
+
+export async function generateMetadata(): Promise<Metadata> {
+  const t = await getTranslations("metadata.cart.checkout");
+  return {
+    title: t("title"),
+  };
+}
 
 async function CheckoutPage() {
   const t = await getTranslations("cart.checkout");

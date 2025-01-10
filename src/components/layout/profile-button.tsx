@@ -18,8 +18,10 @@ import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
 import MenuLink from "./favorites-button";
 import LogoutButton from "./logout-button";
 import ThemeToggle from "./theme-toggle";
+import { useTranslations } from "next-intl";
 
 function ProfileMenu() {
+  const t = useTranslations("siteHeader.desktopNav.profileMenu");
   const isAuthenticated = useIsAuthenticated();
   const user = useUserData();
 
@@ -27,10 +29,10 @@ function ProfileMenu() {
     return (
       <div className="flex gap-2 text-sm decoration-primary">
         <Link href="/auth" className="hover:underline">
-          Login
+          {t("login")}
         </Link>
         <Link href="/auth?m=signup" className="hover:underline">
-          Registrarse
+          {t("signUp")}
         </Link>
       </div>
     );
@@ -66,18 +68,18 @@ function ProfileMenu() {
         <DropdownMenuSeparator />
         <DropdownMenuItem>
           <MenuLink href="/account">
-            <User className="h-4 w-4" /> Mi cuenta
+            <User className="h-4 w-4" /> {t("account")}
           </MenuLink>
         </DropdownMenuItem>
         <DropdownMenuItem>
-          <MenuLink href="/favorites">
+          <MenuLink href="/account/favorites">
             <Heart className="h-4 w-4" />
-            Favoritos
+            {t("favorites")}
           </MenuLink>
         </DropdownMenuItem>
         <DropdownMenuItem>
           <MenuLink href="/orders">
-            <Package2 className="h-4 w-4" /> Pedidos
+            <Package2 className="h-4 w-4" /> {t("orders")}
           </MenuLink>
         </DropdownMenuItem>
         <DropdownMenuItem>
@@ -85,7 +87,7 @@ function ProfileMenu() {
         </DropdownMenuItem>
         <DropdownMenuSeparator />
         <DropdownMenuItem>
-          <LogoutButton>Cerrar Sesión</LogoutButton>
+          <LogoutButton>{t("signout")}</LogoutButton>
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>

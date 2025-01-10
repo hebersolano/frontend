@@ -3,6 +3,14 @@ import ContactInfo from "./_lib/contact-info";
 import ContactForm from "./_lib/contact-form";
 import SectionHeader from "@/components/section-header";
 import { getTranslations } from "next-intl/server";
+import { Metadata } from "next";
+
+export async function generateMetadata(): Promise<Metadata> {
+  const t = await getTranslations("metadata.contact");
+  return {
+    title: t("title"),
+  };
+}
 
 async function ContactPage() {
   const t = await getTranslations("contact");

@@ -4,6 +4,14 @@ import { Suspense } from "react";
 import { Separator } from "@/components/ui/separator";
 import { ProductFilter } from "./_lib/product-filter";
 import { getTranslations } from "next-intl/server";
+import { Metadata } from "next";
+
+export async function generateMetadata(): Promise<Metadata> {
+  const t = await getTranslations("metadata.shop");
+  return {
+    title: t("title"),
+  };
+}
 
 async function ShopPage() {
   const t = await getTranslations("shop");

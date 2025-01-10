@@ -1,5 +1,456 @@
 {
-  "HomePage": {
-    "title": "Hello world!"
+  "metadata": {
+    "layout": {
+      "description": "Coffee supplier from Honduras to the world.",
+      "keywords": [
+        "Torrecafhe",
+        "Cafe San Luis",
+        "Honduran coffee",
+        "Roasted coffee",
+        "ground coffee"
+      ]
+    },
+    "aboutUs": {
+      "title": "About us"
+    },
+    "account": {
+      "title": "Account"
+    },
+    "cart": {
+      "title": "Cart",
+      "checkout": {
+        "title": "Pay"
+      }
+    },
+    "contact": {
+      "title": "Contact"
+    },
+    "shop": {
+      "title": "Store"
+    }
+  },
+  "localeSwitcher": {
+    "locale": "{locale, select, es {Spanish} en {English} other {Unknown}}",
+    "es": {
+      "label": "Spanish"
+    },
+    "en": {
+      "label": "English"
+    }
+  },
+  "errorPage": {
+    "title": "Sorry, something went wrong.",
+    "btn": "Retry"
+  },
+  "notFound": {
+    "title": "Page not found",
+    "description": "Sorry, the page you are looking for does not exist.",
+    "btn": "Back to top"
+  },
+  "auth": {
+    "formContainer": {
+      "login": {
+        "link": "Register",
+        "heading": "welcome back",
+        "subheading": "Enter your details to continue"
+      },
+      "signUp": {
+        "link": "Get into",
+        "heading": "Create your account",
+        "subheading": "Enter the information to create your account"
+      }
+    },
+    "authenticationForm": {
+      "username": "User",
+      "email": "Email",
+      "password": "Password",
+      "validatePassword": "Confirm your Password",
+      "btn": {
+        "login": "Login",
+        "signup": "Register"
+      },
+      "toasts": {
+        "alreadyAuthenticated": "You are already authenticated",
+        "welcome": "Welcome, ",
+        "submitError": "Sorry, an error occurred. "
+      }
+    },
+    "Oauth": {
+      "description": "Or continue with",
+      "btn": "Google"
+    }
+  },
+  "siteHeader": {
+    "desktopNav": {
+      "home": "Start",
+      "shopMenu": {
+        "label": "Store",
+        "callToAction": {
+          "label": "Buy here",
+          "description": "Find our entire catalog of products for coffee lovers like us."
+        },
+        "groundRoastedCoffee": {
+          "label": "Roasted coffee beans",
+          "description": "A select variety of coffees for all tastes"
+        },
+        "roastedCoffeeBeans": {
+          "label": "Roasted coffee beans",
+          "description": "Roasted coffee beans for enthusiasts"
+        },
+        "greenCoffeeBeans": {
+          "label": "Green coffee beans",
+          "description": "Best quality coffee for export"
+        },
+        "microlotCoffee": {
+          "label": "Microlots of coffee",
+          "description": "You are looking for unique lots, we are coffee suppliers for stores"
+        },
+        "offers": {
+          "label": "Offers",
+          "description": "Special offers and discounts"
+        },
+        "accessories": {
+          "label": "Equipment and accessories",
+          "description": "The best in coffee preparation equipment"
+        }
+      },
+      "aboutUs": "About us",
+      "contact": "Contact",
+      "profileMenu": {
+        "login": "Login",
+        "signUp": "Register",
+        "signout": "Go out",
+        "account": "my account",
+        "favorites": "Favorites",
+        "orders": "Orders"
+      }
+    },
+    "mobileNav": {
+      "home": "Start",
+      "shop": {
+        "label": "Store",
+        "groundRoastedCoffee": "Roasted coffee beans",
+        "roastedCoffeeBeans": "Roasted coffee beans",
+        "greenCoffeeBeans": "Green coffee beans",
+        "microlotCoffee": "Microlots of coffee",
+        "offers": "Offers",
+        "accessories": "Equipment and accessories"
+      },
+      "aboutUs": "About us",
+      "contact": "Contact"
+    }
+  },
+  "siteFooter": {
+    "section01": {
+      "businessDescription": "We are a family business dedicated to artisanal coffee roasting and the export of microlots of high-altitude green coffee."
+    },
+    "section02": {
+      "title": "Contact"
+    },
+    "section03": {
+      "title": "Schedule",
+      "businessHours": [
+        "Monday to Friday — 8AM – 5PM",
+        "Saturday — 8AM – 4PM",
+        "Sunday — Closed"
+      ],
+      "payments": {
+        "title": "Secure payments"
+      }
+    },
+    "section04": {
+      "title": "Links",
+      "links": [
+        "About us",
+        "Collaborators",
+        "News",
+        "Offers"
+      ]
+    },
+    "bottom": {
+      "lang": "Language",
+      "currency": "Currency"
+    }
+  },
+  "home": {
+    "hero": {
+      "welcome": [
+        "Welcome",
+        "to this community ",
+        "dedicated to coffee"
+      ]
+    },
+    "callToAction": {
+      "subtitle": "A commitment to quality",
+      "title": "Enjoy a variety of coffee!",
+      "description": "Café San Luis is a line of coffees from the beautiful region of San Luis, Comayagua, Honduras and that seeks to satisfy the most varied and demanding tastes. ",
+      "button": "Store"
+    },
+    "featuredProducts": {
+      "secTitle": "Featured Products",
+      "secDescription": "What people buy the most",
+      "productItem": {
+        "btns": {
+          "details": "Details",
+          "addToCart": "Add to cart"
+        }
+      },
+      "productCategories": {
+        "title": "Categories"
+      }
+    },
+    "servicesAndProducts": {
+      "secTitle": "Products and Services",
+      "secDescription": "What we offer",
+      "ServiceProductItem": {
+        "btn": "Learn more"
+      },
+      "items": {
+        "artisanCoffeeRoasting": {
+          "title": "Artisan Coffee Roasting",
+          "description": "The roasting method is as important as the coffee itself; artisanal roasting exposes the characteristics of the coffee in a unique and unmatched way."
+        },
+        "microlotCoffee": {
+          "title": "Microlots of coffee",
+          "description": "Together with our network of producers throughout Honduras, we offer you a wide variety of coffee with the best characteristics of the region."
+        },
+        "packaging": {
+          "title": "Packaging",
+          "description": "We offer you a wide variety of packaging for your products. "
+        }
+      },
+      "caracteristics": {
+        "organic": {
+          "title": "Organic",
+          "description": "Without preservative additives"
+        },
+        "specialPrices": {
+          "title": "Special prices",
+          "description": "For wholesalers"
+        },
+        "ecological": {
+          "title": "Ecological",
+          "description": "Responsibly"
+        }
+      }
+    },
+    "knowAboutUs": {
+      "title": "Learn more about us",
+      "author": "Brayan Herrera",
+      "message": "I welcome you to this community of producers and on behalf of all of us I thank you for considering this project or any of our products and services."
+    },
+    "inHonduras": {
+      "title": "It's in Honduras",
+      "description": "Are you looking for a coffee with a specific profile? ",
+      "btn": "Contact us"
+    }
+  },
+  "aboutUs": {
+    "pageTitle": "About us",
+    "businessBiography": {
+      "paragraph1": "We are a family business that began operations in the summer of 2015 in the remote area of ​​the town of San Luis, Comayagua, Honduras. ",
+      "paragraph2": "In 2010, we began the project as coffee producers in the San Luis area of ​​the department of Comayagua, Honduras; "
+    },
+    "businessValues": {
+      "values": [
+        {
+          "title": "Integrity",
+          "description": "We always do the right thing. "
+        },
+        {
+          "title": "Commitment",
+          "description": "We listen to our customers and are constantly learning and continually improving."
+        },
+        {
+          "title": "Excellence",
+          "description": "We listen to our customers and are constantly learning and continually improving."
+        }
+      ],
+      "mission": {
+        "title": "Mission",
+        "paragraph": "We provide a product under quality standards and a personalized service; "
+      },
+      "vision": {
+        "title": "Vision",
+        "paragraph": "Achieve great success across the entire business spectrum; "
+      }
+    },
+    "staff": {
+      "title": "Our team",
+      "members": [
+        {
+          "name": "Brayan Herrera",
+          "role": "General manager"
+        },
+        {
+          "name": "Heber Solano",
+          "role": "Administrator"
+        },
+        {
+          "name": "Tony Herrera",
+          "role": "Master Roaster"
+        }
+      ]
+    }
+  },
+  "cart": {
+    "pageTitle": "shopping cart",
+    "emptyCart": {
+      "title": "empty cart",
+      "description": "Your shopping cart is empty. ",
+      "btn": "Go to the store"
+    },
+    "productTable": {
+      "tableHeader": [
+        null,
+        null,
+        "Product",
+        "Amount",
+        "Price",
+        "Total"
+      ],
+      "tableTotals": {
+        "header": "Totals",
+        "subtotal": "Subtotal: ",
+        "shipping": "Shipment",
+        "btn": "Total"
+      }
+    },
+    "checkout": {
+      "pageTitle": "Complete purchase",
+      "orderContent": {
+        "tableHeader": [
+          "Total",
+          "Subtotal"
+        ],
+        "tableFooter": [
+          "Total"
+        ]
+      }
+    }
+  },
+  "contact": {
+    "pageTitle": "Contact us",
+    "contactInfo": {
+      "title": "Contact information",
+      "location": "Location",
+      "socialMedia": "Social networks"
+    },
+    "contactForm": {
+      "header": {
+        "title": "Contact us",
+        "description": "Share your doubts and questions with us"
+      },
+      "name": "Name",
+      "email": "Email",
+      "phone": "Phone",
+      "issue": "Affair",
+      "message": "Message",
+      "submit": "Send"
+    }
+  },
+  "favorites": {
+    "pageTitle": "Favorites",
+    "favoriteItem": {
+      "btns": {
+        "addToCart": "Add to cart"
+      }
+    }
+  },
+  "account": {
+    "pageTitle": "my account",
+    "pageDescription": "Manage your personal information and review your orders.",
+    "accountNav": {
+      "dashboard": "Desk",
+      "profile": "Account details",
+      "orders": "my orders",
+      "favorites": "Favorites"
+    },
+    "profile": {
+      "title": "Profile",
+      "description": "Manage your personal information",
+      "btns": {
+        "edit": "Edit"
+      }
+    },
+    "theme": {
+      "title": "Issue",
+      "description": "Customize the appearance of the page",
+      "btns": {
+        "light": "Clear",
+        "dark": "Dark"
+      }
+    },
+    "editAccount": {
+      "title": "Account information",
+      "name": "Name",
+      "username": {
+        "field": "User name",
+        "description": "This will be how your name will be displayed in your account section and in the reviews"
+      },
+      "lastName": "Last name",
+      "email": "Email",
+      "phone": "Phone",
+      "deliveryAddress": "Mailing address",
+      "btns": {
+        "reset": "Restore",
+        "submit": "Keep"
+      },
+      "avatarForm": {
+        "title": "Update profile photo",
+        "description": "Select an image to upload as your new profile image. ",
+        "btns": {
+          "upload": "Carry",
+          "close": "Close"
+        },
+        "toasts": {
+          "imgSize": "The file size exceeds the 500Kb limit"
+        }
+      }
+    },
+    "orders": {
+      "title": "my orders",
+      "orderItem": {
+        "btns": {
+          "details": "Details"
+        }
+      }
+    },
+    "favorites": {
+      "secTitle": "Favorites",
+      "secDescription": "Products saved as favorites "
+    }
+  },
+  "shop": {
+    "pageTitle": "Store",
+    "pageDescription": "Find everything related to coffee",
+    "categoryMenu": {
+      "all": "All",
+      "groundRoastedCoffee": "Roasted coffee",
+      "roastedCoffeeBeans": "Roasted Grain"
+    },
+    "productFilter": {
+      "label": "Toasted",
+      "light": "Clear",
+      "medium": "Medium",
+      "dark": "Dark"
+    }
+  },
+  "redirect": {
+    "loadingPage": "Processing",
+    "errorMessage": {
+      "title": "There was a problem processing your payment",
+      "description": "No charges have been made. ",
+      "btn": "Return to cart"
+    },
+    "successMessage": {
+      "title": "Thank you for your purchase",
+      "description": [
+        "Shortly, our team will contact you to inform you of the shipping details.",
+        "Thank you for trusting our products",
+        "Enjoy the coffee!"
+      ],
+      "btn": "Return to the store"
+    }
   }
 }

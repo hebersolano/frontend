@@ -1,3 +1,4 @@
+import LocaleSwitcher from "@/i18n/my-switcher";
 import { DesktopNav } from "./desktop-nav";
 import { MobileNav } from "./mobile-nav";
 import ProfileMenu from "./profile-button";
@@ -14,6 +15,7 @@ function SiteHeader() {
             {/* Search */}
           </div>
           <nav className="flex items-center gap-2">
+            <LocaleSwitcher />
             <ShoppingCartButton />
             <ProfileMenu />
           </nav>

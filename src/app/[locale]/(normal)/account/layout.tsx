@@ -3,10 +3,12 @@ import type { Metadata } from "next";
 import { SidebarNav } from "./_components/sidebar-nav";
 import { getTranslations } from "next-intl/server";
 
-export const metadata: Metadata = {
-  title: "Forms",
-  description: "Advanced form example using react-hook-form and Zod.",
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const t = await getTranslations("metadata.account");
+  return {
+    title: t("title"),
+  };
+}
 
 interface AccountLayoutProps {
   children: React.ReactNode;

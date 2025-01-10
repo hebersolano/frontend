@@ -1,17 +1,14 @@
 import SiteFooter from "@/components/layout/site-footer";
 import SiteHeader from "@/components/layout/site-header";
 import { ThemeProvider } from "next-themes";
+import { RootLayoutProps } from "../_lib/types";
 
-interface AppLayoutProps {
-  children: React.ReactNode;
-}
-
-export default function AppLayout({ children }: AppLayoutProps) {
+export default async function AppLayout({ children }: RootLayoutProps) {
   return (
     <>
       <ThemeProvider attribute="class" enableSystem={false}>
         <SiteHeader />
-        <main className="min-h-noHeader">{children}</main>
+        <main className="">{children}</main>
         <SiteFooter />
       </ThemeProvider>
     </>

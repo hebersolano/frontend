@@ -1,11 +1,12 @@
 import { Icons } from "@/components/icons";
 import { Separator } from "@/components/ui/separator";
-import { siteConfig } from "@/config/siteConfig";
 import { LucidePhone, MailIcon, MapPin } from "lucide-react";
 import { Link } from "@/i18n/routing";
 import { getTranslations } from "next-intl/server";
+import { getSiteConfig } from "@/config/siteConfig";
 
 async function ContactInfo() {
+  const siteConfig = await getSiteConfig();
   const t = await getTranslations("contact.contactInfo");
   const { phones, mails, address } = siteConfig;
 

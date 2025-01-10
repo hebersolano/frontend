@@ -1,7 +1,7 @@
 import { redirect } from "next/navigation";
 
 function RedirectLocale() {
-  redirect("/es"); // Default locale
+  redirect("/en"); // Default locale
 }
 
 export default RedirectLocale;

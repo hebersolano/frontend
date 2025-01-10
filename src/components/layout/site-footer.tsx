@@ -1,11 +1,12 @@
 import Image from "next/image";
 import { Link } from "@/i18n/routing";
 import { Icons } from "../icons";
-import { siteConfig } from "@/config/siteConfig";
 import { Separator } from "../ui/separator";
 import { getTranslations } from "next-intl/server";
+import { getSiteConfig } from "@/config/siteConfig";
 
 async function SiteFooter() {
+  const siteConfig = await getSiteConfig();
   const t = await getTranslations("siteFooter");
 
   return (
@@ -138,7 +139,7 @@ async function SiteFooter() {
               <span className="mr-4 text-muted-foreground">
                 {t("bottom.lang")}
               </span>
-              <span className="font-medium">United States | English</span>
+              <span className="font-medium">ES | EN</span>
             </div>
             <div>
               <span className="mr-4 text-muted-foreground">
