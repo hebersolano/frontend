@@ -1,4 +1,4 @@
-import { setRequestLocale } from "next-intl/server";
+import { setCachedLocale } from "@/i18n/get-translations";
 import { Page } from "../_lib/types";
 import CallToAction from "./_lib/call-to-action";
 import FeaturedProducts from "./_lib/featured-products";
@@ -9,7 +9,7 @@ import ServicesAndProducts from "./_lib/services-and-products";
 
 async function Home({ params }: Page) {
   const locale = (await params).locale;
-  setRequestLocale(locale);
+  setCachedLocale(locale);
 
   return (
     <>

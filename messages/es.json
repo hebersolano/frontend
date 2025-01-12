@@ -32,10 +32,10 @@
   "localeSwitcher": {
     "locale": "{locale, select, es {Spanish} en {English} other {Unknown}}",
     "es": {
-      "label": "Español"
+      "label": "ES"
     },
     "en": {
-      "label": "English"
+      "label": "EN"
     }
   },
   "errorPage": {

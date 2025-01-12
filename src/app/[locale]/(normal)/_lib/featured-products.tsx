@@ -11,9 +11,11 @@ import SkProductItem from "../../../../components/store/sk-product-item";
 import ProductItem from "@/components/store/product-item";
 import SectionHeader from "@/components/section-header";
 import ProductCategories from "@/components/product-categories";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 
 function FeaturedProducts() {
+  const locale = useLocale();
+  console.log("featured", locale);
   const t = useTranslations("home.featuredProducts");
 
   const {

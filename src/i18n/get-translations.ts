@@ -17,17 +17,22 @@ export function setCachedLocale(locale: string) {
   getCache().locale = locale;
 }
 
+export async function getMessages(locale: string) {
+  const messageModule = await import(`../../messages/${locale}.json`);
+
+  return messageModule.default;
+}
+
 export const getTranslations = async (
   namespace: string,
   localeParam?: string,
 ) => {
   const locale = getCachedLocale() || localeParam || routing.defaultLocale;
-  console.log("get trans locale", locale);
-  const messagesModule = await import(`../../messages/${locale}.json`);
+  const messages = await getMessages(locale);
 
   const translator = createTranslator({
     locale,
-    messages: messagesModule.default,
+    messages,
     namespace,
   });
 

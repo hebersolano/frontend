@@ -1,11 +1,11 @@
 import ProductsBox from "@/components/store/products-box";
-import CategoryTabMenu from "./_lib/category-tabmenu";
-import { Suspense } from "react";
 import { Separator } from "@/components/ui/separator";
-import { ProductFilter } from "./_lib/product-filter";
-import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Metadata } from "next";
+import { Suspense } from "react";
 import { Page } from "../../_lib/types";
+import CategoryTabMenu from "./_lib/category-tabmenu";
+import { ProductFilter } from "./_lib/product-filter";
+import { getTranslations } from "@/i18n/get-translations";
 
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations("metadata.shop");
@@ -16,8 +16,7 @@ export async function generateMetadata(): Promise<Metadata> {
 
 async function ShopPage({ params }: Page) {
   const locale = (await params).locale;
-  setRequestLocale(locale);
-  const t = await getTranslations("shop");
+  const t = await getTranslations("shop", locale);
 
   return (
     <div>

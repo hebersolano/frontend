@@ -1,10 +1,10 @@
 import PageTitle from "@/components/page-title";
-import ContactInfo from "./_lib/contact-info";
-import ContactForm from "./_lib/contact-form";
 import SectionHeader from "@/components/section-header";
+import { getTranslations } from "@/i18n/get-translations";
 import { Metadata } from "next";
 import { Page } from "../../_lib/types";
-import { getTranslations, setCachedLocale } from "@/i18n/get-translations";
+import ContactForm from "./_lib/contact-form";
+import ContactInfo from "./_lib/contact-info";
 
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations("metadata.contact");
@@ -15,8 +15,7 @@ export async function generateMetadata(): Promise<Metadata> {
 
 async function ContactPage({ params }: Page) {
   const locale = (await params).locale;
-  setCachedLocale(locale);
-  const t = await getTranslations("contact");
+  const t = await getTranslations("contact", locale);
 
   return (
     <>
