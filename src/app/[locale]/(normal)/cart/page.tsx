@@ -1,6 +1,6 @@
-import { getTranslations } from "next-intl/server";
-import CartContainer from "./_lib/cart-container";
 import { Metadata } from "next";
+import { getTranslations } from "@/i18n/get-translations";
+import CartContainer from "./_lib/cart-container";
 
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations("metadata.cart");

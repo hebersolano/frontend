@@ -1,6 +1,6 @@
 import YoutubeVideo from "@/components/youtube-video";
 import { MessageSquareQuote } from "lucide-react";
-import { getTranslations } from "next-intl/server";
+import { getTranslations } from "@/i18n/get-translations";
 import Image from "next/image";
 
 async function KnowAboutUs() {

@@ -1,10 +1,12 @@
 import { Separator } from "@/components/ui/separator";
-import ThemeSelector from "./_components/theme-selector";
+import { getTranslations } from "@/i18n/get-translations";
+import { Page } from "../../_lib/types";
 import Profile from "./_components/profile";
-import { getTranslations } from "next-intl/server";
+import ThemeSelector from "./_components/theme-selector";
 
-export default async function AccountPage() {
-  const t = await getTranslations("account");
+export default async function AccountPage({ params }: Page) {
+  const locale = (await params).locale;
+  const t = await getTranslations("account", locale);
 
   return (
     <div className="flex flex-grow flex-col space-y-6">

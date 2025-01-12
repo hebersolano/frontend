@@ -19,15 +19,11 @@ function LocaleSwitcher() {
   const pathname = usePathname();
 
   const onChange = function (value: string) {
-    console.log(pathname, value);
-    console.log(value);
-    router.replace("/", { locale: value });
+    router.replace(pathname, { locale: value });
   };
 
-  console.log(locale);
-
   return (
-    <Select onValueChange={onChange}>
+    <Select onValueChange={onChange} defaultValue={locale}>
       <SelectTrigger className="gap-1 border-none shadow-none">
         <SelectValue placeholder="ES" className="" />
       </SelectTrigger>

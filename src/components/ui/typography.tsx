@@ -1,5 +1,7 @@
+import { ReactNode } from "react";
+
 type typography = {
-  children: string;
+  children: ReactNode;
 };
 
 export function HeadingH1({ children }: typography) {

@@ -1,7 +1,7 @@
 import SectionHeader from "@/components/section-header";
 import { Separator } from "@/components/ui/separator";
 import { BookHeart, Handshake, Star } from "lucide-react";
-import { getTranslations } from "next-intl/server";
+import { getTranslations } from "@/i18n/get-translations";
 
 async function BusinessValues() {
   const t = await getTranslations("aboutUs.businessValues");

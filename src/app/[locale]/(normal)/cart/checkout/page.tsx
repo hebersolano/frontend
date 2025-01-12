@@ -1,5 +1,5 @@
 import { HeadingH2 } from "@/components/ui/typography";
-import { getTranslations } from "next-intl/server";
+import { getTranslations } from "@/i18n/get-translations";
 import CheckoutForm from "./_lib/checkout-form";
 import ElementsProvider from "./_lib/elements-provider";
 import OrderContent from "./_lib/order-content";

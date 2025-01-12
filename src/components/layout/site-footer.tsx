@@ -2,7 +2,7 @@ import Image from "next/image";
 import { Link } from "@/i18n/routing";
 import { Icons } from "../icons";
 import { Separator } from "../ui/separator";
-import { getTranslations } from "next-intl/server";
+import { getTranslations } from "@/i18n/get-translations";
 import { getSiteConfig } from "@/config/siteConfig";
 
 async function SiteFooter() {

@@ -1,4 +1,4 @@
-import { getTranslations } from "next-intl/server";
+import { getTranslations } from "@/i18n/get-translations";
 import Image from "next/image";
 
 async function BusinessBiography() {

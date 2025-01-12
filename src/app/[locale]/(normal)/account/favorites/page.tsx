@@ -1,8 +1,10 @@
+import { Page } from "@/app/[locale]/_lib/types";
 import Favorites from "../_components/favorites";
-import { getTranslations } from "next-intl/server";
+import { getTranslations } from "@/i18n/get-translations";
 
-export default async function FavoritesPage() {
-  const t = await getTranslations("account.favorites");
+export default async function FavoritesPage({ params }: Page) {
+  const locale = (await params).locale;
+  const t = await getTranslations("account.favorites", locale);
 
   return (
     <div className="space-y-6">

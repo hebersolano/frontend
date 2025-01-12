@@ -2,8 +2,9 @@ import PageTitle from "@/components/page-title";
 import ContactInfo from "./_lib/contact-info";
 import ContactForm from "./_lib/contact-form";
 import SectionHeader from "@/components/section-header";
-import { getTranslations } from "next-intl/server";
 import { Metadata } from "next";
+import { Page } from "../../_lib/types";
+import { getTranslations, setCachedLocale } from "@/i18n/get-translations";
 
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations("metadata.contact");
@@ -12,7 +13,9 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
-async function ContactPage() {
+async function ContactPage({ params }: Page) {
+  const locale = (await params).locale;
+  setCachedLocale(locale);
   const t = await getTranslations("contact");
 
   return (

@@ -1,4 +1,5 @@
 import { setRequestLocale } from "next-intl/server";
+import { Page } from "../_lib/types";
 import CallToAction from "./_lib/call-to-action";
 import FeaturedProducts from "./_lib/featured-products";
 import Hero from "./_lib/hero";
@@ -6,13 +7,10 @@ import InHonduras from "./_lib/honduras-call-to-action";
 import KnowAboutUs from "./_lib/know-about-us";
 import ServicesAndProducts from "./_lib/services-and-products";
 
-export default async function Home({
-  params: { locale },
-}: {
-  params: { locale: string };
-}) {
-  console.log("HOME LOCALE", locale);
+async function Home({ params }: Page) {
+  const locale = (await params).locale;
   setRequestLocale(locale);
+
   return (
     <>
       <Hero />
@@ -24,3 +22,5 @@ export default async function Home({
     </>
   );
 }
+
+export default Home;

@@ -2,7 +2,7 @@ import { Icons } from "@/components/icons";
 import { Separator } from "@/components/ui/separator";
 import { LucidePhone, MailIcon, MapPin } from "lucide-react";
 import { Link } from "@/i18n/routing";
-import { getTranslations } from "next-intl/server";
+import { getTranslations } from "@/i18n/get-translations";
 import { getSiteConfig } from "@/config/siteConfig";
 
 async function ContactInfo() {

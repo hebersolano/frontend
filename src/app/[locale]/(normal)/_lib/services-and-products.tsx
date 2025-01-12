@@ -1,9 +1,10 @@
 import SectionHeader from "@/components/section-header";
 import { buttonVariants } from "@/components/ui/button";
 import { CircleDollarSign, Leaf, Recycle } from "lucide-react";
-import { getTranslations } from "next-intl/server";
-import Image from "next/image";
+// import { getTranslations } from "@/i18n/get-translations";
+import { getTranslations } from "@/i18n/get-translations";
 import { Link } from "@/i18n/routing";
+import Image from "next/image";
 
 type Article = {
   title: string;

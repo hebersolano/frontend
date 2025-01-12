@@ -263,7 +263,7 @@
         },
         {
           "title": "Excelencia",
-          "description": "Escuchamos a nuestros clientes y estamos constantemente aprendiendo y mejorando continuamente."
+          "description": "Desde nuestros inicios nos comprometimos con dar siempre lo mejor, nuestros clientes lo saben y valoran."
         }
       ],
       "mission": {
@@ -418,7 +418,12 @@
     },
     "favorites": {
       "secTitle": "Favoritos",
-      "secDescription": "Productos guardados como favoritos "
+      "secDescription": "Productos guardados como favoritos",
+      "emptyAlert": {
+        "title": "Aún no tienes productos favoritos",
+        "description": "Puedes marcar productos como favoritos desde nuestra tienda",
+        "btn": "Ir a la tienda"
+      }
     }
   },
   "shop": {

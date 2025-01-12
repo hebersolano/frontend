@@ -4,11 +4,11 @@ import localFont from "next/font/local";
 import { Toaster } from "@/components/ui/toaster";
 import "./globals.css";
 
+import { setCachedLocale } from "@/i18n/get-translations";
 import { routing } from "@/i18n/routing";
 import { NextIntlClientProvider } from "next-intl";
-import { setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
-import { RootLayoutProps } from "./_lib/types";
+import { Layout } from "./_lib/types";
 
 // locale static params
 export { generateStaticParams } from "@/i18n/i18n-generate-static-params";
@@ -27,14 +27,15 @@ const geistSans = localFont({
   weight: "100 900",
 });
 
-async function RootLayout({ params, children }: RootLayoutProps) {
-  const { locale } = await params;
+async function RootLayout({ params, children }: Layout) {
+  const locale = (await params).locale;
+  console.log(">>>Root layout locale", locale);
 
   if (!routing.locales.includes(locale)) {
     notFound();
   }
 
-  setRequestLocale(locale);
+  setCachedLocale(locale);
   const messages = (await import(`../../../messages/${locale}.json`)).default;
 
   return (

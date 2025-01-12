@@ -1,4 +1,4 @@
-import { getTranslations } from "next-intl/server";
+import { getTranslations } from "@/i18n/get-translations";
 
 export async function getSiteConfig() {
   const t = await getTranslations("metadata.layout");

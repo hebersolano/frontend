@@ -3,3 +3,12 @@ export type RootLayoutProps = Readonly<{
   params: Promise<{ locale: LOCALES }>;
   children: React.ReactNode;
 }>;
+
+export type Layout = Readonly<{
+  params: Promise<{ locale: LOCALES }>;
+  children?: React.ReactNode;
+}>;
+
+export type Page = Readonly<{
+  params: Promise<{ locale: LOCALES }>;
+}>;

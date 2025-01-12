@@ -1,6 +1,6 @@
 import SectionHeader from "@/components/section-header";
 import { Facebook, Linkedin, Phone } from "lucide-react";
-import { getTranslations } from "next-intl/server";
+import { getTranslations } from "@/i18n/get-translations";
 import Image from "next/image";
 import { Link } from "@/i18n/routing";
 

@@ -1,23 +1,27 @@
 "use client";
+
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { buttonVariants } from "@/components/ui/button";
 import useFavoriteStore from "@/hooks/use-favorite-products-store";
 import { Link } from "@/i18n/routing";
 import { Bookmark } from "lucide-react";
 import FavoriteItem from "./favorite-item";
+import { useTranslations } from "next-intl";
 
 function EmptyAlert() {
+  const t = useTranslations("account.favorites.emptyAlert");
+
   return (
     <div className="space-y-4">
       <Alert className="border-primary">
         <Bookmark className="h-4 w-4" />
-        <AlertTitle>Aún no tienes productos favoritos</AlertTitle>
+        <AlertTitle>{t("title")}</AlertTitle>
         <AlertDescription className="text-muted-foreground">
-          Puedes marcar productos como favoritos desde nuestra tienda
+          {t("description")}
         </AlertDescription>
       </Alert>
       <Link href="/shop" className={buttonVariants()}>
-        Ir a la tienda
+        {t("btn")}
       </Link>
     </div>
   );

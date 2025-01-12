@@ -3,8 +3,9 @@ import CategoryTabMenu from "./_lib/category-tabmenu";
 import { Suspense } from "react";
 import { Separator } from "@/components/ui/separator";
 import { ProductFilter } from "./_lib/product-filter";
-import { getTranslations } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Metadata } from "next";
+import { Page } from "../../_lib/types";
 
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations("metadata.shop");
@@ -13,8 +14,11 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
-async function ShopPage() {
+async function ShopPage({ params }: Page) {
+  const locale = (await params).locale;
+  setRequestLocale(locale);
   const t = await getTranslations("shop");
+
   return (
     <div>
       <div className="mx-auto mb-24 max-w-screen-xl px-4 pt-16">

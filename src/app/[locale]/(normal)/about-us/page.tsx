@@ -2,8 +2,9 @@ import PageTitle from "@/components/page-title";
 import BusinessBiography from "./_lib/business-biography";
 import BusinessValues from "./_lib/business-values";
 import Staff from "./_lib/staff";
-import { getTranslations } from "next-intl/server";
+import { getTranslations, setCachedLocale } from "@/i18n/get-translations";
 import type { Metadata } from "next";
+import { Page } from "../../_lib/types";
 
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations("metadata.aboutUs");
@@ -12,7 +13,9 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
-async function AboutUsPage() {
+async function AboutUsPage({ params }: Page) {
+  const locale = (await params).locale;
+  setCachedLocale(locale);
   const t = await getTranslations("aboutUs");
 
   return (
