@@ -23,7 +23,7 @@ function YoutubeVideo() {
       </ControlledModal>
       <div
         onClick={() => setShow(true)}
-        className="flex w-full items-center justify-center overflow-hidden rounded-xl bg-slate-300 bg-[url(/cover-torrecafhe.webp)] bg-cover bg-center bg-no-repeat brightness-90"
+        className="flex w-full items-center justify-center overflow-hidden rounded-xl bg-slate-300 bg-[url(/img/cover-torrecafhe.webp)] bg-cover bg-center bg-no-repeat brightness-90"
         style={{ aspectRatio: "16/9" }}
       >
         <CirclePlay className="play text-white" width={120} height={120} />

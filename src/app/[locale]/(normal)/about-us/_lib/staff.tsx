@@ -16,7 +16,7 @@ async function Staff() {
         <div className="w-fit text-center">
           <div className="mb-3">
             <Image
-              src="/brayan-profile.webp"
+              src="/img/brayan-profile.webp"
               alt="brayan herrera profile"
               width={250}
               height={250}
@@ -62,7 +62,7 @@ async function Staff() {
         <div className="w-fit text-center">
           <div className="mb-3">
             <Image
-              src="/heber-profile.webp"
+              src="/img/heber-profile.webp"
               alt="heber solano profile"
               width={250}
               height={250}
@@ -90,7 +90,7 @@ async function Staff() {
         <div className="w-fit text-center">
           <div className="mb-3">
             <Image
-              src="/tony-profile.webp"
+              src="/img/tony-profile.webp"
               alt="tony herrera profile"
               width={250}
               height={250}

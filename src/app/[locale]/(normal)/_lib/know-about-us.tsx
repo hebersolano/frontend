@@ -13,7 +13,7 @@ async function KnowAboutUs() {
           <div className="space-y-4 text-center">
             <div className="relative mx-auto w-fit">
               <Image
-                src="/herrera.webp"
+                src="/img/herrera.webp"
                 alt="herrera profile photo"
                 width={150}
                 height={150}

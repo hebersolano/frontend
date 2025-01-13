@@ -12,7 +12,7 @@ async function InHonduras() {
         <div className="relative flex justify-center rounded-lg border bg-background lg:flex-row lg:justify-start lg:gap-16 lg:p-12">
           <div className="absolute top-0 w-full -translate-y-1/2 lg:w-64">
             <Image
-              src="/logo-csl-circle.webp"
+              src="/img/logo-csl-circle.webp"
               alt="logo cafe san luis"
               height={400}
               width={400}

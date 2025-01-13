@@ -29,7 +29,7 @@ export default async function ServicesAndProducts() {
       description: t("items.artisanCoffeeRoasting.description"),
       btn: "/artisan-coffee",
       img: {
-        url: "/service-01.png",
+        url: "/img/service-01.png",
         altText: t("items.artisanCoffeeRoasting.title"),
         width: 498,
         height: 650,
@@ -40,7 +40,7 @@ export default async function ServicesAndProducts() {
       description: t("items.microlotCoffee.description"),
       btn: "/microlot-coffee",
       img: {
-        url: "/service-02.png",
+        url: "/img/service-02.png",
         altText: t("items.microlotCoffee.title"),
         width: 498,
         height: 650,
@@ -51,7 +51,7 @@ export default async function ServicesAndProducts() {
       description: t("items.packaging.description"),
       btn: null,
       img: {
-        url: "/service-03.png",
+        url: "/img/service-03.png",
         altText: t("items.packaging.title"),
         width: 498,
         height: 650,

@@ -9,7 +9,7 @@ async function BusinessBiography() {
       <div className="flex flex-col gap-6 px-2 lg:flex-row lg:gap-12">
         <div className="basis-1/2">
           <Image
-            src="/herrera-family.webp"
+            src="/img/herrera-family.webp"
             alt="herrera family"
             width={1365}
             height={1024}
