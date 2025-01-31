@@ -7,9 +7,8 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 export { generateStaticParams } from "./_lib/helpers";
 
 async function ProductPage(props: { params: Promise<Record<string, string>> }) {
-  const params = await props.params;
-  const { slug } = params;
-  const product = await getProductBySlug(slug);
+  const { slug, locale } = await props.params;
+  const product = await getProductBySlug(slug, locale);
 
   return (
     <div className="mx-auto flex h-screen max-w-screen-xl items-center">

@@ -19,6 +19,11 @@ function LocaleSwitcher() {
   const pathname = usePathname();
 
   const onChange = function (value: string) {
+    if (pathname.startsWith("/shop/")) {
+      // There's a bug when changing the locale on a statically generated page because it only changes the locale and not the slug parameter. A possible solution is for products to use the same slug, independent of their locale. For now this is a solution
+      router.replace("/shop");
+      return;
+    }
     router.replace(pathname, { locale: value });
   };
 

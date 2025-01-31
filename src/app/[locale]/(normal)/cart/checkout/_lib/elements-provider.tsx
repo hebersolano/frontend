@@ -1,11 +1,13 @@
 "use client";
 
 import useCartStore from "@/hooks/use-cart-store";
+import { Locales } from "@/i18n/routing";
 import { getCookie } from "@/lib/cookie";
 import { getPaymentIntent } from "@/lib/stripe";
 import { getTotalPrice } from "@/lib/utils";
 import { Elements } from "@stripe/react-stripe-js";
 import { Appearance, loadStripe } from "@stripe/stripe-js";
+import { useLocale } from "next-intl";
 import { useTheme } from "next-themes";
 import { useEffect, useState, type JSX } from "react";
 
@@ -24,6 +26,7 @@ function ElementsProvider({
 }) {
   const { theme } = useTheme();
   const { items } = useCartStore();
+  const locale = useLocale() as Locales;
 
   const [clientSecret, setClientSecret] = useState<string | null>();
 
@@ -59,7 +62,7 @@ function ElementsProvider({
 
   return (
     <Elements
-      options={{ clientSecret, appearance, loader }}
+      options={{ clientSecret, appearance, loader, locale }}
       stripe={stripePromise}
     >
       {children}

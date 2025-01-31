@@ -6,6 +6,8 @@
 
 - [x] Change serif font
 - [x] Empty cart message
+- [ ] Locale (en|es)
+  - [x] ES and ES translation
 - [x] Error handling
   - [x] User error interface (toast notifications)
   - [x] Error [NextJS](https://nextjs.org/docs/app/api-reference/file-conventions/error) handling

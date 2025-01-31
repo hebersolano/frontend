@@ -82,7 +82,7 @@
   },
   "siteHeader": {
     "desktopNav": {
-      "home": "Start",
+      "home": "Home",
       "shopMenu": {
         "label": "Store",
         "callToAction": {
@@ -120,7 +120,7 @@
         "login": "Login",
         "signUp": "Register",
         "signout": "Go out",
-        "account": "my account",
+        "account": "Account",
         "favorites": "Favorites",
         "orders": "Orders"
       }
@@ -246,12 +246,13 @@
     }
   },
   "aboutUs": {
-    "pageTitle": "About us",
+    "pageTitle": "About Us",
     "businessBiography": {
       "paragraph1": "We are a family business that began operations in the summer of 2015 in the remote area of the town of San Luis, Comayagua, Honduras. Café San Luis is a dream realized with hard work and represents the best that our land has to offer to the world. We have always had a clear commitment with each stage of the artisanal process of elaboration of our coffee, of which we are currently proud. Today we have a varied line of coffee for all tastes and demands, for people that distinguish and appreciate good coffee. If you are one of those people, Café San Luis is for you.",
       "paragraph2": "In 2010, we started the project as coffee producers in the area of San Luis in the department of Comayagua, Honduras; growing conventional high altitude coffee at 1,425 meters above sea level; handling the following varieties of coffee, in hybrid: coffee 90, lempira, and h27. Also coffee of the arabica line in smaller dimensions such as: catuahí, bourbon and caturra. Always seeking the best treatment and care to our coffee in each process."
     },
     "businessValues": {
+      "valuesTitle": "Our Values",
       "values": [
         {
           "title": "Integrity",
@@ -276,7 +277,7 @@
       }
     },
     "staff": {
-      "title": "Our team",
+      "title": "Our Team",
       "members": [
         {
           "name": "Brayan Herrera",
@@ -294,9 +295,9 @@
     }
   },
   "cart": {
-    "pageTitle": "shopping cart",
+    "pageTitle": "Shopping Cart",
     "emptyCart": {
-      "title": "empty cart",
+      "title": "Empty Cart",
       "description": "Your shopping cart is empty. ",
       "btn": "Go to the store"
     },
@@ -317,7 +318,7 @@
       }
     },
     "checkout": {
-      "pageTitle": "Complete purchase",
+      "pageTitle": "Complete Purchase",
       "orderContent": {
         "tableHeader": [
           "Total",
@@ -383,9 +384,9 @@
     },
     "editAccount": {
       "title": "Account information",
-      "name": "Name",
+      "name": "First name",
       "username": {
-        "field": "User name",
+        "field": "Username",
         "description": "This will be how your name will be displayed in your account section and in the reviews"
       },
       "lastName": "Last name",

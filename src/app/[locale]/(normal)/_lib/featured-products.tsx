@@ -15,14 +15,13 @@ import { useLocale, useTranslations } from "next-intl";
 
 function FeaturedProducts() {
   const locale = useLocale();
-  console.log("featured", locale);
   const t = useTranslations("home.featuredProducts");
 
   const {
     data: products = Array.from({ length: 3 }),
     error,
     isLoading,
-  } = useSWR("featured-products", getFeaturedProducts);
+  } = useSWR("featured-products", () => getFeaturedProducts(locale));
 
   return (
     <section className="mx-auto max-w-screen-xl px-4">

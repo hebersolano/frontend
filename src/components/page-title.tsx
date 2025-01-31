@@ -13,7 +13,7 @@ function PageTitle({ title }: { title: string }) {
             alt="header leaf"
             width={209}
             height={90}
-            className="absolute -top-4 right-1/2 w-32 translate-x-1/2 md:w-40"
+            className="pointer-events-none absolute -top-4 right-1/2 w-32 translate-x-1/2 md:w-40"
           />
         </div>
       </div>

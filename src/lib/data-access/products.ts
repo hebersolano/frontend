@@ -4,13 +4,14 @@ import { isAxiosError } from "axios";
 import { api } from "../axios";
 import { handleAxiosError } from "../error-utils";
 
-export async function getFeaturedProducts() {
+export async function getFeaturedProducts(locale: string) {
   try {
     const res = await api.get<Req<Product[]>>("/products", {
       params: {
         "filters[isFeatured][$eq]": "true",
         "pagination[pageSize]": "3",
         populate: "*",
+        locale,
       },
     });
 
@@ -21,10 +22,14 @@ export async function getFeaturedProducts() {
   }
 }
 
-export async function getProductByCategory(slug: string = "all") {
+export async function getProductByCategory(
+  slug: string = "all",
+  locale: string = "en",
+) {
   try {
     const params = {
       populate: "images",
+      locale,
     };
     if (slug !== "all")
       Object.assign(params, { "filters[category][slug][$eq]": slug });

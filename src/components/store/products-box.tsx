@@ -7,16 +7,17 @@ import ProductItem from "./product-item";
 import SkProductItem from "./sk-product-item";
 import { Product } from "@/types/product";
 import { filterProducts } from "@/app/[locale]/(normal)/shop/_lib/helpers";
+import { useLocale } from "next-intl";
 
 function ProductsBox({ slug }: { slug?: string }) {
+  const locale = useLocale();
   const params = Object.fromEntries(useSearchParams());
   const {
     data: products = Array.from({ length: 6 }),
     error,
     isLoading,
-  } = useSWR(
-    "products-" + params.cat,
-    getProductByCategory.bind(null, params.cat || slug),
+  } = useSWR("products-" + params.cat, () =>
+    getProductByCategory(params.cat || slug, locale),
   );
 
   if (isLoading || error)

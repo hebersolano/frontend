@@ -5,8 +5,11 @@
 <h4 className="scroll-m-20 text-xl font-semibold tracking-tight font-serif"></h4>
 ```
 
-standardization
-normalization
+| Test pago                        | Code                |
+| -------------------------------- | ------------------- |
+| El pago se realiza correctamente | 4242 4242 4242 4242 |
+| El pago requiere autenticación   | 4000 0025 0000 3155 |
+| Se rechaza el pago               | 4000 0000 0000 9995 |
 
 cors
 https://stackoverflow.com/questions/45975135/access-control-origin-header-error-using-axios

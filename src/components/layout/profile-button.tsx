@@ -27,7 +27,7 @@ function ProfileMenu() {
 
   if (!isAuthenticated)
     return (
-      <div className="flex gap-2 text-sm decoration-primary">
+      <div className="flex shrink-0 gap-2 text-sm decoration-primary">
         <Link href="/auth" className="hover:underline">
           {t("login")}
         </Link>

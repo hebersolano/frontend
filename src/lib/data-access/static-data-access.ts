@@ -4,21 +4,23 @@ import { Product } from "@/types/product";
 
 // fetchers to generate static pages
 
-export async function getProductBySlug(slug: string) {
+export async function getProductBySlug(slug: string, locale: string) {
   const res = await apiStatic.get<Req<Product[]>>("/products", {
     params: {
       "filters[slug][$eq]": slug,
       populate: "images",
+      locale,
     },
   });
 
   return res.data?.data?.[0];
 }
 
-export async function getProductsSlug() {
+export async function getProductsSlug(locale: string) {
   const res = await apiStatic.get<Req<Slug[]>>("/products", {
     params: {
       fields: "slug",
+      locale,
     },
   });
 

@@ -1,10 +1,18 @@
+import { routing } from "@/i18n/routing";
 import { getProductsSlug } from "@/lib/data-access/static-data-access";
-import { Slug } from "@/types/content-type";
 
 export async function generateStaticParams() {
-  const products = await getProductsSlug();
+  const params = [];
 
-  return products.map((product: Slug) => ({
-    slug: product.slug,
-  }));
+  for (const locale of routing.locales) {
+    const products = await getProductsSlug(locale);
+    for (const product of products) {
+      params.push({
+        slug: product.slug,
+        locale,
+      });
+    }
+  }
+
+  return params;
 }

@@ -9,7 +9,7 @@ async function BusinessValues() {
   return (
     <section className="bg-accent">
       <div className="mx-auto max-w-screen-xl px-4 py-24">
-        <SectionHeader title="Nuestros Valores" />
+        <SectionHeader title={t("valuesTitle")} />
         <div className="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-3">
           {/* value 01 */}
           <div className="space-y-3 rounded-lg border bg-background p-10 shadow-sm">

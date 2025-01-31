@@ -1,9 +1,10 @@
 import { HeadingH2 } from "@/components/ui/typography";
-import { getTranslations } from "@/i18n/get-translations";
+import { getTranslations, setCachedLocale } from "@/i18n/get-translations";
 import CheckoutForm from "./_lib/checkout-form";
 import ElementsProvider from "./_lib/elements-provider";
 import OrderContent from "./_lib/order-content";
 import { Metadata } from "next";
+import { Page } from "@/app/[locale]/_lib/types";
 
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations("metadata.cart.checkout");
@@ -12,7 +13,9 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
-async function CheckoutPage() {
+async function CheckoutPage({ params }: Page) {
+  const locale = (await params).locale;
+  setCachedLocale(locale);
   const t = await getTranslations("cart.checkout");
 
   return (
