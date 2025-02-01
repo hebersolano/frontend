@@ -1,3 +1,5 @@
+"use client";
+
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { ImageUp, User } from "lucide-react";
 
@@ -30,7 +32,7 @@ function AvatarForm() {
       <Dialog open={open} onOpenChange={setOpen}>
         <div className="relative">
           <DialogTrigger className="group absolute -bottom-3 right-3 z-10 rounded-full bg-gray-100 p-2 shadow">
-            <ImageUp className="w-5: z-20 h-5 w-5 group-hover:stroke-primary" />
+            <ImageUp className="w-5: z-20 h-5 w-5 stroke-black hover:stroke-primary" />
           </DialogTrigger>
           <Avatar className="h-32 w-32">
             <AvatarImage

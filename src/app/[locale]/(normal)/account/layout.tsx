@@ -2,7 +2,7 @@ import { Separator } from "@/components/ui/separator";
 import { getTranslations, setCachedLocale } from "@/i18n/get-translations";
 import type { Metadata } from "next";
 import { Layout } from "../../_lib/types";
-import { SidebarNav } from "./_components/sidebar-nav";
+import { SidebarNav } from "./_lib/sidebar-nav";
 
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations("metadata.account");

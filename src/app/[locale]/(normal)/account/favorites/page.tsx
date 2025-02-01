@@ -1,5 +1,5 @@
 import { Page } from "@/app/[locale]/_lib/types";
-import Favorites from "../_components/favorites";
+import Favorites from "../_lib/favorites";
 import { getTranslations } from "@/i18n/get-translations";
 
 export default async function FavoritesPage({ params }: Page) {

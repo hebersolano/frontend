@@ -1,8 +1,8 @@
 import { Separator } from "@/components/ui/separator";
 import { getTranslations } from "@/i18n/get-translations";
 import { Page } from "../../_lib/types";
-import Profile from "./_components/profile";
-import ThemeSelector from "./_components/theme-selector";
+import Profile from "./_lib/profile";
+import ThemeSelector from "./_lib/theme-selector";
 
 export default async function AccountPage({ params }: Page) {
   const locale = (await params).locale;

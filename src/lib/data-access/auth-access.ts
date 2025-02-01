@@ -2,7 +2,11 @@ import { AuthUserResponse, UserResponse } from "@/types/user";
 import { isAxiosError } from "axios";
 import { z } from "zod";
 import { api } from "../axios";
-import { AuthFormType, ProfileFormValues } from "../form-schemas";
+import {
+  AuthFormType,
+  ChangePasswordTypes,
+  ProfileFormValues,
+} from "../form-schemas";
 import { handleAxiosError } from "../error-utils";
 
 const RegistrationData = z.object({
@@ -57,6 +61,19 @@ export async function updateUser(data: ProfileFormValues) {
       data,
     });
 
+    return res.data;
+  } catch (error: unknown) {
+    if (isAxiosError(error)) {
+      handleAxiosError(error);
+    } else throw error;
+  }
+}
+
+export async function changePassword(data: ChangePasswordTypes) {
+  try {
+    const res = await api.post<AuthUserResponse>("/auth/change-password", data);
+
+    api.defaults.headers.common["Authorization"] = "Bearer " + res.data.jwt;
     return res.data;
   } catch (error: unknown) {
     if (isAxiosError(error)) {
